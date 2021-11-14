@@ -1,0 +1,65 @@
+// VARIABLES
+
+$sm: 767px;
+$md: 991px;
+$lg: 1024px;
+$xl: 1440px;
+$xxl: 1920px;
+
+$transition: all 0.5s;
+
+// ESRP THEME COLOR
+$white: #ffffff;
+$BlueishBlack: #111128;
+$ESRPGreen: #81cab2;
+$ESRPBlue: #5c86c1;
+$Pewter: #dbdff1;
+$Blue: #175086;
+$Purple: #655cc1;
+$Red: #ff2d2e;
+$Green: #31c192;
+$MarlinOrange: #f5b954;
+
+// LIGHT THEME COLOR
+$BoggsPurple: #9072d5;
+$BoggsPurple-click: #5F46A3;
+$Peach: #ff708b;
+$MeridaBlue: #383874;
+$DoryBlue: #023aff;
+$DoryBlue-click: #00239D;
+$BoggsPurple-Dark: #8676ff;
+$WazowskiGreen: #5eff5a;
+$MarlinOrange-Light: #ffba69;
+
+// DARK THEME
+$Birches: #01f1e3;
+$BlueishBlack-Dark: #14142b;
+$PurpleBlue: #5a5a89;
+$Black-Dark: #05050f;
+$Yellow: #ffa63f;
+$Purple-Dark: #991bfa;
+
+
+// OTHER COLORS
+$DarkMapControlBg:#191932;
+$HeaderMenuActive:#6C79AF;
+$SidebarActive:#9D1FB9;
+$btnDarkDisable:#171717;
+$BtnDisabled: #e6e8ed;
+$BtnDisabledText: #a1a8c2;
+$SeachbarBG: #eef0fa;
+$HeaderMenuLink: #8484a0;
+$Black: #000;
+$OffWhite: #e5e5e5;
+
+@mixin PurplePinkGradiant {
+  background-image: linear-gradient(90deg, #7517f8, #e323ff);
+}
+
+@mixin BluePurpleGradiant {
+  background-image: linear-gradient(90deg, #02a4ff, #7d40ff);
+}
+
+@mixin BlueNeoGradiant {
+  background-image: linear-gradient(90deg, #4da1ff, #4dffdf);
+}

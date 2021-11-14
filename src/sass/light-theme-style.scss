@@ -1,0 +1,196 @@
+@import "./variables.scss";
+
+.light-theme {
+    background-color: $white;
+
+    *::-webkit-scrollbar {
+        width: 3px;
+    }
+    *::-webkit-scrollbar-track {
+        background: $SeachbarBG;
+    }
+    *::-webkit-scrollbar-thumb {
+        background: $BoggsPurple;
+    }
+    *::-webkit-scrollbar-thumb:hover {
+        background: $BoggsPurple;
+    }
+
+    .theme-change-wrapper {
+        ul,
+        .theme-click-icon {
+            background-color: $OffWhite;
+        }
+    }
+
+    .btn {
+        &.primary {
+            background-color: $BoggsPurple;
+            border-color: $BoggsPurple;
+            &:hover {
+                background-color: $BoggsPurple-click;
+                border-color: $BoggsPurple-click;
+            }
+            &:disabled {
+                background-color: $BtnDisabled;
+                border-color: $BtnDisabled;
+                color: $BtnDisabledText;
+                path {
+                    fill: $BtnDisabledText;
+                }
+                &:hover {
+                    background-color: $BtnDisabled;
+                    border-color: $BtnDisabled;
+                    color: $BtnDisabledText;
+                }
+            }
+        }
+        &.outline {
+            border-color: $BoggsPurple;
+            color: $BoggsPurple;
+            path {
+                fill: $BoggsPurple;
+            }
+            &:hover {
+                border-color: $BoggsPurple-click;
+                color: $BoggsPurple-click;
+                path {
+                    fill: $BoggsPurple-click;
+                }
+            }
+            &:disabled {
+                border-color: $BtnDisabled;
+                color: $BtnDisabledText;
+                path {
+                    fill: $BtnDisabledText;
+                }
+                &:hover {
+                    border-color: $BtnDisabled;
+                    color: $BtnDisabledText;
+                }
+            }
+        }
+    }
+
+    .btn-icon {
+        &.primary {
+            background-color: $BoggsPurple;
+            border-color: $BoggsPurple;
+            &:hover {
+                background-color: $BoggsPurple-click;
+                border-color: $BoggsPurple-click;
+            }
+            &:disabled {
+                background-color: $BtnDisabled;
+                border-color: $BtnDisabled;
+                path {
+                    fill: $BtnDisabledText;
+                }
+                &:hover {
+                    background-color: $BtnDisabled;
+                    border-color: $BtnDisabled;
+                }
+            }
+        }
+        &.outline {
+            border-color: $BoggsPurple;
+            path {
+                fill: $BoggsPurple;
+            }
+            &:hover {
+                border-color: $BoggsPurple-click;
+                path {
+                    fill: $BoggsPurple-click;
+                }
+            }
+            &:disabled {
+                border-color: $BtnDisabled;
+                path {
+                    fill: $BtnDisabledText;
+                }
+                &:hover {
+                    border-color: $BtnDisabled;
+                }
+            }
+        }
+    }
+
+    .header-menu-wrapper {
+        ul {
+            li {
+                &:hover,
+                &.active {
+                    a {
+                        &::before {
+                            background-color: $BoggsPurple;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .header-user-wrapper {
+        ul {
+            li {
+                a {
+                    &:hover svg {
+                        path {
+                            fill: $BoggsPurple;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .side-bar-menu {
+        ul {
+            li {
+                &.active,
+                &:hover {
+                    a {
+                        &::before {
+                            background-color: $BoggsPurple;
+                        }
+                        path {
+                            fill: $BoggsPurple;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .map-control-wrapper {
+        .map-control-item {
+            box-shadow: 0 10px 80px #9072d569;
+
+            li {
+                a {
+                    path {
+                        fill: $BoggsPurple;
+                    }
+                    &:hover {
+                        background-color: $BoggsPurple;
+                        path {
+                            fill: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .map-distance-wrapper {
+        li {
+            &:hover,
+            &.active {
+                a {
+                    background-color: $BoggsPurple;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
