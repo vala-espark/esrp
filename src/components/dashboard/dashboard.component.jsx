@@ -29,6 +29,8 @@ const Dashboard = () => {
     // });
     return (
         <>
+    <section className="btn-componenet card">
+        <div className="card-body">
 
             <div className="map-control-wrapper">
                 <div className="map-control-item">
@@ -87,6 +89,8 @@ const Dashboard = () => {
                 </div>
             </div>
 
+            <p style={{ height: '50px' }}></p>
+
             <div className="map-distance-wrapper">
                 <ul>
                     <li>
@@ -106,6 +110,8 @@ const Dashboard = () => {
                     </li>
                 </ul>
             </div>
+
+            <p style={{ height: '50px' }}></p>
 
             <div className="btn-wrapper">
                 <button className="btn primary">Button</button>
@@ -212,6 +218,8 @@ const Dashboard = () => {
                     </svg>
                 </button>
             </div>
+        </div>
+    </section>
 
             {/* <h1>Dashboard</h1>
             <div className="sidebar">

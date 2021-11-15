@@ -1,0 +1,92 @@
+@import "../../../sass/variables.scss";
+
+.donut-chart-card {
+    min-width: 290px;
+    max-width: 290px;
+    width: fit-content;
+    table {
+        border-collapse: collapse;
+    }
+
+    .card-title {
+        label {
+            display: block;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 32px;
+            letter-spacing: 0.44px;
+            color: $BlueishBlack;
+            text-align: center;
+        }
+    }
+
+    .card-price {
+        h4 {
+            margin: 0;
+            color: $BlueishBlack;
+            font-weight: 600;
+            font-size: 32px;
+            text-align: center;
+            span {
+                font-weight: 500;
+                line-height: 20px;
+                font-size: 14px;
+                letter-spacing: 0.44px;
+                display: inline-block;
+                margin-left: 6px;
+                font-family: "Montserrat", sans-serif;
+            }
+            .up {
+                color: $Green;
+            }
+            .down {
+                color: $Red;
+            }
+        }
+    }
+
+    .summary {
+        label {
+            color: $BlueishBlack;
+            opacity: 0.6;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 16px;
+            letter-spacing: 0.44px;
+            display: block;
+            text-align: center;
+        }
+    }
+
+    .line-chart-table {
+        padding-top: 30px;
+        .value,
+        .name{
+            font-weight: 500;
+            color: $BlueishBlack;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.44px;
+        }
+        .value{
+            opacity: 0.6;
+        }
+    }
+
+    // svg {
+    //     width: 100%;
+    //     height: auto;
+    // }
+    // .mixed-chart {
+    //     & > div {
+    //         max-width: 100%;
+    //         width: 100%;
+    //         min-width: unset;
+    //         min-height: unset !important;
+    //     }
+    // }
+    // .apexcharts-canvas {
+    //     width: 100% !important;
+    //     height: 100% !important;
+    // }
+}

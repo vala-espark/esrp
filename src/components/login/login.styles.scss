@@ -1,0 +1,64 @@
+@import "../../sass/variables.scss";
+
+.login-sec {
+    position: relative;
+    z-index: 9;
+    min-height: calc(100vh - 97px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+
+    .container-fluid,
+    .row {
+        width: 100%;
+    }
+    .bg-pattern {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: -9;
+        opacity: 0.1;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.login-text-content {
+    margin: 20px 0 30px;
+    h3 {
+        margin: 0 0 10px;
+        font-weight: 700;
+        color: $DarkLoading;
+    }
+    p {
+        font-size: 15px;
+        margin: 0;
+        color: $BtnDisabledText;
+        letter-spacing: 0;
+    }
+}
+.form-row{
+    .forget{
+        span{
+            display: block;
+            color: $BtnDisabledText;
+        }
+        a{
+            text-decoration: none;
+            color: $DarkLoading;
+            font-weight: 500;
+            display: inline-block;
+            margin-left: 3px;
+            &:hover{
+                color: $ESRPBlue;
+            }
+        }
+    }
+}

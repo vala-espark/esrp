@@ -2,7 +2,7 @@
 
 .theme-change-wrapper {
     position: fixed;
-    right: -87px;
+    right: -90px;
     top: 50%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
@@ -11,12 +11,12 @@
     -o-transform: translateY(-50%);
     display: flex;
     align-items: flex-start;
-    transition: $transition;
-    -webkit-transition: $transition;
-    -moz-transition: $transition;
-    -ms-transition: $transition;
-    -o-transition: $transition;
-
+    z-index: 99999;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -webkit-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -moz-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -ms-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -o-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     &.active {
         right: 0;
     }

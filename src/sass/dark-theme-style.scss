@@ -18,17 +18,17 @@
 
     .theme-change-wrapper {
         ul,
-        .theme-click-icon{
+        .theme-click-icon {
             background-color: $DarkMapControlBg;
         }
-        .theme-click-icon{
-            path{
+        .theme-click-icon {
+            path {
                 fill: $white;
             }
         }
-        ul{
-            li{
-                label{
+        ul {
+            li {
+                label {
                     color: $white;
                 }
             }
@@ -178,6 +178,25 @@
         }
     }
 
+    .loading-sec {
+        background-color: $DarkLoading;
+    }
+    .loading-content {
+        .img {
+            .dark {
+                display: block;
+            }
+            .light {
+                display: none;
+            }
+        }
+        .progress-bar-wrapper {
+            span {
+                color: $white;
+            }
+        }
+    }
+
     .side-bar-menu {
         ul {
             li {
@@ -192,6 +211,21 @@
                         }
                     }
                 }
+            }
+        }
+    }
+
+    footer{
+        background-color: $BlueishBlack-Dark;
+    }
+
+    .loading-sec {
+        background-color: $DarkLoading;
+    }
+    .loading-content {
+        .progress-bar-wrapper {
+            span {
+                color: $white;
             }
         }
     }
@@ -218,18 +252,62 @@
     }
 
     .map-distance-wrapper {
-        ul{
+        ul {
             background-color: $DarkMapControlBg;
         }
         li {
-            a{
+            a {
                 color: $white;
             }
             &:hover,
             &.active {
                 a {
                     background-color: $DoryBlue;
+                }
+            }
+        }
+    }
 
+    .card {
+        background-color: $DarkMapControlBg;
+    }
+
+    .input-item {
+        label {
+            color: $BtnDisabledText;
+        }
+
+        input {
+            background-color: $DarkMapControlBg;
+            border-color: $PurpleBlue;
+            color: $BtnDisabledText;
+            &:hover,
+            &:focus {
+                border-color: $white
+            }
+        }
+    }
+    .login-sec {
+        background-color: $Black;
+        .bg-pattern {
+            opacity: 0.3;
+            img {
+                filter: invert(1);
+                -webkit-filter: invert(1);
+            }
+        }
+    }
+    .login-text-content {
+        h3{
+            color: $white;
+        }
+    }
+    .form-row {
+        .forget {
+            a {
+                color: $BtnDisabledText;
+                &:hover {
+                    color: $DoryBlue;
                 }
             }
         }

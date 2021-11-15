@@ -1,0 +1,169 @@
+@import "../../../sass/variables.scss";
+
+.line-chart-card {
+    min-width: 290px;
+    max-width: 290px;
+    width: fit-content;
+    table {
+        border-collapse: collapse;
+    }
+
+    .card-title {
+        margin-bottom: 27px;
+        label {
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 32px;
+            letter-spacing: 0.44px;
+            color: $BlueishBlack;
+        }
+    }
+
+    .card-price {
+        h3 {
+            margin: 0;
+            color: $BlueishBlack;
+            font-weight: 500;
+            span {
+                font-size: 22px;
+                line-height: 36px;
+                letter-spacing: 0.44px;
+                vertical-align: super;
+                margin-left: 4px;
+            }
+        }
+    }
+
+    .summary {
+        label {
+            color: $BlueishBlack;
+            opacity: 0.6;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 16px;
+            letter-spacing: 0.44px;
+        }
+    }
+
+    .line-chart-table {
+        padding-top: 20px;
+        .circle {
+            span {
+                display: inline-block;
+                background-color: $white;
+                border: 2px solid $ESRPBlue;
+                width: 10px;
+                height: 10px;
+                border-radius: 100px;
+                -webkit-border-radius: 100px;
+                -moz-border-radius: 100px;
+                -ms-border-radius: 100px;
+                -o-border-radius: 100px;
+                margin-right: 7px;
+            }
+        }
+    }
+    .progress-bar-inner {
+        min-width: 120px;
+        max-width: 120px;
+        position: relative;
+
+        .progress-bar {
+            height: 6px;
+            border-radius: 100px;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            -ms-border-radius: 100px;
+            -o-border-radius: 100px;
+            position: relative;
+            z-index: 9;
+            // background-image: linear-gradient(270deg, #7fc6b3, #5d87c1);
+            transition: $transition;
+            -webkit-transition: $transition;
+            -moz-transition: $transition;
+            -ms-transition: $transition;
+            -o-transition: $transition;
+        }
+
+        .progress-bar-back {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            border-radius: 100px;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            -ms-border-radius: 100px;
+            -o-border-radius: 100px;
+            background-color: $BtnDisabled;
+            height: 4px;
+            width: 100%;
+        }
+    }
+
+    svg {
+        .apexcharts-xaxis {
+            display: none;
+        }
+        & > .apexcharts-graphical {
+            width: 100%;
+            transform: translateX(0) scale(1.2);
+            -webkit-transform: translateX(0) scale(1.2);
+            -moz-transform: translateX(0) scale(1.2);
+            -ms-transform: translateX(0) scale(1.2);
+            -o-transform: translateX(0) scale(1.2);
+        }
+        .apexcharts-series {
+            path {
+                stroke-width: 3px;
+            }
+        }
+    }
+    // svg {
+    //     width: 100%;
+    //     height: auto;
+    // }
+    // .mixed-chart {
+    //     & > div {
+    //         max-width: 100%;
+    //         width: 100%;
+    //         min-width: unset;
+    //         min-height: unset !important;
+    //     }
+    // }
+    // .apexcharts-canvas {
+    //     width: 100% !important;
+    //     height: 100% !important;
+    // }
+}
+
+// DARK THEME
+
+.dark-theme {
+    .line-chart-card {
+        .card-title {
+            label {
+                color: $white;
+            }
+        }
+        .card-price {
+            h3{
+                color: $white;
+            }
+        }
+        .summary{
+            label{
+                color: $white;
+            }
+        }
+        .line-chart-table{
+            .name{
+                color: $white
+            }
+        }
+    }
+}

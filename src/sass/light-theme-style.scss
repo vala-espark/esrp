@@ -162,6 +162,25 @@
         }
     }
 
+    .loading-sec {
+        background-color: $LightLoading;
+    }
+    .loading-content {
+        .img {
+            .dark {
+                display: none;
+            }
+            .light {
+                display: block;
+            }
+        }
+        .progress-bar-wrapper {
+            span {
+                color: $Black;
+            }
+        }
+    }
+
     .map-control-wrapper {
         .map-control-item {
             box-shadow: 0 10px 80px #9072d569;
@@ -189,6 +208,24 @@
                 a {
                     background-color: $BoggsPurple;
                     color: $white;
+                }
+            }
+        }
+    }
+
+    .input-item {
+        input {
+            &:hover,
+            &:focus {
+                border-color: $BoggsPurple;
+            }
+        }
+    }
+    .form-row {
+        .forget {
+            a {
+                &:hover {
+                    color: $BoggsPurple;
                 }
             }
         }

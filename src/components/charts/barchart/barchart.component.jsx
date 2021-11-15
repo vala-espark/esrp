@@ -18,7 +18,7 @@ series: [
 ]
 };
 
-const simpleLinechart = () => {
+const barChart = () => {
     return (
       <div className="aphex-chart">
         <div className="row">
@@ -36,4 +36,4 @@ const simpleLinechart = () => {
   
 }
 
-export default simpleLinechart;
+export default barChart;

@@ -1,0 +1,31 @@
+@import '../../../sass/variables.scss';
+.table-card {
+    min-width: 283px;
+    width: fit-content;
+    .circle {
+        span {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 100px;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            -ms-border-radius: 100px;
+            -o-border-radius: 100px;
+            border: 4px solid $white;
+            background-color: $Green;
+        }
+    }
+    .name,
+    .total,
+    .value{
+        color: $BlueishBlack;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.4px;
+    }
+    .value{
+        opacity: 0.6;
+    }
+}
