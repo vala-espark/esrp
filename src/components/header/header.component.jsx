@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { connect } from 'react-redux';
+import { selectThemeSetting } from "../../redux/theme/theme.selector";
+import { createStructuredSelector } from 'reselect';
 
-const Header = () => {
+const Header = ({theme}) => {
+    const [image,setImage] = useState();
+
+    useEffect(() => {
+        if(theme.theme_color === 'esrp-theme')
+        {
+            setImage('assets/images/esrp-logo.png');
+        }
+        if(theme.theme_color === 'light-theme')
+        {
+            setImage('assets/images/esrp-logo.png');
+        }
+        if(theme.theme_color === 'dark-theme')
+        {
+            setImage('assets/images/esrp-logo-loading.png');
+        }
+    },[theme.theme_color]);
 
     return (
         <>
@@ -10,7 +29,7 @@ const Header = () => {
                         <div className="row">
                             <div className="header-logo-wrapper">
                                 <a href="#!">
-                                    <img src="assets/images/esrp-logo.png" alt="" />
+                                    <img src={`${image}`} alt="" />
                                 </a>
                             </div>
                             <div className="header-search-wrapper">
@@ -66,4 +85,8 @@ const Header = () => {
 
 }
 
-export default Header;
+const mapStateToProps = createStructuredSelector({
+    theme: selectThemeSetting,
+  });
+
+export default connect(mapStateToProps)(Header);

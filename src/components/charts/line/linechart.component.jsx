@@ -69,7 +69,7 @@ const LineChart = () => {
             <label htmlFor="">Market trend</label>
           </div>
 
-          <div className="card-price">
+          <div className="chart-price">
             <h3>64.3
               <span>%</span>
             </h3>

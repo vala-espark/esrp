@@ -140,7 +140,7 @@
                     a {
                         color: $white;
                         &::before {
-                            background-color: $SidebarActive;
+                            background-color: $DoryBlue;
                         }
                     }
                 }
@@ -157,7 +157,7 @@
                 a {
                     &:hover svg {
                         path {
-                            fill: $SidebarActive;
+                            fill: $DoryBlue;
                         }
                     }
                 }
@@ -169,6 +169,8 @@
         .search-bar {
             input {
                 background-color: $Black;
+                caret-color: $BoggsPurple;
+                color: $white;
             }
             .header-search-icon {
                 path {
@@ -262,7 +264,7 @@
             &:hover,
             &.active {
                 a {
-                    background-color: $DoryBlue;
+                    background-color: $BoggsPurple;
                 }
             }
         }

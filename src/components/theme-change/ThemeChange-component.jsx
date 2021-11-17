@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { setThemeSetting } from "../../redux/theme/theme.action";
+import { selectThemeSetting } from "../../redux/theme/theme.selector";
+import { createStructuredSelector } from 'reselect';
 import './ThemeChange-style.scss';
 
-const ThemeChange = () => {
+const ThemeChange = (props) => {
+    const {setThemeSetting,theme} = props
     const [isActive, setActive] = useState("false");
+    // console.log('theme in theme component',theme);
+
+    useEffect(() => {
+        document.body.classList.add(theme.theme_color);
+    },[theme.theme_color])
 
     const handleToggle = () => {
         setActive(!isActive);
@@ -34,19 +44,19 @@ const ThemeChange = () => {
                 </div>
                 <ul>
                     <li>
-                        <a onClick={() => { document.body.classList.add('esrp-theme'); document.body.classList.remove('light-theme', 'dark-theme'); }} id="esrp-theme" className="esrp theme-color">
+                        <a onClick={() => {setThemeSetting({theme_color:'esrp-theme'});  document.body.classList.remove('light-theme', 'dark-theme'); }} id="esrp-theme" className="esrp theme-color">
                             <span className="color esrp"></span>
                             <label>ESRP</label>
                         </a>
                     </li>
                     <li>
-                        <a onClick={() => { document.body.classList.add('light-theme'); document.body.classList.remove('esrp-theme', 'dark-theme'); }} id="light-theme" className="light theme-color">
+                        <a onClick={() => {setThemeSetting({theme_color:'light-theme'});  document.body.classList.remove('esrp-theme', 'dark-theme'); }} id="light-theme" className="light theme-color">
                             <span className="color light"></span>
                             <label>Light</label>
                         </a>
                     </li>
                     <li>
-                        <a onClick={() => { document.body.classList.add('dark-theme'); document.body.classList.remove('light-theme', 'esrp-theme'); }} id="dark-theme" className="dark theme-color">
+                        <a onClick={() => {setThemeSetting({theme_color:'dark-theme'});  document.body.classList.remove('light-theme', 'esrp-theme');}} id="dark-theme" className="dark theme-color">
                             <span className="color dark"></span>
                             <label>Dark</label>
                         </a>
@@ -57,4 +67,13 @@ const ThemeChange = () => {
     )
 }
 
-export default ThemeChange;
+const mapStateToProps = createStructuredSelector({
+    theme: selectThemeSetting,
+  });
+
+const mapDispatchToProps = (dispatch) => ({
+    setThemeSetting: (theme) => dispatch(setThemeSetting(theme)),
+  });
+  
+
+export default connect(mapStateToProps,mapDispatchToProps)(ThemeChange);

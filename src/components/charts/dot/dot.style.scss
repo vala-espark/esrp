@@ -1,6 +1,6 @@
 @import "../../../sass/variables.scss";
 
-.time-line-chart-card {
+.dot-chart-card {
     
     .card-body{
         display: flex;
@@ -47,18 +47,18 @@
         }
     }
 
-    svg {
-        .apexcharts-series {
-            path {
-                fill: $BtnDisabled;
-                &:hover {
-                    filter: unset !important;
-                    -webkit-filter: unset !important;
-                }
-            }
-        }
-        .apexcharts-xaxis{
-            opacity: 0;
-        }
-    }
+    // svg {
+    //     .apexcharts-series {
+    //         path {
+    //             fill: $BtnDisabled;
+    //             &:hover {
+    //                 filter: unset !important;
+    //                 -webkit-filter: unset !important;
+    //             }
+    //         }
+    //     }
+    //     .apexcharts-xaxis{
+    //         opacity: 0;
+    //     }
+    // }
 }

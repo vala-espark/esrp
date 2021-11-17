@@ -8,7 +8,16 @@
             display: block;
         }
     }
-    .card-price{
+
+    .informer-item{
+        &:not(:first-child){
+            padding-top: 18px;
+            margin-top: 18px;
+            border-top: 1px solid $BtnDisabled;
+        }
+    }
+
+    .chart-price{
         h4{
             margin: 0;
             font-weight: 500;

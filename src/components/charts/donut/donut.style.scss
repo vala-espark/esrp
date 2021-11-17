@@ -20,7 +20,7 @@
         }
     }
 
-    .card-price {
+    .chart-price {
         h4 {
             margin: 0;
             color: $BlueishBlack;
@@ -61,32 +61,26 @@
     .line-chart-table {
         padding-top: 30px;
         .value,
-        .name{
+        .name {
             font-weight: 500;
             color: $BlueishBlack;
             font-size: 14px;
             line-height: 20px;
             letter-spacing: 0.44px;
         }
-        .value{
+        .value {
             opacity: 0.6;
         }
     }
 
-    // svg {
-    //     width: 100%;
-    //     height: auto;
-    // }
-    // .mixed-chart {
-    //     & > div {
-    //         max-width: 100%;
-    //         width: 100%;
-    //         min-width: unset;
-    //         min-height: unset !important;
-    //     }
-    // }
-    // .apexcharts-canvas {
-    //     width: 100% !important;
-    //     height: 100% !important;
-    // }
+    svg {
+        .apexcharts-series {
+            path {
+                &:hover {
+                    filter: unset !important;
+                    -webkit-filter: unset !important;
+                }
+            }
+        }
+    }
 }

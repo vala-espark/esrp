@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { PersistGate } from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
+import { store, persistor } from './redux/store';
 import './sass/index.scss';
 import './sass/light-theme-style.scss';
 import './sass/dark-theme-style.scss';
@@ -9,11 +12,15 @@ import { BrowserRouter } from "react-router-dom";
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 ReactDOM.render(
+  <Provider store={store}>
   <React.StrictMode>
   <BrowserRouter>
+  <PersistGate persistor={persistor}>
     <App />
+    </PersistGate>
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 

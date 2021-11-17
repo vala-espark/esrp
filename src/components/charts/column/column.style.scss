@@ -1,0 +1,63 @@
+@import "../../../sass/variables.scss";
+
+.column-chart-card {
+    min-width: 870px;
+    width: fit-content;
+    .card-title {
+        label {
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 32px;
+            letter-spacing: 0.44px;
+            color: $BlueishBlack;
+        }
+    }
+    .chart-price {
+        h4 {
+            margin: 0;
+            color: $BlueishBlack;
+            font-weight: 600;
+            font-size: 32px;
+            span {
+                font-weight: 500;
+                line-height: 20px;
+                font-size: 14px;
+                letter-spacing: 0.44px;
+                display: inline-block;
+                margin-left: 6px;
+                font-family: "Montserrat", sans-serif;
+            }
+            .up {
+                color: $Green;
+            }
+            .down {
+                color: $Red;
+            }
+        }
+    }
+
+    svg {
+        .apexcharts-bar-series {
+            & > .apexcharts-series:nth-child(1) {
+                path {
+                    fill: $ESRPBlue;
+                    &:hover {
+                        filter: unset !important;
+                    }
+                }
+            }
+            & > .apexcharts-series:nth-child(2) {
+                path {
+                    fill: $ESRPGreen;
+                    &:hover {
+                        filter: unset !important;
+                        -webkit-filter: unset !important;
+                    }
+                }
+            }
+        }
+        .apexcharts-xaxis {
+            // opacity: 0;
+        }
+    }
+}

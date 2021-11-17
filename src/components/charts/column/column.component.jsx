@@ -1,13 +1,16 @@
 import React from 'react';
 import Chart from "react-apexcharts";
-import './timeline.style.scss'
+import './column.style.scss';
 
-const TimelineChart = () => {
+const ColumnChart = () => {
 
     const dataSet = {
         series: [{
             name: 'PRODUCT A',
-            data: [44, 55, 41, 67, 22, 43, 10, 15, 25, 30, 60, 35, 32, 55, 45, 75, 58, 40, 23, 44, 55, 41, 67, 22, 43, 10, 15, 25, 30, 60, 35, 32,]
+            data: [44, 55, 41, 67, 22, 43, 10, 15, 25, 30,60]
+        }, {
+            name: 'PRODUCT B',
+            data: [13, 23, 20, 8, 13, 27, 60, 30, 25, 15, 10]
         },],
         options: {
             tooltip: {
@@ -38,7 +41,7 @@ const TimelineChart = () => {
                 },
             },
             xaxis: {
-                show: false,
+                // show:/ false,
                 labels: {
                     show: false,
                 },
@@ -62,18 +65,16 @@ const TimelineChart = () => {
 
     return (
         <>
-            <div className="card time-line-chart-card">
+            <div className="card column-chart-card">
                 <div className="card-body">
-                    <div className="card-content">
-                        <div className="card-title">
-                            <label htmlFor="">Data Title</label>
-                        </div>
-                        <div className="chart-price">
-                            <h4>$87,240
-                                {/* <span className="up">&#9650;02%</span> */}
-                                {/* <span className="down">&#9660;12%</span> */}
-                            </h4>
-                        </div>
+                    <div className="card-title">
+                        <label htmlFor="">Total earning</label>
+                    </div>
+                    <div className="chart-price">
+                        <h4>$87,240
+                            <span className="up">&#9650;02%</span>
+                            {/* <span className="down">&#9660;12%</span> */}
+                        </h4>
                     </div>
 
                     <div className="mixed-chart">
@@ -82,7 +83,6 @@ const TimelineChart = () => {
                             series={dataSet.series}
                             type="bar"
                             width="100%"
-                            height="100px"
                         />
                     </div>
                 </div>
@@ -91,4 +91,4 @@ const TimelineChart = () => {
     )
 }
 
-export default TimelineChart;
+export default ColumnChart;

@@ -1,0 +1,137 @@
+@import "../../../sass/variables.scss";
+
+.circle-chart-card {
+    min-width: 870px;
+    width: fit-content;
+
+    .card-title {
+        margin-bottom: 20px;
+        label {
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 32px;
+            letter-spacing: 0.44px;
+            color: $BlueishBlack;
+        }
+    }
+    .chart-data {
+        .chart-data-title {
+            label {
+                font-size: 16px;
+                line-height: 24px;
+                letter-spacing: 0.44px;
+                color: $BlueishBlack;
+            }
+        }
+        .chart-price {
+            h6 {
+                font-weight: 600;
+                line-height: 32px;
+                margin: 0;
+                span {
+                    font-weight: 500;
+                    line-height: 20px;
+                    font-size: 14px;
+                    letter-spacing: 0.44px;
+                    display: inline-block;
+                    margin-left: 6px;
+                    font-family: "Montserrat", sans-serif;
+                }
+                .up {
+                    color: $Green;
+                }
+                .down {
+                    color: $Red;
+                }
+            }
+        }
+    }
+
+    svg {
+        height: 56px !important;
+        .apexcharts-radialbar {
+            transform: translateX(-10px) translateY(-9px) scale(3.3);
+            -webkit-transform: translateX(-10px) translateY(-9px) scale(3.3);
+            -moz-transform: translateX(-10px) translateY(-9px) scale(3.3);
+            -ms-transform: translateX(-10px) translateY(-9px) scale(3.3);
+            -o-transform: translateX(-10px) translateY(-9px) scale(3.3);
+        }
+        .apexcharts-graphical {
+            transform: unset !important;
+            -webkit-transform: unset !important;
+            -moz-transform: unset !important;
+            -ms-transform: unset !important;
+            -o-transform: unset !important;
+        }
+        .apexcharts-radialbar-track {
+            path {
+                stroke-width: 1px;
+                stroke: $Pewter;
+            }
+        }
+        .apexcharts-radial-series {
+            path {
+                stroke: $MarlinOrange;
+                stroke-linecap: round;
+                stroke-width: 1.5px;
+            }
+        }
+        .apexcharts-text.apexcharts-datalabel-value {
+            font-weight: 800;
+            color: $BlueishBlack;
+            font-size: 19px;
+            line-height: 29px;
+            letter-spacing: 0.15px;
+            //display: none;
+            transform: translateY(4.4px) translateX(9.4px) scale(0.2);
+            -webkit-transform: translateY(4.4px) translateX(9.4px) scale(0.2);
+            -moz-transform: translateY(4.4px) translateX(9.4px) scale(0.2);
+            -ms-transform: translateY(4.4px) translateX(9.4px) scale(0.2);
+            -o-transform: translateY(4.4px) translateX(9.4px) scale(0.2);
+        }
+    }
+}
+
+.circle-chart-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .circle-chart-item {
+        max-width: 230px;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        &:nth-child(2){
+            svg{
+                .apexcharts-radial-series {
+                    path{
+                        stroke: $ESRPGreen;
+                    }
+                }
+            }
+        }
+        &:nth-child(3){
+            svg{
+                .apexcharts-radial-series {
+                    path{
+                        stroke: $ESRPBlue;
+                    }
+                }
+            }
+        }
+
+        .mixed-chart {
+            max-width: 56px;
+            width: 100%;
+            & > div {
+                height: 56px;
+            }
+        }
+        .chart-data {
+            width: 100%;
+            max-width: calc(100% - 76px);
+            margin-left: auto;
+        }
+    }
+}

@@ -1,0 +1,268 @@
+@import "../../sass/variables.scss";
+
+.dashboard-sec {
+    position: relative;
+    z-index: 9;
+}
+.map-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: -99;
+}
+.dashboard-market-overview-clm {
+    position: absolute;
+    top: 40px;
+    width: 320px;
+    left: 60px;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding-bottom: 50px;
+
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
+}
+.dash-map-distance {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 60px;
+}
+.dash-map-controls {
+    position: absolute;
+    top: 60px;
+    right: 100px;
+}
+
+.dashboard-market-overview-clm {
+    .title {
+        margin-bottom: 24px;
+        h4 {
+            color: $white;
+            margin: 0;
+        }
+    }
+}
+
+.population-wrap {
+    .population-title {
+        font-size: 20px;
+        line-height: 32px;
+        font-weight: 600;
+        color: $white;
+        margin: 0;
+        a {
+            display: inline-flex;
+            align-items: center;
+            margin-left: 16px;
+            font-size: 10px;
+            line-height: 16px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            color: $white;
+            text-decoration: none;
+        }
+    }
+    h1 {
+        color: $white;
+        margin: 0;
+    }
+    h6 {
+        color: $white;
+        margin: 0;
+    }
+    .population-color-stripe-bar {
+        margin: 8px 0 24px;
+        max-width: 270px;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 100px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        -ms-border-radius: 100px;
+        -o-border-radius: 100px;
+        display: flex;
+        justify-content: space-between;
+        li {
+            &:not(:last-child) {
+                // border-right: 2px solid $BlueishBlack;
+            }
+            height: 10px;
+        }
+    }
+}
+.population-card-info {
+    max-width: 270px;
+    margin-bottom: 20px;
+    li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        &:not(:first-child) {
+            margin-top: 4.5px;
+            padding-top: 4.5px;
+            border-top: 1px solid $BtnDisabled;
+        }
+    }
+    .circle {
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+        border-radius: 100px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        -ms-border-radius: 100px;
+        -o-border-radius: 100px;
+        margin-right: 8px;
+    }
+    .name {
+        font-size: 16px;
+        line-height: 24px;
+        display: inline-block;
+        width: 142px;
+        margin-right: 8px;
+    }
+    .percentage {
+        font-size: 20px;
+        line-height: 32px;
+        font-weight: 500;
+        display: inline-block;
+        width: 42px;
+    }
+}
+
+.population-card-attainment {
+    max-width: 270px;
+
+    .card-title {
+        p {
+            margin-top: 0;
+            margin-bottom: 2px;
+        }
+    }
+
+    .chart-market-value {
+        h4 {
+            margin: 0;
+            font-weight: 500;
+            line-height: 44px;
+            color: $BlueishBlack;
+            span {
+                font-weight: 500;
+                line-height: 20px;
+                font-size: 14px;
+                letter-spacing: 0.44px;
+                display: inline-block;
+                margin-left: 6px;
+                font-family: "Montserrat", sans-serif;
+            }
+            .up {
+                color: $Green;
+            }
+            .down {
+                color: $Red;
+            }
+        }
+    }
+    .chart-summary {
+        margin-bottom: 30px;
+        label {
+            display: block;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.44px;
+            color: $BlueishBlack;
+            opacity: 0.6;
+            font-weight: 500;
+        }
+    }
+
+    .attainment-chart-wrap {
+        margin-bottom: 50px;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .attainment-data-table {
+        ul {
+        }
+        li {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            & > * {
+                font-size: 14px;
+                line-height: 20px;
+                letter-spacing: 0.44px;
+                font-weight: 500;
+            }
+            .name {
+                width: 100px;
+            }
+            .value {
+                width: 43px;
+                opacity: 0.6;
+            }
+            .total {
+                width: 43px;
+            }
+            .arrow {
+                width: 15px;
+            }
+            &.up {
+                .arrow {
+                    color: $Green;
+                }
+            }
+            &.down {
+                .arrow {
+                    color: $Red;
+                }
+            }
+            &:not(:first-child) {
+                margin-top: 14px;
+            }
+        }
+    }
+}
+
+.dark-theme {
+    .population-card-info {
+        &> *{
+            color: $white;
+        }    
+    }
+
+    .population-card-attainment {
+        .attainment-chart-wrap {
+            img {
+                filter: invert(1);
+                -webkit-filter: invert(1);
+            }
+        }
+        .card-title {
+            p {
+                color: $white;
+            }
+        }
+        .attainment-data-table {
+            li {
+                & > * {
+                    color: $white;
+                }
+            }
+        }
+    }
+    .population-card-attainment {
+        .chart-market-value {
+            h4 {
+                color: $white;
+            }
+        }
+    }
+}

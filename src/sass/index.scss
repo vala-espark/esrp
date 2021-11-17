@@ -562,14 +562,16 @@ h6 {
         -moz-transition: $transition;
         -ms-transition: $transition;
         -o-transition: $transition;
+        display: block;
+        line-height: 24px;
 
         &::before {
           position: absolute;
           content: "";
           width: 0;
-          height: 2px;
+          height: 3px;
           background-color: $ESRPBlue;
-          bottom: -18px;
+          bottom: -17px;
           left: 0;
           right: 0;
           margin: 0 auto;
@@ -630,6 +632,26 @@ h6 {
   }
 }
 
+.map-container {
+  height: calc(100vh - 97px);
+}
+.mapboxgl-control-container {
+  display: none;
+}
+
+.sidebar {
+  background-color: rgba(35, 55, 75, 0.9);
+  color: #fff;
+  padding: 6px 12px;
+  font-family: monospace;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 12px;
+  border-radius: 4px;
+}
+
 // FOOTER ***************
 .site-footer {
   padding: 11px 67px;
@@ -637,7 +659,8 @@ h6 {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: calc(100% - 100px);
+  // width: calc(100% - 100px);
+  width: 100%;
   margin-left: auto;
   right: 0;
   z-index: 9999;
@@ -820,7 +843,7 @@ h6 {
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
     box-shadow: 0 10px 80px #9072d569;
-    max-width: 46px;
+    width: 46px;
 
     &:not(:first-child) {
       margin-top: 14px;
@@ -906,7 +929,7 @@ h6 {
 }
 
 .site-inner-content {
-  padding: 25px;
+  // padding: 25px;
 }
 
 // CARD ***************
@@ -923,7 +946,6 @@ h6 {
     padding: 20px 30px;
   }
 }
-
 
 // LOADING SCREEN ***************
 .loading-sec {

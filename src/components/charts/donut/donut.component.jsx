@@ -46,7 +46,7 @@ const DonutChart = () => {
             <label htmlFor="">Total earning</label>
           </div>
 
-          <div className="card-price">
+          <div className="chart-price">
             <h4>$12,875
               <span className="up">&#9650;12%</span>
               {/* <span className="down">&#9660;12%</span> */}
