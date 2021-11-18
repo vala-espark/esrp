@@ -483,6 +483,8 @@ h6 {
 .header {
   padding: 10px 60px;
   background-color: $white;
+  z-index: 9999;
+  position: relative;
   .row {
     align-items: center;
   }
