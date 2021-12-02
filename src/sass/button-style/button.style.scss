@@ -1,0 +1,417 @@
+.btn {
+    display: inline-block;
+    min-width: 173px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.44px;
+    padding: 13px 10px;
+    cursor: pointer;
+    transition: $transition;
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    background-color: #fff;
+    border: 2px solid transparent;
+
+    svg {
+        vertical-align: middle;
+        margin-left: 20px;
+        path {
+            transition: $transition;
+            -webkit-transition: $transition;
+            -moz-transition: $transition;
+            -ms-transition: $transition;
+            -o-transition: $transition;
+        }
+    }
+
+    &.primary {
+        background-color: $ESRPBlue;
+        color: $white;
+        border-color: $ESRPBlue;
+        path {
+            fill: $white;
+        }
+
+        &:hover {
+            background-color: $Blue;
+            border-color: $Blue;
+        }
+        &.rounded {
+            border-radius: 100px;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            -ms-border-radius: 100px;
+            -o-border-radius: 100px;
+        }
+        &:disabled {
+            background-color: $BtnDisabled;
+            color: $BtnDisabledText;
+            border-color: $BtnDisabled;
+            cursor: not-allowed;
+
+            path {
+                fill: $BtnDisabledText;
+            }
+        }
+    }
+
+    &.outline {
+        background-color: transparent;
+        color: $ESRPBlue;
+        border-color: $ESRPBlue;
+
+        path {
+            fill: $ESRPBlue;
+        }
+
+        &:hover {
+            background-color: transparent;
+            border-color: $Blue;
+            color: $Blue;
+
+            path {
+                fill: $Blue;
+            }
+        }
+        &:disabled {
+            border-color: $BtnDisabled;
+            color: $BtnDisabledText;
+            cursor: not-allowed;
+
+            path {
+                fill: $BtnDisabledText;
+            }
+        }
+        &.rounded {
+            border-radius: 100px;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            -ms-border-radius: 100px;
+            -o-border-radius: 100px;
+        }
+    }
+}
+
+.btn-icon {
+    display: inline-block;
+    min-width: 46px;
+    font-size: 14px;
+    padding: 13px 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: $transition;
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    background-color: #fff;
+    border: 2px solid transparent;
+
+    svg {
+        vertical-align: middle;
+        path {
+            transition: $transition;
+            -webkit-transition: $transition;
+            -moz-transition: $transition;
+            -ms-transition: $transition;
+            -o-transition: $transition;
+        }
+    }
+    
+
+    &.primary {
+        background-color: $ESRPBlue;
+        color: $white;
+        border-color: $ESRPBlue;
+        path {
+            fill: $white;
+        }
+
+        &:hover {
+            background-color: $Blue;
+            border-color: $Blue;
+        }
+        &:disabled {
+            background-color: $BtnDisabled;
+            color: $BtnDisabledText;
+            border-color: $BtnDisabled;
+            cursor: not-allowed;
+
+            path {
+                fill: $BtnDisabledText;
+            }
+        }
+        &.rounded {
+            min-width: 46px;
+            border-radius: 100px;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            -ms-border-radius: 100px;
+            -o-border-radius: 100px;
+        }
+    }
+    &.outline {
+        background-color: transparent;
+        color: $ESRPBlue;
+        border-color: $ESRPBlue;
+
+        path {
+            fill: $ESRPBlue;
+        }
+
+        &:hover {
+            background-color: transparent;
+            border-color: $Blue;
+            color: $Blue;
+
+            path {
+                fill: $Blue;
+            }
+        }
+        &:disabled {
+            border-color: $BtnDisabled;
+            color: $BtnDisabledText;
+            cursor: not-allowed;
+
+            path {
+                fill: $BtnDisabledText;
+            }
+        }
+        &.rounded {
+            min-width: 46px;
+            border-radius: 100px;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            -ms-border-radius: 100px;
+            -o-border-radius: 100px;
+        }
+    }
+}
+
+
+// DARK THEME ----------------------------------
+
+#{$dark-theme}{
+    .btn {
+        color: $DoryBlue;
+        background-color: $BodyBgDark;
+        path{
+            stroke: $DoryBlue;
+        }
+        &.primary {
+            background-color: $DoryBlue;
+            border-color: $DoryBlue;
+            color: $white;
+            &:hover {
+                background-color: $DoryBlue-click;
+                border-color: $DoryBlue-click;
+            }
+            &:disabled {
+                background-color: $btnDarkDisable;
+                border-color: $btnDarkDisable;
+                color: $BtnDisabledText;
+                path {
+                    fill: $BtnDisabledText;
+                }
+                &:hover {
+                    background-color: $btnDarkDisable;
+                    border-color: $btnDarkDisable;
+                    color: $BtnDisabledText;
+                }
+            }
+        }
+        &.outline {
+            border-color: $DoryBlue;
+            color: $DoryBlue;
+            background-color: transparent;
+            path {
+                fill: $DoryBlue;
+            }
+            &:hover {
+                border-color: $DoryBlue-click;
+                color: $DoryBlue-click;
+                background-color: transparent;
+                path {
+                    fill: $DoryBlue-click;
+                }
+            }
+            &:disabled {
+                border-color: $btnDarkDisable;
+                color: $BtnDisabledText;
+                path {
+                    fill: $BtnDisabledText;
+                }
+                &:hover {
+                    border-color: $btnDarkDisable;
+                    color: $BtnDisabledText;
+                }
+            }
+        }
+    }
+
+    .btn-icon {
+        color: $DoryBlue;
+        background-color: $BodyBgDark;
+        path{
+            stroke: $DoryBlue;
+        }
+        &.primary {
+            background-color: $DoryBlue;
+            border-color: $DoryBlue;
+            &:hover {
+                background-color: $DoryBlue-click;
+                border-color: $DoryBlue-click;
+            }
+            &:disabled {
+                background-color: $btnDarkDisable;
+                border-color: $btnDarkDisable;
+                path {
+                    fill: $BtnDisabledText;
+                }
+                &:hover {
+                    background-color: $btnDarkDisable;
+                    border-color: $btnDarkDisable;
+                }
+            }
+        }
+        &.outline {
+            border-color: $DoryBlue;
+            path {
+                fill: $DoryBlue;
+            }
+            &:hover {
+                border-color: $DoryBlue-click;
+                path {
+                    fill: $DoryBlue-click;
+                }
+            }
+            &:disabled {
+                border-color: $btnDarkDisable;
+                path {
+                    fill: $BtnDisabledText;
+                }
+                &:hover {
+                    border-color: $btnDarkDisable;
+                }
+            }
+        }
+    }
+}
+
+
+// LIGHT THEME ----------------------------------
+
+#{$light-theme}{
+    .btn {
+        color: $BoggsPurple;
+        path{
+            stroke: $BoggsPurple;
+        }
+        &.primary {
+            background-color: $BoggsPurple;
+            border-color: $BoggsPurple;
+            &:hover {
+                background-color: $BoggsPurple-click;
+                border-color: $BoggsPurple-click;
+            }
+            &:disabled {
+                background-color: $BtnDisabled;
+                border-color: $BtnDisabled;
+                color: $BtnDisabledText;
+                path {
+                    fill: $BtnDisabledText;
+                }
+                &:hover {
+                    background-color: $BtnDisabled;
+                    border-color: $BtnDisabled;
+                    color: $BtnDisabledText;
+                }
+            }
+        }
+        &.outline {
+            border-color: $BoggsPurple;
+            color: $BoggsPurple;
+            background-color: transparent;
+            path {
+                fill: $BoggsPurple;
+            }
+            &:hover {
+                border-color: $BoggsPurple-click;
+                color: $BoggsPurple-click;
+                path {
+                    fill: $BoggsPurple-click;
+                }
+            }
+            &:disabled {
+                border-color: $BtnDisabled;
+                color: $BtnDisabledText;
+                path {
+                    fill: $BtnDisabledText;
+                }
+                &:hover {
+                    border-color: $BtnDisabled;
+                    color: $BtnDisabledText;
+                }
+            }
+        }
+    }
+
+    .btn-icon {
+        color: $BoggsPurple;
+        path{
+            stroke: $BoggsPurple;
+        }
+        &.primary {
+            background-color: $BoggsPurple;
+            border-color: $BoggsPurple;
+            &:hover {
+                background-color: $BoggsPurple-click;
+                border-color: $BoggsPurple-click;
+            }
+            &:disabled {
+                background-color: $BtnDisabled;
+                border-color: $BtnDisabled;
+                path {
+                    fill: $BtnDisabledText;
+                }
+                &:hover {
+                    background-color: $BtnDisabled;
+                    border-color: $BtnDisabled;
+                }
+            }
+        }
+        &.outline {
+            border-color: $BoggsPurple;
+            path {
+                fill: $BoggsPurple;
+            }
+            &:hover {
+                border-color: $BoggsPurple-click;
+                path {
+                    fill: $BoggsPurple-click;
+                }
+            }
+            &:disabled {
+                border-color: $BtnDisabled;
+                path {
+                    fill: $BtnDisabledText;
+                }
+                &:hover {
+                    border-color: $BtnDisabled;
+                }
+            }
+        }
+    }
+}

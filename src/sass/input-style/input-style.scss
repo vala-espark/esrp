@@ -1,0 +1,111 @@
+.input-item {
+    margin-bottom: 20px;
+    width: 100%;
+    position: relative;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    label {
+        display: block;
+        margin: 0;
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: 0.44px;
+        line-height: 24px;
+        color: $BlueishBlack;
+        // opacity: 0.81;
+        position: absolute;
+        top: 16px;
+        left: 12px;
+        pointer-events: none;
+        transition: $transition;
+        -webkit-transition: $transition;
+        -moz-transition: $transition;
+        -ms-transition: $transition;
+        -o-transition: $transition;
+    }
+    select,
+    textarea,
+    input {
+        margin: 0;
+        width: 100%;
+        display: block;
+        padding: 20px 10px 10px 10px;
+        border: 0;
+        min-height: 56px;
+        background-color: $white;
+        border-radius: 4px 4px 0 0;
+        -webkit-border-radius: 4px 4px 0 0;
+        -moz-border-radius: 4px 4px 0 0;
+        -ms-border-radius: 4px 4px 0 0;
+        -o-border-radius: 4px 4px 0 0;
+        border-bottom: 1px solid $ESRPBlue;
+        font-size: 16px;
+
+        &:hover {
+            box-shadow: 0 100px 80px rgba(92, 134, 193, 0.07), 0 41.78px 33.4px rgba(92, 134, 193, 0.0503),
+                0 22.34px 17.87px rgba(92, 134, 193, 0.0417), 0 12.52px 10.02px rgba(92, 134, 193, 0.035),
+                0 6.5px 5.32px rgba(92, 134, 193, 0.0283), 0 2.77px 2.21px rgba(92, 134, 193, 0.0197);
+        }
+        &:focus {
+            border-width: 2px;
+        }
+        &.error {
+            border-color: $Red;
+        }
+        &.hasFocus {
+            & + label {
+                font-size: 12px;
+                color: $Blue;
+                transform: translateY(-15px);
+                -webkit-transform: translateY(-15px);
+                -moz-transform: translateY(-15px);
+                -ms-transform: translateY(-15px);
+                -o-transform: translateY(-15px);
+            }
+        }
+    }
+
+    select {
+        background-position: 97% 50%;
+        background-size: 12px;
+        background-repeat: no-repeat;
+    }
+}
+
+// DARK ---------------------------------
+
+#{$dark-theme} {
+    .input-item {
+        label {
+            color: $BtnDisabledText;
+        }
+
+        input {
+            background-color: $DarkMapControlBgNew;
+            border-color: $ESRPBlue;
+            color: $white;
+            &:focus {
+                border-width: 2px;
+            }
+            &.hasFocus {
+                & + label{
+                    color: $ESRPBlue;
+                }
+            }
+        }
+    }
+}
+
+// LIGHT ---------------------------------
+
+#{$light-theme} {
+    .input-item {
+        input {
+            &:hover,
+            &:focus {
+                border-color: $BoggsPurple;
+            }
+        }
+    }
+}

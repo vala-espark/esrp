@@ -1,6 +1,7 @@
 @import "./variables.scss";
+@import "./button-style/button.style.scss";
 
-.dark-theme {
+#{$dark-theme} {
     background-color: $Black;
 
     *::-webkit-scrollbar {
@@ -14,6 +15,12 @@
     }
     *::-webkit-scrollbar-thumb:hover {
         background: $Purple-Dark;
+    }
+
+    .site-content {
+        .site-inner-content{
+            background-color: $BodyBgDark;
+        }
     }
 
     .theme-change-wrapper {
@@ -35,149 +42,9 @@
         }
     }
 
-    .btn {
-        &.primary {
-            background-color: $DoryBlue;
-            border-color: $DoryBlue;
-            &:hover {
-                background-color: $DoryBlue-click;
-                border-color: $DoryBlue-click;
-            }
-            &:disabled {
-                background-color: $btnDarkDisable;
-                border-color: $btnDarkDisable;
-                color: $BtnDisabledText;
-                path {
-                    fill: $BtnDisabledText;
-                }
-                &:hover {
-                    background-color: $btnDarkDisable;
-                    border-color: $btnDarkDisable;
-                    color: $BtnDisabledText;
-                }
-            }
-        }
-        &.outline {
-            border-color: $DoryBlue;
-            color: $DoryBlue;
-            path {
-                fill: $DoryBlue;
-            }
-            &:hover {
-                border-color: $DoryBlue-click;
-                color: $DoryBlue-click;
-                path {
-                    fill: $DoryBlue-click;
-                }
-            }
-            &:disabled {
-                border-color: $btnDarkDisable;
-                color: $BtnDisabledText;
-                path {
-                    fill: $BtnDisabledText;
-                }
-                &:hover {
-                    border-color: $btnDarkDisable;
-                    color: $BtnDisabledText;
-                }
-            }
-        }
-    }
-
-    .btn-icon {
-        &.primary {
-            background-color: $DoryBlue;
-            border-color: $DoryBlue;
-            &:hover {
-                background-color: $DoryBlue-click;
-                border-color: $DoryBlue-click;
-            }
-            &:disabled {
-                background-color: $btnDarkDisable;
-                border-color: $btnDarkDisable;
-                path {
-                    fill: $BtnDisabledText;
-                }
-                &:hover {
-                    background-color: $btnDarkDisable;
-                    border-color: $btnDarkDisable;
-                }
-            }
-        }
-        &.outline {
-            border-color: $DoryBlue;
-            path {
-                fill: $DoryBlue;
-            }
-            &:hover {
-                border-color: $DoryBlue-click;
-                path {
-                    fill: $DoryBlue-click;
-                }
-            }
-            &:disabled {
-                border-color: $btnDarkDisable;
-                path {
-                    fill: $BtnDisabledText;
-                }
-                &:hover {
-                    border-color: $btnDarkDisable;
-                }
-            }
-        }
-    }
-
     .header,
     .side-bar {
-        background-color: $BlueishBlack-Dark;
-    }
-
-    .header-menu-wrapper {
-        ul {
-            li {
-                &:hover,
-                &.active {
-                    a {
-                        color: $white;
-                        &::before {
-                            background-color: $DoryBlue;
-                        }
-                    }
-                }
-                a {
-                    color: $HeaderMenuActive;
-                }
-            }
-        }
-    }
-
-    .header-user-wrapper {
-        ul {
-            li {
-                a {
-                    &:hover svg {
-                        path {
-                            fill: $DoryBlue;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .header-search-wrapper {
-        .search-bar {
-            input {
-                background-color: $Black;
-                caret-color: $BoggsPurple;
-                color: $white;
-            }
-            .header-search-icon {
-                path {
-                    fill: $PurpleBlue;
-                }
-            }
-        }
+        background-color: $DarkMapControlBgNew;
     }
 
     .loading-sec {
@@ -199,43 +66,10 @@
         }
     }
 
-    .side-bar-menu {
-        ul {
-            li {
-                &.active,
-                &:hover {
-                    a {
-                        &::before {
-                            background-color: $SidebarActive;
-                        }
-                        path {
-                            fill: $SidebarActive;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    footer{
-        background-color: $BlueishBlack-Dark;
-    }
-
-    .loading-sec {
-        background-color: $DarkLoading;
-    }
-    .loading-content {
-        .progress-bar-wrapper {
-            span {
-                color: $white;
-            }
-        }
-    }
-
     .map-control-wrapper {
         .map-control-item {
             background-color: $DarkMapControlBg;
-            box-shadow: 0 10px 80px #9072d569;
+            box-shadow: none;
 
             li {
                 a {
@@ -271,47 +105,29 @@
     }
 
     .card {
-        background-color: $DarkMapControlBg;
-    }
+        background-color: $DarkMapControlBgNew;
+        box-shadow: none;
 
-    .input-item {
-        label {
-            color: $BtnDisabledText;
-        }
-
-        input {
-            background-color: $DarkMapControlBg;
-            border-color: $PurpleBlue;
-            color: $BtnDisabledText;
-            &:hover,
-            &:focus {
-                border-color: $white
+        .card-title{
+            label{
+              color: $white;
+            }
+            .sub-text{
+                color: $white;
             }
         }
     }
-    .login-sec {
-        background-color: $Black;
-        .bg-pattern {
-            opacity: 0.3;
-            img {
-                filter: invert(1);
-                -webkit-filter: invert(1);
-            }
-        }
+
+    .page-title,
+    .page-title-sub {
+        color: $BtnDisabled;
     }
-    .login-text-content {
-        h3{
+
+    .indicator-text {
+        li {
+          .name {
             color: $white;
+          }
         }
-    }
-    .form-row {
-        .forget {
-            a {
-                color: $BtnDisabledText;
-                &:hover {
-                    color: $DoryBlue;
-                }
-            }
-        }
-    }
+      }
 }

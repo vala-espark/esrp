@@ -13,7 +13,7 @@ const Footer = () => {
                         </div>
                         <div className="col col-6">
                             <div className="footer-year-text">
-                                <label>2019</label>
+                                <label>2021</label>
                             </div>
                         </div>
                     </div>

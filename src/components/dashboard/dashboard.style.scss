@@ -3,7 +3,108 @@
 .dashboard-sec {
     position: relative;
     z-index: 9;
+    height: 100%;
 }
+
+.dash-theme-change-wrapper {
+    position: absolute;
+    right: 100px;
+    bottom: 25px;
+    & > input {
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        border-radius: 100px;
+        cursor: pointer;
+        z-index: 9;
+        &:checked + label {
+            background-color: $NewDarkprimary;
+            path {
+                stroke: $ESRPBlue;
+            }
+            .dark {
+                opacity: 1;
+                transform: scale(1);
+                -webkit-transform: scale(1);
+                -moz-transform: scale(1);
+                -ms-transform: scale(1);
+                -o-transform: scale(1);
+            }
+            .light {
+                opacity: 0;
+                transform: scale(0);
+                -webkit-transform: scale(0);
+                -moz-transform: scale(0);
+                -ms-transform: scale(0);
+                -o-transform: scale(0);
+            }
+            &::before {
+                background-color: $NewDarkprimaryOpacity;
+                left: 8px;
+                border-color: $ESRPBlue;
+            }
+        }
+    }
+    & > label {
+        background-color: $white;
+        display: flex;
+        width: 80px;
+        justify-content: space-between;
+        padding: 6px 8px;
+        height: 36px;
+        border-radius: 100px;
+        align-items: center;
+        transition: $transition;
+        -webkit-transition: $transition;
+        -moz-transition: $transition;
+        -ms-transition: $transition;
+        -o-transition: $transition;
+
+        &::before {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+
+            background-color: $NewLightprimaryOpacity;
+            content: "";
+            border-radius: 100px;
+            top: 51%;
+            transform: translateY(-50%);
+            left: 50px;
+            border: 2px solid $NewLightprimary;
+            transition: $transition;
+            -webkit-transition: $transition;
+            -moz-transition: $transition;
+            -ms-transition: $transition;
+            -o-transition: $transition;
+        }
+
+        span {
+            cursor: pointer;
+            height: 24px;
+            transition: $transition;
+            -webkit-transition: $transition;
+            -moz-transition: $transition;
+            -ms-transition: $transition;
+            -o-transition: $transition;
+            &.dark {
+                height: 20px;
+                opacity: 0;
+                transform: scale(0);
+                -webkit-transform: scale(0);
+                -moz-transform: scale(0);
+                -ms-transform: scale(0);
+                -o-transform: scale(0);
+            }
+            path {
+                stroke: $NewLightprimary;
+            }
+        }
+    }
+}
+
 .map-container {
     // position: fixed;
     top: 0;
@@ -14,12 +115,13 @@
 }
 .dashboard-market-overview-clm {
     position: absolute;
-    top: 40px;
+    top: 60px;
     width: 320px;
     left: 60px;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 170px);
     overflow-y: auto;
-    padding-bottom: 50px;
+    padding-bottom: 0px;
+    overscroll-behavior: contain;
 
     &::-webkit-scrollbar {
         width: 0px;
@@ -36,10 +138,9 @@
     top: 60px;
     right: 100px;
 }
-
 .dashboard-market-overview-clm {
     .title {
-        margin-bottom: 24px;
+        margin-bottom: 12px;
         h4 {
             color: $white;
             margin: 0;
@@ -48,6 +149,7 @@
 }
 
 .population-wrap {
+    margin-bottom: 24px;
     .population-title {
         font-size: 20px;
         line-height: 32px;
@@ -69,13 +171,14 @@
     h1 {
         color: $white;
         margin: 0;
+        line-height: 74px;
     }
     h6 {
         color: $white;
         margin: 0;
     }
     .population-color-stripe-bar {
-        margin: 8px 0 24px;
+        margin: 8px 0 0px;
         max-width: 270px;
         width: 100%;
         overflow: hidden;
@@ -231,11 +334,43 @@
     }
 }
 
+// DARK THEME -------------------------
+
 .dark-theme {
     .population-card-info {
-        &> *{
+        & > * {
             color: $white;
-        }    
+        }
+    }
+
+    .dash-theme-change-wrapper {
+        // label {
+        //     background-color: $NewDarkprimary;
+        //     path {
+        //         stroke: $ESRPBlue;
+        //     }
+        //     .dark {
+        //         opacity: 1;
+        //         transform: scale(1);
+        //         -webkit-transform: scale(1);
+        //         -moz-transform: scale(1);
+        //         -ms-transform: scale(1);
+        //         -o-transform: scale(1);
+        //     }
+        //     .light {
+        //         opacity: 0;
+        //         transform: scale(0);
+        //         -webkit-transform: scale(0);
+        //         -moz-transform: scale(0);
+        //         -ms-transform: scale(0);
+        //         -o-transform: scale(0);
+        //     }
+        //     &::before {
+        //         background-color: $NewDarkprimaryOpacity;
+        //         left: 8px;
+        //         border-color: $ESRPBlue;
+        //     }
+        // }
     }
 
     .population-card-attainment {

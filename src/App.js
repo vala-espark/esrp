@@ -18,6 +18,10 @@ import BubbleChart from "./components/charts/bubble/bubble.component";
 import ColumnChart from "./components/charts/column/column.component";
 import TimelineChart from "./components/charts/timeline/timeline.componant";
 import DotChart from "./components/charts/dot/dot.component";
+import AnalysisDashboard from "./components/wageAnalysis/analysis-dashboard.component";
+import AnalysisDashboardV2 from "./components/wageAnalysis-v2/analysis-dashboard.component";
+import LaborAnalysis from "./components/labor-analysis/labor-analysis.componant";
+import MapChart from "./components/charts/mapchart/MapChart.componenet";
 
 function App() {
   return (
@@ -29,6 +33,7 @@ function App() {
         <Header />
         <div className="site-inner-content">
           <Switch>
+            <Route exact path="/" component={Dashboard}></Route>
             <Route exact path="/login" component={Login}></Route>
             <Route exact path="/dashboard" component={Dashboard}></Route>
             <Route exact path="/line-chart" component={Linechart}></Route>
@@ -43,6 +48,10 @@ function App() {
             <Route exact path="/column" component={ColumnChart}></Route>{/* NOT */} 
             <Route exact path="/timeline" component={TimelineChart}></Route>{/* NOT */} 
             <Route exact path="/dot" component={DotChart}></Route>{/* NOT */} 
+            <Route exact path="/analysis-dashboard" component={AnalysisDashboard}></Route>
+            <Route exact path="/analysis-dashboard-v2" component={AnalysisDashboardV2}></Route>
+            <Route exact path="/labor-analysis" component={LaborAnalysis}></Route>
+            <Route exact path="/map-chart" component={MapChart}></Route>
           </Switch>
         </div>
         <Footer />

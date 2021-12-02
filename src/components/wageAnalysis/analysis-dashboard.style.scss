@@ -1,0 +1,271 @@
+@import "../../sass/variables.scss";
+
+.analysis-dashboard-sec {
+    padding-top: 64px;
+    // height: 100%;
+
+    .radialbars-chart {
+        .apexcharts-legend {
+            display: block;
+        }
+        .apexcharts-datalabels-group {
+            text {
+                &:last-child {
+                    display: none;
+                }
+                &:first-child {
+                    transform: translateY(52px);
+                    fill: #5a5a89 !important;
+                }
+            }
+        }
+    }
+
+}
+.analysis-column-card{
+    .card-content{
+        height: 500px;
+    }
+    .apexcharts-tooltip {
+        border: 0 !important;
+        box-shadow: 0 2px 30px rgba(197,197,197, 0.70);
+        & > *{
+            &:first-child{
+                display: none !important;
+            }
+        }
+        .apexcharts-tooltip-y-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .apexcharts-tooltip-text-y-value {
+            margin: 0;
+            font-size: 18px;
+            font-family: 'Poppins';
+        }
+        .apexcharts-tooltip-text-y-label {
+            font-size: 17px;
+        }
+    }
+    
+    
+    .apexcharts-tooltip > .apexcharts-tooltip-series-group.apexcharts-active {}
+    
+}
+
+.map-card {
+    // color: $BlueishBlack;
+    .card-content {
+        height: 500px;
+    }
+    .mapboxgl-marker {
+        width: 100px;
+        height: 100px;
+        background-color: $ESRPBlue;
+        border-radius: 100px;
+        opacity: 0.8;
+        img {
+            display: none;
+        }
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: $ESRPBlue;
+            top: 0;
+            left: 0;
+            border-radius: 100px;
+            // opacity: 0.5;
+            //transform: scale(1.7);
+            //-webkit-transform: scale(1.7);
+            //-moz-transform: scale(1.7);
+            //-ms-transform: scale(1.7);
+            //-o-transform: scale(1.7);
+            animation: ripple1 2s linear infinite;
+            -webkit-animation: ripple1 2s linear infinite;
+        }
+
+        &::after {
+            //transform: scale(2.5);
+            animation: ripple2 2s linear infinite;
+            -webkit-animation: ripple2 2s linear infinite;
+            animation-delay: 1.3s;
+        }
+    }
+}
+@keyframes ripple1 {
+    0% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -o-transform: scale(1.5);
+        opacity: 0;
+    }
+}
+@keyframes ripple2 {
+    0% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        -webkit-transform: scale(2);
+        -moz-transform: scale(2);
+        -ms-transform: scale(2);
+        -o-transform: scale(2);
+        opacity: 0;
+    }
+}
+.title-filter-row {
+    margin-bottom: 40px;
+}
+
+.analysis-filter-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+    .msa {
+        width: 50%;
+    }
+    .household {
+        width: 25%;
+    }
+    .wage {
+        width: 25%;
+    }
+    .analysis-filter-item {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.overview-income-row {
+    margin-top: 30px;
+}
+
+.annual-income-card {
+    height: 100%;
+}
+.employee-salary {
+    text-align: center;
+    margin-top: 30px;
+    label {
+        margin: 0;
+        font-size: 20px;
+        line-height: 32px;
+        letter-spacing: 0.15px;
+        // font-weight: 600;
+    }
+    P {
+        margin: 0;
+        font-size: 22px;
+        line-height: 36px;
+        letter-spacing: 0px;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+    }
+}
+.annual-salary-progress {
+    margin: 30px 0;
+
+    li {
+        display: block;
+        &:not(:first-child) {
+            margin-top: 8px;
+        }
+        span {
+            display: flex;
+            align-items: center;
+            position: relative;
+            justify-content: space-between;
+            padding: 9px 12px 9px 12px;
+            border-radius: 100px;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            -ms-border-radius: 100px;
+            -o-border-radius: 100px;
+            min-width: 149px;
+        }
+        small {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            font-size: 20px;
+            line-height: 32px;
+            letter-spacing: 0.15px;
+            font-weight: 600;
+            color: $white;
+        }
+        svg {
+            width: 24px;
+            height: 24px;
+            // position: absolute;
+            right: 20px;
+            top: 14px;
+        }
+    }
+}
+.annual-salary-indicator {
+    li {
+        &:not(:first-child) {
+            margin-top: 10px;
+        }
+        .circle {
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            border-radius: 100px;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            -ms-border-radius: 100px;
+            -o-border-radius: 100px;
+            margin-right: 8px;
+        }
+        .label {
+            color: $Black-Dark;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.44px;
+        }
+    }
+}
+
+#{$dark-theme} {
+    .overview-card {
+        li {
+            & > * {
+                color: $white;
+            }
+        }
+    }
+    .employee-salary {
+        label,
+        p {
+            color: $white;
+        }
+    }
+    .annual-salary-indicator {
+        li {
+            .label {
+                color: $white;
+            }
+        }
+    }
+}

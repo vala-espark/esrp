@@ -1,0 +1,248 @@
+@import "../../sass/variables.scss";
+
+.labor-analysis-sec {
+    padding-top: 24px;
+
+    .title-filter-row {
+        align-items: center;
+    }
+
+    .theme-changer-btn {
+        .btn-icon {
+            min-width: 46px;
+            width: 46px;
+            height: 46px;
+            border-radius: 8px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            -ms-border-radius: 8px;
+            -o-border-radius: 8px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .labor-filter-btns-wrap {
+        ul {
+            justify-content: flex-end;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        li {
+            &:not(:first-child) {
+                margin-left: 36px;
+            }
+        }
+        .action-btn {
+            button {
+                min-width: 270px;
+                margin: 0;
+            }
+        }
+    }
+    .indicator-text {
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        li {
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+        }
+        .name {
+            white-space: nowrap;
+        }
+    }
+
+    .labor-market-score-progress-wrap {
+        margin-top: 28px;
+        li {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            .name {
+                color: $BlueishBlack;
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: 0.44px;
+                line-height: 24px;
+                max-width: 70%;
+                display: block;
+            }
+            .value {
+                color: $BlueishBlack;
+                font-size: 20px;
+                font-weight: 500;
+                letter-spacing: 0.44px;
+                line-height: 32px;
+                opacity: 0.6;
+                max-width: 30%;
+                display: block;
+                margin-left: auto;
+            }
+            &:not(:first-child) {
+                margin-top: 14px;
+                padding-top: 10px;
+                border-top: 1px solid $OffWhite;
+            }
+        }
+        .progress-wrap {
+            width: 100%;
+            margin-top: 14px;
+            .progress-item {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                padding-left: 18px;
+                span {
+                    display: block;
+                    font-size: 10px;
+                    line-height: 16px;
+                    letter-spacing: 1.5px;
+                    color: $white;
+                    padding: 4px;
+                    font-weight: 700;
+                    text-align: center;
+                    border-radius: 100px;
+                    -webkit-border-radius: 100px;
+                    -moz-border-radius: 100px;
+                    -ms-border-radius: 100px;
+                    -o-border-radius: 100px;
+                    position: relative;
+                    margin-left: -18px;
+                    &:nth-child(1) {
+                        z-index: 4;
+                    }
+                    &:nth-child(2) {
+                        z-index: 3;
+                    }
+                    &:nth-child(3) {
+                        z-index: 2;
+                    }
+                    &:nth-child(4) {
+                        z-index: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .labor-situational-map-card {
+        position: relative;
+
+        .card-title {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            .labor-map-distance {
+                margin-left: 50px;
+            }
+            .more-btn {
+                margin-left: auto;
+                a {
+                    cursor: pointer;
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+        .labor-map-distance {
+        }
+        .labor-map-controls {
+            max-width: 45px;
+        }
+        .map-control-wrapper {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+
+            .multi-circle-chart-map-wrap {
+                max-width: 970px;
+                width: 100%;
+                margin-left: 65px;
+                overflow: hidden;
+                background-color: $OffWhite;
+                border-radius: 24px;
+                -webkit-border-radius: 24px;
+                -moz-border-radius: 24px;
+                -ms-border-radius: 24px;
+                -o-border-radius: 24px;
+            }
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .map-text {
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+            label {
+                writing-mode: vertical-lr;
+                transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                font-size: 10px;
+                line-height: 16px;
+                color: $BlueishBlack-Dark;
+                letter-spacing: 5.5px;
+                text-transform: uppercase;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+.labor-filter-sidebar {
+    position: fixed;
+    right: -100%;
+    top: 52px;
+    height: calc(100vh - 90px);
+    max-width: 350px;
+    width: 100%;
+    transition: $transition;
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    &.show{
+        right: 0;
+    }
+    .sidebar-inner {
+        height: 100%;
+        padding: 45px 40px;
+        background-color: $purpleLight;
+        overflow: auto;
+    }
+    .sidebar-title {
+        margin-bottom: 24px;
+        h4 {
+            font-weight: 500;
+            font-size: 20px;
+            letter-spacing: 0.44px;
+            line-height: 32px;
+        }
+    }
+    .hide-trigger {
+        width: 100%;
+        margin: 0;
+    }
+    .sidebar-item-wrapper {
+        margin-top: 40px;
+        .sidebar-item {
+            &:not(:first-child) {
+                margin-top: 24px;
+                padding-top: 24px;
+                border-top: 1px solid $OffWhite;
+            }
+        }
+    }
+}

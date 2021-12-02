@@ -13,11 +13,11 @@ const Header = ({theme}) => {
         }
         if(theme.theme_color === 'light-theme')
         {
-            setImage('assets/images/esrp-logo.png');
+            setImage('assets/images/new-logo-light.png');
         }
         if(theme.theme_color === 'dark-theme')
         {
-            setImage('assets/images/esrp-logo-loading.png');
+            setImage('assets/images/new-logo-dark.png');
         }
     },[theme.theme_color]);
 

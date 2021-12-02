@@ -1,7 +1,7 @@
 import ThemeActionTypes from './theme.type';
 
 const INITIAL_STATE = {
-  theme_color:null,
+  theme_color:'light-theme',
 }
 
 const themeReducer = (state = INITIAL_STATE, action) => {
