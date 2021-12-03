@@ -1,10 +1,37 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import Chart from "react-apexcharts";
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
 import './analysis-dashboard.style.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { selectThemeSetting } from "../../redux/theme/theme.selector";
+import { setThemeSetting } from "../../redux/theme/theme.action";
 
-const AnalysisDashboard = () => {
+const AnalysisDashboard = ({ theme, setThemeSetting }) => {
+
+    const [mapColor,setMapColor] = useState('')
+
+    // let mapColor;
+    console.log('theme color',theme);
+    
+    useEffect(() => {
+        document.body.classList.remove('light-theme', 'dark-theme');
+        document.body.classList.add(theme.theme_color);
+
+        if (theme.theme_color === 'esrp-theme') {
+            setMapColor('mapbox://styles/basalsmartsolutions/ckvtyjs1z2hcx14oyb5axlvlc')
+        }
+        if (theme.theme_color === 'light-theme') {
+            // setMapColor('mapbox://styles/basalsmartsolutions/ckvill2q0ase614pc0iiwkd2y'); //OLD
+            setMapColor('mapbox://styles/basalsmartsolutions/ckw232our0h7q14qs4h6yv2bx')
+        }
+        if (theme.theme_color === 'dark-theme') {
+            // setMapColor('mapbox://styles/basalsmartsolutions/ckw36chtz0sel14mwd6cawuut'); //OLD
+            setMapColor('mapbox://styles/basalsmartsolutions/ckw219z4h1r7s14qtbw4fz3x8');
+        }
+
+    }, [theme.theme_color]);
 
     // FOR REDIAL CHART
     const dataSet = {
@@ -232,8 +259,11 @@ const AnalysisDashboard = () => {
                                         <label htmlFor="">Indianapolis, IN</label>
                                     </div>
                                     <div className="card-content">
+                                    {
+                                        console.log({mapColor})
+                                    }
                                         <Map
-                                            style="mapbox://styles/basalsmartsolutions/ckw232our0h7q14qs4h6yv2bx"
+                                            style={mapColor}
                                             containerStyle={{
                                                 height: '100%',
                                                 width: '100%'
@@ -406,4 +436,12 @@ const AnalysisDashboard = () => {
     )
 }
 
-export default AnalysisDashboard;
+const mapStateToProps = createStructuredSelector({
+    theme: selectThemeSetting,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    setThemeSetting: (theme) => dispatch(setThemeSetting(theme)),
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(AnalysisDashboard);

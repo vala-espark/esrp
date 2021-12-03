@@ -91,29 +91,11 @@
             //transform: scale(2.5);
             animation: ripple2 2s linear infinite;
             -webkit-animation: ripple2 2s linear infinite;
-            animation-delay: 1.3s;
+            animation-delay: 1.5s;
         }
     }
 }
 @keyframes ripple1 {
-    0% {
-        transform: scale(1);
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -o-transform: scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1.5);
-        -webkit-transform: scale(1.5);
-        -moz-transform: scale(1.5);
-        -ms-transform: scale(1.5);
-        -o-transform: scale(1.5);
-        opacity: 0;
-    }
-}
-@keyframes ripple2 {
     0% {
         transform: scale(1);
         -webkit-transform: scale(1);
@@ -129,7 +111,25 @@
         -ms-transform: scale(2);
         -o-transform: scale(2);
         opacity: 0;
+}
+}
+@keyframes ripple2 {
+    0% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        opacity: 1;
     }
+    100% {
+        transform: scale(2.5);
+        -webkit-transform: scale(2.5);
+        -moz-transform: scale(2.5);
+        -ms-transform: scale(2.5);
+        -o-transform: scale(2.5);
+        opacity: 0;
+}
 }
 .title-filter-row {
     margin-bottom: 40px;
