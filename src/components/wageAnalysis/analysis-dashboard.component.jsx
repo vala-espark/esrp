@@ -7,6 +7,9 @@ import './analysis-dashboard.style.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { selectThemeSetting } from "../../redux/theme/theme.selector";
 import { setThemeSetting } from "../../redux/theme/theme.action";
+import { handleBlur,handleFocus } from "../../helper/index";
+
+import Select from './selectBox'
 
 const AnalysisDashboard = ({ theme, setThemeSetting }) => {
 
@@ -202,16 +205,6 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
             'pk.eyJ1IjoiYmFzYWxzbWFydHNvbHV0aW9ucyIsImEiOiJja3ZpZ2NtanNjazA3MnZuemt4ZnF6b2FoIn0.0oul5wnWu-7L_2HB0PTzCg'
     });
 
-    // FOR INPUT FLOATING LABEL
-    const handleFocus = (e) => {
-        e.target.classList.add("hasFocus");
-    }
-
-    const handleBlur = (e) => {
-        if (e.target.value === "") {
-            e.target.classList.remove("hasFocus");
-        }
-    }
 
     return (
         <>
@@ -224,26 +217,27 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                         <div className="col col-8">
                             <div className="analysis-filter-wrapper">
                                 <div className="analysis-filter-item msa">
-                                    <div className="input-item ">
+                                    {/* <div className="input-item "> */}
                                         {/* <select onFocus={handleFocus} onBlur={handleBlur} style={{backgroundImage:'url(assets/images/select-arrow.svg)'}}> */}
                                         {/* <select onFocus={handleFocus} onBlur={handleBlur}>
                                             <option value="">Option 1</option>
                                             <option value="">Option 2</option>
                                             <option value="">Option 3</option>
                                         </select> */}
-                                        <input type="text" onFocus={handleFocus} onBlur={handleBlur} />
+                                        {/* <input type="text hasFocus" onFocus={(e)=>handleFocus(e)} onBlur={(e)=>handleBlur(e)} />
                                         <label htmlFor="">Select MSA</label>
-                                    </div>
+                                    </div> */}
+                                    <Select />
                                 </div>
                                 <div className="analysis-filter-item household">
                                     <div className="input-item ">
-                                        <input type="text" onFocus={handleFocus} onBlur={handleBlur} />
+                                        <input type="text" onFocus={(e)=>handleFocus(e)} onBlur={(e)=>handleBlur(e)} />
                                         <label htmlFor="">Select Household</label>
                                     </div>
                                 </div>
                                 <div className="analysis-filter-item wage">
                                     <div className="input-item ">
-                                        <input type="text" onFocus={handleFocus} onBlur={handleBlur} />
+                                        <input type="text" onFocus={(e)=>handleFocus(e)} onBlur={(e)=>handleBlur(e)} />
                                         <label htmlFor="">Hourly Wage</label>
                                     </div>
                                 </div>

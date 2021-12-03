@@ -24,6 +24,7 @@
         -ms-transition: $transition;
         -o-transition: $transition;
     }
+    .select-trigger,
     select,
     textarea,
     input {
@@ -70,6 +71,48 @@
         background-position: 97% 50%;
         background-size: 12px;
         background-repeat: no-repeat;
+    }
+
+    .custom-select{
+        position: relative;
+    }
+    .select-items-wrapper{
+        z-index: 99;
+        max-height: 0;
+        overflow: hidden;
+        position: absolute;
+        transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        &.show
+{
+            max-height: 500px;
+            overflow: auto;
+        }
+    }
+    .select-items-wrap{
+        background-color: $white;
+        padding: 8px 0;
+        &>li{
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.44px;
+            color: $BlueishBlack;
+            padding: 4px 16px;
+            cursor: pointer;
+            &:hover{
+                background-color: rgba(0, 0, 0, 0.02);
+            }
+        }
     }
 }
 
