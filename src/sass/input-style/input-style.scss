@@ -24,16 +24,15 @@
         -ms-transition: $transition;
         -o-transition: $transition;
     }
-    .select-trigger,
-    select,
+    .select-trigger-wrap,
     textarea,
     input {
         margin: 0;
         width: 100%;
         display: block;
-        padding: 20px 10px 10px 10px;
+        padding: 22px 10px 10px 10px;
         border: 0;
-        min-height: 56px;
+        height: 56px;
         background-color: $white;
         border-radius: 4px 4px 0 0;
         -webkit-border-radius: 4px 4px 0 0;
@@ -73,19 +72,63 @@
         background-repeat: no-repeat;
     }
 
-    .custom-select{
+    .custom-select {
         position: relative;
+        .select-trigger-wrap {
+            padding-right: 30px;
+            & >svg {
+                position: absolute;
+                top: 23px;
+                right: 15px;
+                transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                transition: $transition;
+                -webkit-transition: $transition;
+                -moz-transition: $transition;
+                -ms-transition: $transition;
+                -o-transition: $transition;
+            }
+        }
+        &.show {
+            .select-trigger-wrap {
+                border-width: 2px;
+            }
+            svg {
+                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+            }
+        }
+        &.hasSelectIcon {
+            .select-trigger-wrap{
+                padding-left: 50px;
+                position: relative;
+                .select-icon{
+                    position: absolute;
+                    top: 16px;
+                    left: 12px;
+                }
+            }
+            & > label{
+                left: 50px;
+            }
+        }
     }
-    .select-items-wrapper{
+    .select-items-wrapper {
         z-index: 99;
         max-height: 0;
         overflow: hidden;
         position: absolute;
-        transition: all 0.3s;
-        -webkit-transition: all 0.3s;
-        -moz-transition: all 0.3s;
-        -ms-transition: all 0.3s;
-        -o-transition: all 0.3s;
+        transition: $transition;
+        -webkit-transition: $transition;
+        -moz-transition: $transition;
+        -ms-transition: $transition;
+        -o-transition: $transition;
         border-radius: 4px;
         -webkit-border-radius: 4px;
         -moz-border-radius: 4px;
@@ -93,23 +136,23 @@
         -o-border-radius: 4px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.15);
         width: 100%;
-        &.show
-{
-            max-height: 500px;
+        &.show {
+            max-height: 250px;
             overflow: auto;
+            overscroll-behavior: contain;
         }
     }
-    .select-items-wrap{
+    .select-items-wrap {
         background-color: $white;
         padding: 8px 0;
-        &>li{
-            font-size: 16px;
-            line-height: 24px;
+        & > li {
+            font-size: 14px;
+            line-height: 20px;
             letter-spacing: 0.44px;
             color: $BlueishBlack;
             padding: 4px 16px;
             cursor: pointer;
-            &:hover{
+            &:hover {
                 background-color: rgba(0, 0, 0, 0.02);
             }
         }
@@ -123,7 +166,18 @@
         label {
             color: $BtnDisabledText;
         }
+        .select-items-wrap {
+            background-color: $DarkMapControlBgNew;
+            & > li {
+                color: $white;
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.051);
+                }
+            }
+        }
 
+        .select-trigger-wrap,
+        textarea,
         input {
             background-color: $DarkMapControlBgNew;
             border-color: $ESRPBlue;
@@ -132,22 +186,42 @@
                 border-width: 2px;
             }
             &.hasFocus {
-                & + label{
+                & + label {
                     color: $ESRPBlue;
                 }
             }
         }
+        
     }
 }
+
 
 // LIGHT ---------------------------------
 
 #{$light-theme} {
     .input-item {
+        .select-trigger-wrap,
+        textarea,
         input {
+            border-color: $BoggsPurple;
             &:hover,
             &:focus {
                 border-color: $BoggsPurple;
+            }
+            &.hasFocus {
+                & + label {
+                    color: $BoggsPurple;
+                }
+            }
+        }
+
+        .custom-select{
+            .select-trigger{
+                & > svg{
+                    path{
+                        // stroke: $BoggsPurple;
+                    }
+                }
             }
         }
     }

@@ -17,5 +17,8 @@
     }
     .map-card{
         height: 100%;
+        .card-content{
+            height: auto;
+        }
     }
 }

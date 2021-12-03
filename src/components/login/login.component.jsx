@@ -1,7 +1,20 @@
 import React from "react";
 import "./login.styles.scss";
+import Textarea from "../control-component/textarea";
+import Input from "../control-component/input";
 
 const Login = () => {
+
+    const handleFocus = (e) => {
+        e.target.classList.add("hasFocus");
+    }
+
+    const handleBlur = (e) => {
+        if (e.target.value === "") {
+            e.target.classList.remove("hasFocus");
+        }
+    }
+
     return (
         <>
             <section className="login-sec">
@@ -22,14 +35,8 @@ const Login = () => {
                                     </div>
                                     <form>
                                         <div className="form-row">
-                                            <div className="input-item">
-                                                <label htmlFor="">Email</label>
-                                                <input type="email" name="" id="" />
-                                            </div>
-                                            <div className="input-item">
-                                                <label htmlFor="">Password</label>
-                                                <input type="password" name="" id="" />
-                                            </div>
+                                            <Input name="email" id="email" type="email" lable="Email"/>
+                                            <Input name="password" id="password" type="password" lable="Password"/>
                                             <div className="input-item forget">
                                                 <span>Forgot Password? <a href="#!">Reset here</a></span>
                                             </div>

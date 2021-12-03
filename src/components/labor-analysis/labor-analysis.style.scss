@@ -213,6 +213,7 @@
     -moz-transition: $transition;
     -ms-transition: $transition;
     -o-transition: $transition;
+    z-index: 9999;
     &.show{
         right: 0;
     }

@@ -7,6 +7,14 @@
     .radialbars-chart {
         .apexcharts-legend {
             display: block;
+            .apexcharts-legend-series{
+                margin: 0 !important;
+                line-height: 15.3px;
+            }
+            .apexcharts-legend-marker{
+                width:  7.105691056910569px !important;
+                height:  7.105691056910569px !important; 
+            }
         }
         .apexcharts-datalabels-group {
             text {
@@ -64,6 +72,7 @@
         background-color: $ESRPBlue;
         border-radius: 100px;
         opacity: 0.8;
+        pointer-events: none;
         img {
             display: none;
         }
@@ -133,6 +142,9 @@
 }
 .title-filter-row {
     margin-bottom: 40px;
+    .col{
+        z-index: 99 !important;
+    }
 }
 
 .analysis-filter-wrapper {
