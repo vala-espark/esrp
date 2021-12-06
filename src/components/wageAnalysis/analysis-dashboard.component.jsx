@@ -1,19 +1,50 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Chart from "react-apexcharts";
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
 import './analysis-dashboard.style.scss';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import { selectThemeSetting } from "../../redux/theme/theme.selector";
 import { setThemeSetting } from "../../redux/theme/theme.action";
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import Input from '../control-component/input';
 
 import Select from '../control-component/selectBox'
 
-const AnalysisDashboard = ({ theme, setThemeSetting }) => {
+const geojson = {
+    'type': 'FeatureCollection',
+    'features': [
+        {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-77.032, 38.913]
+            },
+            'properties': {
+                'title': 'Mapbox',
+                'description': 'Washington, D.C.'
+            }
+        },
+        {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-122.414, 37.776]
+            },
+            'properties': {
+                'title': 'Mapbox',
+                'description': 'San Francisco, California'
+            }
+        }
+    ]
+};
 
-    const [mapColor, setMapColor] = useState('');
+const AnalysisDashboard = ({ theme, setThemeSetting }) => {
+    const mapContainer = useRef(null);
+    const map = useRef(null);
+    let mapColor;
+    const [lng, setLng] = useState(-95.550000);
+    const [lat, setLat] = useState(38.770000);
+    const [zoom, setZoom] = useState(3.78);
     const [selectBox, setSelectBox] = useState();
     const [houseHold, setHouseHold] = useState();
 
@@ -23,17 +54,48 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
     useEffect(() => {
         document.body.classList.remove('light-theme', 'dark-theme');
         document.body.classList.add(theme.theme_color);
-
+        
         if (theme.theme_color === 'esrp-theme') {
-            setMapColor('mapbox://styles/basalsmartsolutions/ckvtyjs1z2hcx14oyb5axlvlc')
+            mapColor = 'mapbox://styles/basalsmartsolutions/ckvtyjs1z2hcx14oyb5axlvlc'
+            if (map.current) map.current.setStyle(mapColor);
         }
         if (theme.theme_color === 'light-theme') {
-            // setMapColor('mapbox://styles/basalsmartsolutions/ckvill2q0ase614pc0iiwkd2y'); //OLD
-            setMapColor('mapbox://styles/basalsmartsolutions/ckw232our0h7q14qs4h6yv2bx')
+
+            mapColor = 'mapbox://styles/basalsmartsolutions/ckw232our0h7q14qs4h6yv2bx'
+            if (map.current) map.current.setStyle(mapColor);
         }
         if (theme.theme_color === 'dark-theme') {
-            // setMapColor('mapbox://styles/basalsmartsolutions/ckw36chtz0sel14mwd6cawuut'); //OLD
-            setMapColor('mapbox://styles/basalsmartsolutions/ckw219z4h1r7s14qtbw4fz3x8');
+            mapColor = 'mapbox://styles/basalsmartsolutions/ckw219z4h1r7s14qtbw4fz3x8';
+            if (map.current) map.current.setStyle(mapColor);
+
+        }
+
+        if (map.current) return;
+        if (mapColor) {
+            map.current = new mapboxgl.Map({
+                container: mapContainer.current,
+                style: mapColor,
+                center: [lng, lat],
+                zoom: zoom
+            });
+
+            for (const feature of geojson.features) {
+                // create a HTML element for each feature
+                const el = document.createElement('div');
+                el.className = 'marker';
+
+                // make a marker for each feature and add it to the map
+                new mapboxgl.Marker(el)
+                    .setLngLat(feature.geometry.coordinates)
+                    .setPopup(
+                        new mapboxgl.Popup({ offset: 25 }) // add popups
+                            .setHTML(
+                                `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+                            )
+                    )
+                    .addTo(map.current);
+            }
+
         }
 
     }, [theme.theme_color]);
@@ -224,12 +286,6 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
         }
     }
 
-    // FOR MAPBOX
-    const Map = ReactMapboxGl({
-        accessToken:
-            'pk.eyJ1IjoiYmFzYWxzbWFydHNvbHV0aW9ucyIsImEiOiJja3ZpZ2NtanNjazA3MnZuemt4ZnF6b2FoIn0.0oul5wnWu-7L_2HB0PTzCg'
-    });
-
 
     return (
         <>
@@ -294,19 +350,7 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                                         <label htmlFor="">Indianapolis, IN</label>
                                     </div>
                                     <div className="card-content">
-                                        {Map && <Map
-                                            style={mapColor}
-                                            containerStyle={{
-                                                height: '100%',
-                                                width: '100%'
-                                            }}
-                                            zoom={[0.1]}
-                                        >
-                                            <Marker coordinates={[-95.550000, 38.770000]} anchor="bottom"></Marker>
-                                            {/* <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
-                                                <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
-                                            </Layer> */}
-                                        </Map>}
+                                        {map && <div ref={mapContainer} className="map-container dashboard-map" />}
                                     </div>
                                 </div>
                             </div>
