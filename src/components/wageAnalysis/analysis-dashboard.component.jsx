@@ -119,14 +119,15 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                 markers: {
                     size: 5,
                     // fillColors: ['#FDA747', '#F9D456', '#81CAB2', '#3FB7F3', '#5C86C1'],
-                    fillColors: ['#FDA747', '#F9D456', '#81CAB2', '#3FB7F3', '#5C86C1'],
+                    fillColors: ['#5C86C1', '#3FB7F3', '#81CAB2', '#F9D456', '#FDA747'],
                 },
                 formatter: function (seriesName, opts) {
                     return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex]
                 },
                 itemMargin: {
                     vertical: 1
-                }
+                },
+                inverseOrder: true,
             },
             labels: ['Housing', 'Transportation', 'Food', 'Medical', 'Other'],
             fill: {
