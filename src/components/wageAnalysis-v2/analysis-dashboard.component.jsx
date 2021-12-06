@@ -11,6 +11,34 @@ import Input from '../control-component/input';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmFzYWxzbWFydHNvbHV0aW9ucyIsImEiOiJja3ZpZ2NtanNjazA3MnZuemt4ZnF6b2FoIn0.0oul5wnWu-7L_2HB0PTzCg';
 
+const geojson = {
+    'type': 'FeatureCollection',
+    'features': [
+        {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-77.032, 38.913]
+            },
+            'properties': {
+                'title': 'Mapbox',
+                'description': 'Washington, D.C.'
+            }
+        },
+        {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-122.414, 37.776]
+            },
+            'properties': {
+                'title': 'Mapbox',
+                'description': 'San Francisco, California'
+            }
+        }
+    ]
+};
+
 const AnalysisDashboardV2 = ({ theme, setThemeSetting }) => {
     let mapColor;
     const mapContainer = useRef(null);
@@ -116,10 +144,10 @@ const AnalysisDashboardV2 = ({ theme, setThemeSetting }) => {
     const dataSet2 = {
         series: [{
             name: 'Living Wage',
-            data: [17.3, 17.3, 17.3, 17.3, 17.3, 17.3, 17.3, 17.3, 15, 17.3, 17.3, 17.3]
+            data: [17, 17, 17, 17, 17, 17, 17, 17, 17, 15, 17, 17,]
         }, {
             name: 'Employee Wage',
-            data: [25, 35, 30, 50, 25, 35, 25, 37, 0, 25, 32, 35]
+            data: [30, 25, 35, 30, 50, 25, 35, 25, 37, 15, 25, 32,]
         },],
         options: {
             tooltip: {
@@ -161,10 +189,25 @@ const AnalysisDashboardV2 = ({ theme, setThemeSetting }) => {
                 },
             },
             xaxis: {
-                categories: ['1 Adult 0 Kids', '1 Adult 1 Kid', '1 Adult 2 Kids', '1 Adult 3 Kids', '2 Adults(1 Working) 0 Kids', '2 Adults(1 Working) 1 Kid', '2 Adults(1 Working) 2 Kids', '2 Adults(1 Working) 3 Kids', '2 Adults(1 Working) 3 Kids', '2 Adults(Both Working) 0 Kids', '2 Adults(Both Working) 1 Kid', '2 Adults(Both Working) 2 Kid', '2 Adults(Both Working) 3 Kid'],
+                categories: [
+                    ['1 Adult', '0 Kids'],
+                    ['1 Adult', '1 Kid'],
+                    ['1 Adult', '2 Kids'],
+                    ['1 Adult', '3 Kids'],
+                    ['2 Adults', '(1 Working)', '0 Kids'],
+                    ['2 Adults', '(2 Working)', '1 Kid'],
+                    ['2 Adults', '(1 Working)', '2 Kids'],
+                    ['2 Adults', '(1 Working)', '3 Kids'],
+                    ['2 Adults', '(Both Working)', '0 Kids'],
+                    ['2 Adults', '(Both Working)', '1 Kid'],
+                    ['2 Adults', '(Both Working)', '2 Kid'],
+                    ['2 Adults', '(Both Working)', '3 Kid']
+
+                ],
                 // show: false,
                 labels: {
                     show: true,
+                    rotate: 0,
                 },
                 lines: {
                     show: false
@@ -210,6 +253,23 @@ const AnalysisDashboardV2 = ({ theme, setThemeSetting }) => {
                 center: [lng, lat],
                 zoom: zoom
             });
+
+            for (const feature of geojson.features) {
+                // create a HTML element for each feature
+                const el = document.createElement('div');
+                el.className = 'marker';
+        
+                // make a marker for each feature and add it to the map
+                new mapboxgl.Marker(el)
+                  .setLngLat(feature.geometry.coordinates)
+                  .setPopup(
+                    new mapboxgl.Popup({ offset: 25 }) // add popups
+                      .setHTML(
+                        `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+                      )
+                  )
+                  .addTo(map.current);
+              }
 
         }
     }, [theme.theme_color]);

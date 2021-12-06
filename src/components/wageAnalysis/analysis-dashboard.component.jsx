@@ -53,7 +53,6 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
         series: [40, 60, 65, 70, 76],
         options: {
             chart: {
-                // height: 50,
                 type: 'radialBar',
             },
             plotOptions: {
@@ -119,6 +118,7 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                 },
                 markers: {
                     size: 5,
+                    // fillColors: ['#FDA747', '#F9D456', '#81CAB2', '#3FB7F3', '#5C86C1'],
                     fillColors: ['#FDA747', '#F9D456', '#81CAB2', '#3FB7F3', '#5C86C1'],
                 },
                 formatter: function (seriesName, opts) {
@@ -138,15 +138,14 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
         },
     };
 
-
     // FOR COLUMN CHART
     const dataSet2 = {
         series: [{
             name: 'Living Wage',
-            data: [17.3, 17.3, 17.3, 17.3, 17.3, 17.3, 17.3, 17.3, 15, 17.3, 17.3, 17.3]
+            data: [17, 17, 17, 17, 17, 17, 17, 17, 15, 17, 17, 17]
         }, {
             name: 'Employee Wage',
-            data: [25, 35, 30, 50, 25, 35, 25, 37, 0, 25, 32, 35]
+            data: [25, 35, 30, 50, 25, 35, 25, 37, 15, 25, 32, 35]
         },],
         options: {
             tooltip: {
@@ -188,7 +187,21 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                 },
             },
             xaxis: {
-                categories: ['1 Adult 0 Kids', '1 Adult 1 Kid', '1 Adult 2 Kids', '1 Adult 3 Kids', '2 Adults(1 Working) 0 Kids', '2 Adults(1 Working) 1 Kid', '2 Adults(1 Working) 2 Kids', '2 Adults(1 Working) 3 Kids', '2 Adults(1 Working) 3 Kids', '2 Adults(Both Working) 0 Kids', '2 Adults(Both Working) 1 Kid', '2 Adults(Both Working) 2 Kid', '2 Adults(Both Working) 3 Kid'],
+                categories: [
+                    ['1 Adult', '0 Kids'],
+                    ['1 Adult', '1 Kid'],
+                    ['1 Adult', '2 Kids'],
+                    ['1 Adult', '3 Kids'],
+                    ['2 Adults', '(1 Working)', '0 Kids'],
+                    ['2 Adults', '(2 Working)', '1 Kid'],
+                    ['2 Adults', '(1 Working)', '2 Kids'],
+                    ['2 Adults', '(1 Working)', '3 Kids'],
+                    ['2 Adults', '(Both Working)', '0 Kids'],
+                    ['2 Adults', '(Both Working)', '1 Kid'],
+                    ['2 Adults', '(Both Working)', '2 Kid'],
+                    ['2 Adults', '(Both Working)', '3 Kid']
+
+                ],
                 // show: false,
                 labels: {
                     show: true,

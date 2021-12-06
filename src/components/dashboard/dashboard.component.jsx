@@ -14,6 +14,7 @@ const Dashboard = ({ theme, setThemeSetting }) => {
     let mapColor;
     const mapContainer = useRef(null);
     const map = useRef(null);
+    // const 
     const [lng, setLng] = useState(-95.550000);
     const [lat, setLat] = useState(38.770000);
     const [zoom, setZoom] = useState(3.78);
@@ -22,30 +23,36 @@ const Dashboard = ({ theme, setThemeSetting }) => {
     useEffect(() => {
         document.body.classList.remove('light-theme', 'dark-theme');
         document.body.classList.add(theme.theme_color);
-
-        if (theme.theme_color === 'esrp-theme') {
+        if (theme.theme_color === 'esrp-theme') {            
             mapColor = 'mapbox://styles/basalsmartsolutions/ckvtyjs1z2hcx14oyb5axlvlc'
+            if (map.current) map.current.setStyle(mapColor);            
         }
         if (theme.theme_color === 'light-theme') {
-            // setMapColor('mapbox://styles/basalsmartsolutions/ckvill2q0ase614pc0iiwkd2y'); //OLD
+            
             mapColor = 'mapbox://styles/basalsmartsolutions/ckw232our0h7q14qs4h6yv2bx'
+            if (map.current)  map.current.setStyle(mapColor);                    
         }
-        if (theme.theme_color === 'dark-theme') {
-            // setMapColor('mapbox://styles/basalsmartsolutions/ckw36chtz0sel14mwd6cawuut'); //OLD
+        if (theme.theme_color === 'dark-theme') {            
             mapColor = 'mapbox://styles/basalsmartsolutions/ckw219z4h1r7s14qtbw4fz3x8';
+            if (map.current) map.current.setStyle(mapColor);
+                    
         }
-
-        if (mapColor) {
+       
+        if (map.current) return;
+        if(mapColor)
+        {
             map.current = new mapboxgl.Map({
                 container: mapContainer.current,
                 style: mapColor,
                 center: [lng, lat],
                 zoom: zoom
             });
-
+            
         }
-    }, [theme.theme_color]);
 
+       
+    }, [theme.theme_color]);
+    
 
     useEffect(() => {
         if (!map.current) return; // wait for map to initialize
@@ -70,7 +77,6 @@ const Dashboard = ({ theme, setThemeSetting }) => {
                             setThemeSetting({ theme_color: 'dark-theme' })
 
                         } else {
-
                             setThemeSetting({ theme_color: 'light-theme' })
                         }
                     }} checked={theme.theme_color === "dark-theme" ? true : false} />
@@ -99,8 +105,6 @@ const Dashboard = ({ theme, setThemeSetting }) => {
 
 
                 {map && <div ref={mapContainer} className="map-container dashboard-map" />}
-
-
 
 
                 <div className="dash-map-distance d-none">

@@ -55,6 +55,11 @@ function App() {
           </Switch>
         </div>
         <Footer />
+
+        <div className="fiexd-name">
+          <span className="small" data-letter="JV"></span>
+          <span className="bic">Jaydeep Vala</span>
+        </div>
       </div>
     </div>
   );
