@@ -7,13 +7,13 @@
     .radialbars-chart {
         .apexcharts-legend {
             display: block;
-            .apexcharts-legend-series{
+            .apexcharts-legend-series {
                 margin: 0 !important;
                 line-height: 15.3px;
             }
-            .apexcharts-legend-marker{
-                width:  7.105691056910569px !important;
-                height:  7.105691056910569px !important; 
+            .apexcharts-legend-marker {
+                width: 7.105691056910569px !important;
+                height: 7.105691056910569px !important;
             }
         }
         .apexcharts-datalabels-group {
@@ -28,17 +28,83 @@
             }
         }
     }
+    .map-container {
+        height: 100%;
+        display: inline-block;
+        width: 100%;
+    }
 
+    .map-card {
+        .card-content {
+            height: 500px;
+        }
+        .mapboxgl-marker {
+            width: 100px;
+            height: 100px;
+            background-color: $ESRPBlue;
+            border-radius: 100px;
+            opacity: 0.8;
+            // pointer-events: none;
+            img {
+                display: none;
+            }
+            &::before,
+            &::after {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 100%;
+                background-color: $ESRPBlue;
+                top: 0;
+                left: 0;
+                border-radius: 100px;
+                animation: ripple1 2s linear infinite;
+                -webkit-animation: ripple1 2s linear infinite;
+            }
+
+            &::after {
+                animation: ripple2 2s linear infinite;
+                -webkit-animation: ripple2 2s linear infinite;
+                animation-delay: 1.5s;
+            }
+        }
+    }
 }
-.analysis-column-card{
-    .card-content{
+
+div.mapboxgl-popup-content {
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 100px 80px rgba(92, 134, 193, 0.07), 0 41.78px 33.4px rgba(92, 134, 193, 0.0503),
+    0 22.34px 17.87px rgba(92, 134, 193, 0.0417), 0 12.52px 10.02px rgba(92, 134, 193, 0.035),
+    0 6.5px 5.32px rgba(92, 134, 193, 0.0283), 0 2.77px 2.21px rgba(92, 134, 193, 0.0197);
+    .title {
+        min-width: 40px;
+        width: 100%;
+        min-height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $ESRPBlue;
+        border-radius: 12px;
+        color: $white;
+    }
+    .mapboxgl-popup-close-button {
+        top: -10px;
+        right: -10px;
+        color: #fff;
+        outline: none;
+    }
+}
+
+.analysis-column-card {
+    .card-content {
         height: 500px;
     }
     .apexcharts-tooltip {
         border: 0 !important;
-        box-shadow: 0 2px 30px rgba(197,197,197, 0.70);
-        & > *{
-            &:first-child{
+        box-shadow: 0 2px 30px rgba(197, 197, 197, 0.7);
+        & > * {
+            &:first-child {
                 display: none !important;
             }
         }
@@ -49,61 +115,14 @@
         .apexcharts-tooltip-text-y-value {
             margin: 0;
             font-size: 18px;
-            font-family: 'Poppins';
+            font-family: "Poppins";
         }
         .apexcharts-tooltip-text-y-label {
             font-size: 17px;
         }
     }
-    
-    
-    .apexcharts-tooltip > .apexcharts-tooltip-series-group.apexcharts-active {}
-    
 }
 
-.map-card {
-    // color: $BlueishBlack;
-    .card-content {
-        height: 500px;
-    }
-    .mapboxgl-marker {
-        width: 100px;
-        height: 100px;
-        background-color: $ESRPBlue;
-        border-radius: 100px;
-        opacity: 0.8;
-        pointer-events: none;
-        img {
-            display: none;
-        }
-        &::before,
-        &::after {
-            position: absolute;
-            content: "";
-            width: 100%;
-            height: 100%;
-            background-color: $ESRPBlue;
-            top: 0;
-            left: 0;
-            border-radius: 100px;
-            // opacity: 0.5;
-            //transform: scale(1.7);
-            //-webkit-transform: scale(1.7);
-            //-moz-transform: scale(1.7);
-            //-ms-transform: scale(1.7);
-            //-o-transform: scale(1.7);
-            animation: ripple1 2s linear infinite;
-            -webkit-animation: ripple1 2s linear infinite;
-        }
-
-        &::after {
-            //transform: scale(2.5);
-            animation: ripple2 2s linear infinite;
-            -webkit-animation: ripple2 2s linear infinite;
-            animation-delay: 1.5s;
-        }
-    }
-}
 @keyframes ripple1 {
     0% {
         transform: scale(1);
@@ -120,7 +139,7 @@
         -ms-transform: scale(2);
         -o-transform: scale(2);
         opacity: 0;
-}
+    }
 }
 @keyframes ripple2 {
     0% {
@@ -138,11 +157,11 @@
         -ms-transform: scale(2.5);
         -o-transform: scale(2.5);
         opacity: 0;
-}
+    }
 }
 .title-filter-row {
     margin-bottom: 40px;
-    .col{
+    .col {
         z-index: 99 !important;
     }
 }

@@ -151,8 +151,6 @@
                 }
             }
         }
-        .labor-map-distance {
-        }
         .labor-map-controls {
             max-width: 45px;
         }
@@ -201,6 +199,35 @@
     }
 }
 
+.multi-circle-chart-map-wrap {
+    .map-container {
+        height: 100%;
+        position: relative;
+    }
+    .mapboxgl-canvas-container{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+    canvas{
+        height: 100% !important;
+    }
+    .mapboxgl-marker {
+        width: 24px;
+        height: 24px;
+        background-color: $ESRPBlue;
+        border-radius: 100px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        -ms-border-radius: 100px;
+        -o-border-radius: 100px;
+        border: 4px solid $white;
+    }
+    .mapboxgl-popup-close-button{
+        display: none;
+    }
+}
+
 .labor-filter-sidebar {
     position: fixed;
     right: -100%;
@@ -214,7 +241,7 @@
     -ms-transition: $transition;
     -o-transition: $transition;
     z-index: 9999;
-    &.show{
+    &.show {
         right: 0;
     }
     .sidebar-inner {

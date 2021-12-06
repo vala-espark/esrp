@@ -266,7 +266,7 @@ const AnalysisDashboardV2 = ({ theme, setThemeSetting }) => {
                   .setPopup(
                     new mapboxgl.Popup({ offset: 25 }) // add popups
                       .setHTML(
-                        `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+                        `<span class="title">${feature.properties.title}</span><span class="sub-title">${feature.properties.description}</span>`
                       )
                   )
                   .addTo(map.current);
@@ -299,8 +299,7 @@ const AnalysisDashboardV2 = ({ theme, setThemeSetting }) => {
     return (
         <>
             <section className="analysis-dashboard-sec version-2">
-                {console.log({ map })}
-                {console.log({ mapContainer })}
+
                 {map && <div ref={mapContainer} className="map-container dashboard-map" />}
 
                 <div className="container-md">

@@ -4,6 +4,14 @@
     position: relative;
     z-index: 9;
     height: 100%;
+    .map-container {
+        // position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: -99;
+    }
 }
 
 .dash-theme-change-wrapper {
@@ -105,14 +113,7 @@
     }
 }
 
-.map-container {
-    // position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: -99;
-}
+
 .dashboard-market-overview-clm {
     position: absolute;
     top: 60px;

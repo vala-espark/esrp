@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import MapDistance from '../map-distance/MapDistance';
 import MapControl from '../map-control/MapControl';
 import { connect } from 'react-redux';
@@ -6,10 +6,70 @@ import { selectThemeSetting } from "../../redux/theme/theme.selector";
 import { setThemeSetting } from "../../redux/theme/theme.action";
 import { createStructuredSelector } from 'reselect';
 import Select from '../control-component/selectBox';
-
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import Input from '../control-component/input';
 import './labor-analysis.style.scss';
 
+const geojson = {
+    'type': 'FeatureCollection',
+    'features': [
+        {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-77.032, 38.913]
+            },
+            'properties': {
+                'title': '1',
+                'description': ''
+            }
+        },
+        {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-122.414, 37.776]
+            },
+            'properties': {
+                'title': '2',
+                'description': ''
+            }
+        },
+        {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-100.414, 30.776]
+            },
+            'properties': {
+                'title': '3',
+                'description': ''
+            }
+        },
+        {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-100.414, 40.776]
+            },
+            'properties': {
+                'title': '4',
+                'description': ''
+            }
+        }
+    ]
+};
+
 const LaborAnalysis = ({ theme, setThemeSetting }) => {
+
+    const mapContainer = useRef(null);
+    const map = useRef(null);
+    let mapColor;
+    const [lng, setLng] = useState(-95.550000);
+    const [lat, setLat] = useState(38.770000);
+    const [zoom, setZoom] = useState(3);
+    const [selectBox, setSelectBox] = useState();
+    const [houseHold, setHouseHold] = useState();
 
     const [showFilter, setShowFilter] = useState(false);
 
@@ -30,15 +90,59 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
     }, [theme.theme_color]);
 
 
-    const handleFocus = (e) => {
-        e.target.classList.add("hasFocus");
-    }
+    // let mapColor;
+    console.log('theme color', theme);
 
-    const handleBlur = (e) => {
-        if (e.target.value === "") {
-            e.target.classList.remove("hasFocus");
+    useEffect(() => {
+        document.body.classList.remove('light-theme', 'dark-theme');
+        document.body.classList.add(theme.theme_color);
+
+        if (theme.theme_color === 'esrp-theme') {
+            mapColor = 'mapbox://styles/basalsmartsolutions/ckvtyjs1z2hcx14oyb5axlvlc'
+            if (map.current) map.current.setStyle(mapColor);
         }
-    }
+        if (theme.theme_color === 'light-theme') {
+
+            mapColor = 'mapbox://styles/basalsmartsolutions/ckw232our0h7q14qs4h6yv2bx'
+            if (map.current) map.current.setStyle(mapColor);
+        }
+        if (theme.theme_color === 'dark-theme') {
+            mapColor = 'mapbox://styles/basalsmartsolutions/ckw219z4h1r7s14qtbw4fz3x8';
+            if (map.current) map.current.setStyle(mapColor);
+
+        }
+
+        if (map.current) return;
+        if (mapColor) {
+            map.current = new mapboxgl.Map({
+                container: mapContainer.current,
+                style: mapColor,
+                center: [lng, lat],
+                zoom: zoom
+            });
+
+            for (const feature of geojson.features) {
+                // create a HTML element for each feature
+                const el = document.createElement('div');
+                el.className = 'marker';
+
+                // make a marker for each feature and add it to the map
+                new mapboxgl.Marker(el)
+                    .setLngLat(feature.geometry.coordinates)
+                    .setPopup(
+                        new mapboxgl.Popup({ offset: 15, closeOnClick: false}) // add popups
+                            .setHTML(
+                                `<span class="title">${feature.properties.title}</span><span class="sub-title">${feature.properties.description}</span>`
+                            )
+                    )
+                    .addTo(map.current);
+            }
+
+        }
+
+    }, [theme.theme_color]);
+
+
 
 
     return (
@@ -200,7 +304,7 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                                             </div>
                                         </div>
                                         <div className="multi-circle-chart-map-wrap">
-                                            <img src="assets/images/medium.png" alt="" />
+                                            {map && <div ref={mapContainer} className="map-container dashboard-map" />}
                                         </div>
                                     </div>
                                 </div>
@@ -252,20 +356,16 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                                 <h4>Weight</h4>
                             </div>
                             <div className="input-item">
-                                <input type="text" onFocus={handleFocus} onBlur={handleBlur} />
-                                <label htmlFor="">Labor Supply</label>
+                                <Input name="LaborSupply" id="LaborSupply" type="text" lable="Labor Supply" />
                             </div>
                             <div className="input-item">
-                                <input type="text" onFocus={handleFocus} onBlur={handleBlur} />
-                                <label htmlFor="">Labor Cost</label>
+                                <Input name="LaborCost" id="LaborCost" type="text" lable="Labor Cost" />
                             </div>
                             <div className="input-item">
-                                <input type="text" onFocus={handleFocus} onBlur={handleBlur} />
-                                <label htmlFor="">Labor Sustainability</label>
+                                <Input name="LaborSustainability" id="LaborSustainability" type="text" lable="Labor Sustainability" />
                             </div>
                             <div className="input-item">
-                                <input type="text" onFocus={handleFocus} onBlur={handleBlur} />
-                                <label htmlFor="">Labor Competition</label>
+                                <Input name="LaborCompetition" id="LaborCompetition" type="text" lable="Labor Competition" />
                             </div>
                         </div>
                     </div>

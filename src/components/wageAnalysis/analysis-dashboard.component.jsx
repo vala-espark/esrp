@@ -7,7 +7,6 @@ import { selectThemeSetting } from "../../redux/theme/theme.selector";
 import { setThemeSetting } from "../../redux/theme/theme.action";
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import Input from '../control-component/input';
-
 import Select from '../control-component/selectBox'
 
 const geojson = {
@@ -20,8 +19,8 @@ const geojson = {
                 'coordinates': [-77.032, 38.913]
             },
             'properties': {
-                'title': 'Mapbox',
-                'description': 'Washington, D.C.'
+                'title': '1',
+                'description': ''
             }
         },
         {
@@ -31,8 +30,8 @@ const geojson = {
                 'coordinates': [-122.414, 37.776]
             },
             'properties': {
-                'title': 'Mapbox',
-                'description': 'San Francisco, California'
+                'title': '2',
+                'description': ''
             }
         }
     ]
@@ -90,7 +89,7 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                     .setPopup(
                         new mapboxgl.Popup({ offset: 25 }) // add popups
                             .setHTML(
-                                `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+                                `<span class="title">${feature.properties.title}</span><span class="sub-title">${feature.properties.description}</span>`
                             )
                     )
                     .addTo(map.current);
@@ -300,8 +299,7 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                             <div className="analysis-filter-wrapper">
                                 <div className="analysis-filter-item msa">
 
-                                    <Select
-                                        selectItem={selectBox}
+                                    <Select  selectItem={selectBox}
                                         setSelectedItem={setSelectBox}
                                         lableName="Select MSA"
                                         selectIcon={
