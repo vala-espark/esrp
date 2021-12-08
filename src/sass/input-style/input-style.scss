@@ -74,9 +74,11 @@
 
     .custom-select {
         position: relative;
+        min-width: 240px;
+        cursor: pointer;
         .select-trigger-wrap {
             padding-right: 30px;
-            & >svg {
+            & > svg {
                 position: absolute;
                 top: 23px;
                 right: 15px;
@@ -105,16 +107,16 @@
             }
         }
         &.hasSelectIcon {
-            .select-trigger-wrap{
+            .select-trigger-wrap {
                 padding-left: 50px;
                 position: relative;
-                .select-icon{
+                .select-icon {
                     position: absolute;
                     top: 16px;
                     left: 12px;
                 }
             }
-            & > label{
+            & > label {
                 left: 50px;
             }
         }
@@ -191,10 +193,8 @@
                 }
             }
         }
-        
     }
 }
-
 
 // LIGHT ---------------------------------
 
@@ -215,10 +215,10 @@
             }
         }
 
-        .custom-select{
-            .select-trigger{
-                & > svg{
-                    path{
+        .custom-select {
+            .select-trigger {
+                & > svg {
+                    path {
                         // stroke: $BoggsPurple;
                     }
                 }

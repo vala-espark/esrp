@@ -1,0 +1,281 @@
+@import "../../sass/variables.scss";
+.cowboys-sec {
+    padding-top: 32px;
+    .card {
+        margin-bottom: 30px;
+    }
+
+    .cowboys-title-filter-row {
+        align-items: center;
+    }
+
+    .cowboys-filter-btn-select {
+        .inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: center;
+            & > div {
+                &:not(:last-child) {
+                    margin-right: 24px;
+                }
+            }
+            .custom-select {
+                min-width: 270px;
+            }
+        }
+    }
+
+    .map-informer-row {
+        margin-top: 40px;
+    }
+    .cowboys-informer-card {
+        @include BlueNeoGradiantLight;
+        color: $white;
+        .title {
+            margin-bottom: 2px;
+            letter-spacing: 0.15px;
+        }
+        h3 {
+            line-height: 60px;
+            margin-bottom: 2px;
+            font-weight: 500;
+        }
+        span {
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.4px;
+            text-transform: capitalize;
+        }
+    }
+    .market-overview-card {
+        ul {
+            margin-top: 15px;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            .name {
+                color: #111128;
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: 0.44px;
+                line-height: 20px;
+                max-width: 70%;
+                display: block;
+            }
+            .value {
+                color: #111128;
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: 0.44px;
+                line-height: 24px;
+                opacity: 0.6;
+                max-width: 30%;
+                display: block;
+            }
+            &:not(:first-child) {
+                margin-top: 10px;
+                padding-top: 14px;
+                border-top: 1px solid #e6e8ed;
+            }
+        }
+    }
+    .analysis-column-card {
+        .card-content {
+            height: 575px;
+        }
+    }
+
+    .market-distribution-card {
+        .card-content {
+            height: 700px;
+        }
+    }
+}
+
+.ripple-controls-map-card {
+    height: calc(100% - 30px);
+    .card-title {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .ripple-map-distance {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .more-btn {
+            a {
+                cursor: pointer;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+    .ripple-map-controls-wrapper {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .ripple-map-controls {
+            max-width: 45px;
+        }
+        .map-text {
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+        }
+        label {
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            font-size: 10px;
+            line-height: 16px;
+            color: $BlueishBlack-Dark;
+            letter-spacing: 5.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
+    .ripple-chart {
+        margin-left: 65px;
+        max-width: calc(100% - 110px);
+        width: 100%;
+        .map-container {
+            height: 100%;
+        }
+    }
+}
+
+.occupational-overview-card {
+    .card-title {
+        margin-bottom: 0;
+    }
+    .chart-price {
+        span {
+            font-weight: 500;
+            line-height: 20px;
+            font-size: 14px;
+            letter-spacing: 0.44px;
+            display: inline-block;
+            margin-left: 6px;
+            font-family: "Montserrat", sans-serif;
+            &.up {
+                color: $Green;
+            }
+            &.down {
+                color: $Red;
+            }
+        }
+    }
+    .summary {
+        label {
+            display: block;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.44px;
+            color: $BlueishBlack;
+            opacity: 0.6;
+            font-weight: 600;
+        }
+    }
+    .occupational-overview-progress {
+        margin-top: 24px;
+        background-color: $SeachbarBG;
+        padding: 16px;
+        border-radius: 6px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        -ms-border-radius: 6px;
+        -o-border-radius: 6px;
+
+        li {
+            display: flex;
+            flex-wrap: wrap;
+            color: $BlueishBlack;
+            font-weight: 600;
+            align-items: center;
+            justify-content: space-between;
+
+            .name {
+                font-size: 12px;
+                line-height: 16px;
+                letter-spacing: 0.4px;
+                max-width: 70%;
+                display: block;
+            }
+            .value {
+                font-size: 14px;
+                line-height: 20px;
+                letter-spacing: 0.4px;
+                max-width: 30%;
+                display: block;
+            }
+            &:not(:first-child) {
+                margin-top: 10px;
+            }
+        }
+        .progress-wrapper{
+            margin-top: 10px;
+        }
+    }
+}
+
+.progress-wrapper {
+    .progress-bar {
+        height: 6px;
+        border-radius: 100px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        -ms-border-radius: 100px;
+        -o-border-radius: 100px;
+        width: 100%;
+        background-color: $OffWhite;
+        position: relative;
+
+        .progress {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            height: 100%;
+            border-radius: 100px;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            -ms-border-radius: 100px;
+            -o-border-radius: 100px;
+        }
+    }
+}
+
+.map-control-wrapper {
+    .card-content {
+        height: 450px;
+        margin-left: 45px;
+    }
+}
+
+.living-wage-calc-row{
+    .analysis-column-card{
+        .card-title{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .map-distance-wrapper{
+            margin: 0 auto;
+        }
+    }
+}

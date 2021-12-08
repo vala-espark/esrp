@@ -2,10 +2,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import Chart from "react-apexcharts";
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import './analysis-dashboard.style.scss';
 import { selectThemeSetting } from "../../redux/theme/theme.selector";
 import { setThemeSetting } from "../../redux/theme/theme.action";
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import './analysis-dashboard.style.scss';
 import Input from '../control-component/input';
 import Select from '../control-component/selectBox'
 
@@ -23,17 +23,17 @@ const geojson = {
                 'description': ''
             }
         },
-        {
-            'type': 'Feature',
-            'geometry': {
-                'type': 'Point',
-                'coordinates': [-122.414, 37.776]
-            },
-            'properties': {
-                'title': '2',
-                'description': ''
-            }
-        }
+        // {
+        //     'type': 'Feature',
+        //     'geometry': {
+        //         'type': 'Point',
+        //         'coordinates': [-122.414, 37.776]
+        //     },
+        //     'properties': {
+        //         'title': '2',
+        //         'description': ''
+        //     }
+        // }
     ]
 };
 
@@ -41,9 +41,9 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
     const mapContainer = useRef(null);
     const map = useRef(null);
     let mapColor;
-    const [lng, setLng] = useState(-95.550000);
+    const [lng, setLng] = useState(-77.550000);
     const [lat, setLat] = useState(38.770000);
-    const [zoom, setZoom] = useState(3.78);
+    const [zoom, setZoom] = useState(4.5);
     const [selectBox, setSelectBox] = useState();
     const [houseHold, setHouseHold] = useState();
 
@@ -53,7 +53,7 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
     useEffect(() => {
         document.body.classList.remove('light-theme', 'dark-theme');
         document.body.classList.add(theme.theme_color);
-        
+
         if (theme.theme_color === 'esrp-theme') {
             mapColor = 'mapbox://styles/basalsmartsolutions/ckvtyjs1z2hcx14oyb5axlvlc'
             if (map.current) map.current.setStyle(mapColor);
@@ -99,15 +99,6 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
 
     }, [theme.theme_color]);
 
-
-    useEffect(() => {
-        var mainDiv = document.getElementsByTagName('foreignObject')[0].nextElementSibling;
-        var childDiv = document.getElementsByTagName('foreignObject')[0];
-        insertAfter(childDiv, mainDiv)
-        function insertAfter(newNode, referenceNode) {
-            referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-        }
-    }, [])
 
     // FOR REDIAL CHART
     const dataSet = {
@@ -299,7 +290,7 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                             <div className="analysis-filter-wrapper">
                                 <div className="analysis-filter-item msa">
 
-                                    <Select  selectItem={selectBox}
+                                    <Select selectItem={selectBox}
                                         setSelectedItem={setSelectBox}
                                         lableName="Select MSA"
                                         selectIcon={
@@ -348,33 +339,12 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                                     <div className="card-title">
                                         <label htmlFor="">Indianapolis, IN</label>
                                     </div>
-                                    <div className="card-content">
+                                    <div className="card-content ripple-chart">
                                         {map && <div ref={mapContainer} className="map-container dashboard-map" />}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="col col-8">
-                            <div className="card analysis-column-card">
-                                <div className="card-body">
-                                    <div className="card-title">
-                                        <label htmlFor="">Living Wage Calculator</label>
-                                    </div>
-                                    <div className="card-content">
-                                        <Chart
-                                            options={dataSet2.options}
-                                            series={dataSet2.series}
-                                            type="bar"
-                                            width="100%"
-                                            height="100%"
-                                        />
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row overview-income-row">
                         <div className="col col-4">
                             <div className="card overview-card">
                                 <div className="card-body">
@@ -478,23 +448,24 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col col-4">
-                            <div className="card annual-income-card">
+                    </div>
+                    <div className="row overview-income-row">
+
+                        <div className="col col-12">
+                            <div className="card analysis-column-card">
                                 <div className="card-body">
                                     <div className="card-title">
-                                        <label htmlFor="">Typical Monthly Expenses</label>
-                                        <span className="sub-text">1 Adult, 0 Kids</span>
+                                        <label htmlFor="">Living Wage Calculator</label>
                                     </div>
                                     <div className="card-content">
-                                        <div className="mixed-chart radialbars-chart">
-                                            <Chart
-                                                options={dataSet.options}
-                                                series={dataSet.series}
-                                                type="radialBar"
+                                        <Chart
+                                            options={dataSet2.options}
+                                            series={dataSet2.series}
+                                            type="bar"
+                                            width="100%"
+                                            height="100%"
+                                        />
 
-                                            // height="56px"
-                                            />
-                                        </div>
                                     </div>
                                 </div>
                             </div>

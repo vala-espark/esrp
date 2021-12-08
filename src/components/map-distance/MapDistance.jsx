@@ -4,6 +4,7 @@ const MapDistance = () => {
     return (
         <>
             <div className="map-distance-wrapper">
+                <span className="label">Drive Time:</span>
                 <ul>
                     <li>
                         <a>1M</a>

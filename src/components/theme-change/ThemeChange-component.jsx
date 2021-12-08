@@ -43,12 +43,12 @@ const ThemeChange = (props) => {
                     </a>
                 </div>
                 <ul>
-                    <li>
+                    {/* <li>
                         <a onClick={() => {setThemeSetting({theme_color:'esrp-theme'});  document.body.classList.remove('light-theme', 'dark-theme'); }} id="esrp-theme" className="esrp theme-color">
                             <span className="color esrp"></span>
                             <label>ESRP</label>
                         </a>
-                    </li>
+                    </li> */}
                     <li>
                         <a onClick={() => {setThemeSetting({theme_color:'light-theme'});  document.body.classList.remove('esrp-theme', 'dark-theme'); }} id="light-theme" className="light theme-color">
                             <span className="color light"></span>

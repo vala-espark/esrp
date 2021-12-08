@@ -68,6 +68,7 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
     const [lng, setLng] = useState(-95.550000);
     const [lat, setLat] = useState(38.770000);
     const [zoom, setZoom] = useState(3);
+    
     const [selectBox, setSelectBox] = useState();
     const [houseHold, setHouseHold] = useState();
 

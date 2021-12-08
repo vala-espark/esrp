@@ -36,39 +36,41 @@
 
     .map-card {
         .card-content {
-            height: 500px;
-        }
-        .mapboxgl-marker {
-            width: 100px;
-            height: 100px;
-            background-color: $ESRPBlue;
-            border-radius: 100px;
-            opacity: 0.8;
-            // pointer-events: none;
-            img {
-                display: none;
-            }
-            &::before,
-            &::after {
-                position: absolute;
-                content: "";
-                width: 100%;
-                height: 100%;
-                background-color: $ESRPBlue;
-                top: 0;
-                left: 0;
-                border-radius: 100px;
-                animation: ripple1 2s linear infinite;
-                -webkit-animation: ripple1 2s linear infinite;
-            }
-
-            &::after {
-                animation: ripple2 2s linear infinite;
-                -webkit-animation: ripple2 2s linear infinite;
-                animation-delay: 1.5s;
-            }
+            height: 455px;
         }
     }
+}
+.ripple-chart{
+    .mapboxgl-marker {
+        width: 100px;
+        height: 100px;
+        background-color: $ESRPBlue;
+        border-radius: 100px;
+        opacity: 0.8;
+        img {
+            display: none;
+        }
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: $ESRPBlue;
+            top: 0;
+            left: 0;
+            border-radius: 100px;
+            animation: ripple1 2s linear infinite;
+            -webkit-animation: ripple1 2s linear infinite;
+        }
+    
+        &::after {
+            animation: ripple2 2s linear infinite;
+            -webkit-animation: ripple2 2s linear infinite;
+            animation-delay: 1.5s;
+        }
+    }
+
 }
 
 div.mapboxgl-popup-content {
@@ -189,7 +191,7 @@ div.mapboxgl-popup-content {
 .overview-income-row {
     margin-top: 30px;
 }
-
+.overview-card,
 .annual-income-card {
     height: 100%;
 }

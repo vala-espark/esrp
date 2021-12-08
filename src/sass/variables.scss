@@ -76,3 +76,7 @@ $light-theme : '.light-theme';
 @mixin BlueNeoGradiant {
   background-image: linear-gradient(90deg, #4da1ff, #4dffdf);
 }
+
+@mixin BlueNeoGradiantLight {
+  background-image: linear-gradient(90deg, #5C86C1, #81CAB2);
+}

@@ -16,12 +16,13 @@ import CircleChart from "./components/charts/circle/circle.component";
 import './App.css';
 import BubbleChart from "./components/charts/bubble/bubble.component";
 import ColumnChart from "./components/charts/column/column.component";
-import TimelineChart from "./components/charts/timeline/timeline.componant";
+import TimelineChart from "./components/charts/timeline/timeline.component";
 import DotChart from "./components/charts/dot/dot.component";
 import AnalysisDashboard from "./components/wageAnalysis/analysis-dashboard.component";
 import AnalysisDashboardV2 from "./components/wageAnalysis-v2/analysis-dashboard.component";
-import LaborAnalysis from "./components/labor-analysis/labor-analysis.componant";
+import LaborAnalysis from "./components/labor-analysis/labor-analysis.component";
 import MapChart from "./components/charts/mapchart/MapChart.componenet";
+import CowBoys from "./components/cowboys/cowboys.component";
 
 function App() {
   return (
@@ -43,15 +44,16 @@ function App() {
             <Route exact path="/loading" component={Loading}></Route>
             <Route exact path="/donut" component={DonutChart}></Route>
             <Route exact path="/button" component={ButtonCompo}></Route>
-            <Route exact path="/circle" component={CircleChart}></Route> 
+            <Route exact path="/circle" component={CircleChart}></Route>
             <Route exact path="/bubble" component={BubbleChart}></Route>{/* NOT */}
-            <Route exact path="/column" component={ColumnChart}></Route>{/* NOT */} 
-            <Route exact path="/timeline" component={TimelineChart}></Route>{/* NOT */} 
-            <Route exact path="/dot" component={DotChart}></Route>{/* NOT */} 
+            <Route exact path="/column" component={ColumnChart}></Route>{/* NOT */}
+            <Route exact path="/timeline" component={TimelineChart}></Route>{/* NOT */}
+            <Route exact path="/dot" component={DotChart}></Route>{/* NOT */}
             <Route exact path="/analysis-dashboard" component={AnalysisDashboard}></Route>
             <Route exact path="/analysis-dashboard-v2" component={AnalysisDashboardV2}></Route>
             <Route exact path="/labor-analysis" component={LaborAnalysis}></Route>
             <Route exact path="/map-chart" component={MapChart}></Route>
+            <Route exact path="/cowboys" component={CowBoys}></Route>
           </Switch>
         </div>
         <Footer />
