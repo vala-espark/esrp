@@ -328,6 +328,17 @@ h6 {
   }
 }
 
+.more-btn {
+  margin-left: auto;
+  a {
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+}
 // MAP DISTANCE ***************
 .map-distance-wrapper {
   display: flex;

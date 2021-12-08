@@ -63,7 +63,8 @@ $NewDarkprimaryOpacity:#193247;
 $purpleLight:#F7F8FD;
 
 $dark-theme : '.dark-theme';
-$light-theme : '.light-theme';
+// $light-theme : '.light-theme';
+$light-theme : '.esrp-theme';
 
 @mixin PurplePinkGradiant {
   background-image: linear-gradient(90deg, #7517f8, #e323ff);

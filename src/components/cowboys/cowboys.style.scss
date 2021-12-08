@@ -93,6 +93,20 @@
         .card-content {
             height: 700px;
         }
+        svg {
+            .apexcharts-inner {
+                transform: unset;
+                -webkit-transform: unset;
+                -moz-transform: unset;
+                -ms-transform: unset;
+                -o-transform: unset;
+                .apexcharts-xaxis, 
+                .apexcharts-yaxis,
+                .apexcharts-xaxis-tick {
+                    display: none;
+                }
+            }
+        }
     }
 }
 
@@ -106,16 +120,6 @@
         .ripple-map-distance {
             margin-left: auto;
             margin-right: auto;
-        }
-        .more-btn {
-            a {
-                cursor: pointer;
-                width: 20px;
-                height: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
         }
     }
     .ripple-map-controls-wrapper {
@@ -224,8 +228,125 @@
                 margin-top: 10px;
             }
         }
-        .progress-wrapper{
+        .progress-wrapper {
             margin-top: 10px;
+        }
+    }
+}
+
+.market-education-card {
+    .card-content {
+        margin-top: 40px;
+    }
+    svg {
+        .apexcharts-inner {
+            transform: unset;
+            -webkit-transform: unset;
+            -moz-transform: unset;
+            -ms-transform: unset;
+            -o-transform: unset;
+        }
+    }
+}
+
+.market-race-distribution-card {
+    .card-title {
+        .sub-text {
+            opacity: 0.6;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.4px;
+        }
+    }
+}
+
+.growth-lawyers-card {
+    .card-title {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        .map-control-wrapper {
+            margin-left: auto;
+            display: flex;
+            .map-control-item {
+                margin-top: 0;
+                margin-left: 20px;
+            }
+        }
+        .more-btn {
+            margin-left: 20px;
+        }
+    }
+    .card-content {
+        height: 435px;
+    }
+    svg {
+        .apexcharts-marker {
+            pointer-events: visible;
+            stroke-width: 8px;
+            stroke: $ESRPBlue;
+        }
+        .apexcharts-xcrosshairs,
+        .apexcharts-ycrosshairs {
+            stroke: $ESRPGreen;
+            stroke-width: 3px;
+            stroke-linecap: unset;
+        }
+    }
+    .apexcharts-xaxistooltip {
+        padding: 6px 10px;
+        background-color: #fff;
+        border: transparent;
+        box-shadow: 0 100px 80px rgba(92, 134, 193, 0.07), 0 41.78px 33.4px rgba(92, 134, 193, 0.0503),
+            0 22.34px 17.87px rgba(92, 134, 193, 0.0417), 0 12.52px 10.02px rgba(92, 134, 193, 0.035),
+            0 6.5px 5.32px rgba(92, 134, 193, 0.0283), 0 2.77px 2.21px rgba(92, 134, 193, 0.0197);
+
+        &::before {
+            box-shadow: 0 100px 80px rgba(92, 134, 193, 0.07), 0 41.78px 33.4px rgba(92, 134, 193, 0.0503),
+                0 22.34px 17.87px rgba(92, 134, 193, 0.0417), 0 12.52px 10.02px rgba(92, 134, 193, 0.035),
+                0 6.5px 5.32px rgba(92, 134, 193, 0.0283), 0 2.77px 2.21px rgba(92, 134, 193, 0.0197);
+            border-bottom-color: #fff;
+        }
+        .apexcharts-xaxistooltip-text {
+            line-height: normal;
+            color: $ESRPBlue;
+        }
+    }
+    .apexcharts-tooltip {
+        opacity: 1;
+        border: 0 !important;
+        padding: 6px 10px;
+        box-shadow: 0 100px 80px rgba(92, 134, 193, 0.07), 0 41.78px 33.4px rgba(92, 134, 193, 0.0503),
+            0 22.34px 17.87px rgba(92, 134, 193, 0.0417), 0 12.52px 10.02px rgba(92, 134, 193, 0.035),
+            0 6.5px 5.32px rgba(92, 134, 193, 0.0283), 0 2.77px 2.21px rgba(92, 134, 193, 0.0197);
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+
+        .apexcharts-tooltip-title,
+        .apexcharts-tooltip-marker,
+        .apexcharts-tooltip-text-y-label {
+            display: none;
+        }
+        .apexcharts-tooltip-series-group {
+            padding: 0;
+            border: 0;
+            box-shadow: none;
+            line-height: normal;
+        }
+        .apexcharts-tooltip-text-y-value {
+            margin: 0;
+            line-height: normal;
+            background-color: $ESRPGreen;
+            padding: 2px 15px;
+            border-radius: 100px;
+            color: $white;
+        }
+
+        .apexcharts-tooltip-y-group {
+            padding: 0;
         }
     }
 }
@@ -268,13 +389,13 @@
     }
 }
 
-.living-wage-calc-row{
-    .analysis-column-card{
-        .card-title{
+.living-wage-calc-row {
+    .analysis-column-card {
+        .card-title {
             display: flex;
             flex-wrap: wrap;
         }
-        .map-distance-wrapper{
+        .map-distance-wrapper {
             margin: 0 auto;
         }
     }

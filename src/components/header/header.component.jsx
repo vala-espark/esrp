@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 import { selectThemeSetting } from "../../redux/theme/theme.selector";
+import { setThemeSetting } from "../../redux/theme/theme.action";
 import { createStructuredSelector } from 'reselect';
 
-const Header = ({theme}) => {
-    const [image,setImage] = useState();
+const Header = ({ theme,setThemeSetting }) => {
+    const [image, setImage] = useState();
+    const [profileToggle,setProfileToggle] = useState(false);
 
     useEffect(() => {
-        if(theme.theme_color === 'esrp-theme')
-        {
+        if (theme.theme_color === 'esrp-theme') {
             setImage('assets/images/esrp-logo.png');
         }
-        if(theme.theme_color === 'light-theme')
-        {
+        if (theme.theme_color === 'light-theme') {
             setImage('assets/images/new-logo-light.png');
         }
-        if(theme.theme_color === 'dark-theme')
-        {
+        if (theme.theme_color === 'dark-theme') {
             setImage('assets/images/new-logo-dark.png');
         }
-    },[theme.theme_color]);
+    }, [theme.theme_color]);
 
     return (
         <>
@@ -44,21 +43,25 @@ const Header = ({theme}) => {
                             </div>
                             <div className="header-menu-wrapper">
                                 <ul>
-                                    <li>
-                                        <a href="#!">Statistics</a>
-                                    </li>
                                     <li className="active">
-                                        <a href="#!">Overview</a>
+                                        <a href="#!">Dashboards</a>
                                     </li>
                                     <li>
-                                        <a href="#!">Dashboard</a>
+                                        <a href="#!">Users</a>
                                     </li>
                                     <li>
-                                        <a href="#!">Analytics</a>
+                                        <a href="#!">Data Manager</a>
                                     </li>
                                 </ul>
                             </div>
                             <div className="header-user-wrapper">
+                                <div className="profile">
+                                    <a href="#!" onClick={()=> setProfileToggle(!profileToggle)}>
+                                        <img src="assets/images/profile-img.png" alt="" />
+                                    </a>
+                                </div>
+                            </div>
+                            {/* <div className="header-user-wrapper">
                                 <ul>
                                     <li>
                                         <a href="#!">
@@ -75,10 +78,57 @@ const Header = ({theme}) => {
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </nav>
+                {console.log({profileToggle})}
+
+                <div className={`header-profile-box ${profileToggle ? "open" :""}`}>
+                    <div className="header-profile-inner">
+                        <div className="details header-profile-item">
+                            <div className="profile-img">
+                                <img src="assets/images/profile-img.png" alt="" />
+                            </div>
+                            <p className="title">Gregory Castillo</p>
+                            <label className="caption">GregoryC@bluechip.com</label>
+                            <button className="btn outline rounded">Manage your Profile</button>
+                        </div>
+                        <div className="profile-theme-toggle-wrap header-profile-item">
+                            <div className="profile-theme-toggle">
+                                <label className="body-2">Theme</label>
+
+                                <div className="theme-toggle-switch">
+                                    <input type="checkbox" onChange={e => {
+                        if (e.target.checked) {
+                            setThemeSetting({ theme_color: 'dark-theme' })
+
+                        } else {
+                            setThemeSetting({ theme_color: 'light-theme' })
+                        }
+                    }} checked={theme.theme_color === "dark-theme" ? true : false}/>
+                                    <label></label>
+                                    <img src="assets/images/switch-body-light.svg" className="light" alt="" />
+                                    <img src="assets/images/switch-body-dark.svg" className="dark" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="profile-sign-out header-profile-item">
+                            <button className="btn outline">Sign Out of Account</button>
+                        </div>
+                        <div className="policy header-profile-item">
+                            <ul>
+                                <li>
+                                    <a href="#!" className="caption">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="#!" className="caption">Terms of Service</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </header>
         </>
     );
@@ -87,6 +137,10 @@ const Header = ({theme}) => {
 
 const mapStateToProps = createStructuredSelector({
     theme: selectThemeSetting,
-  });
+});
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => ({
+    setThemeSetting: (theme) => dispatch(setThemeSetting(theme)),
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(Header);

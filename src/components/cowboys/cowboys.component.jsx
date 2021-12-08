@@ -102,7 +102,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
     }, [theme.theme_color]);
 
     // FOR COLUMN CHART
-    const dataSet2 = {
+    const columnChart = {
         series: [{
             name: 'Living Wage',
             data: [17, 17, 17, 17, 17, 17, 17, 17, 15, 17, 17, 17]
@@ -187,21 +187,49 @@ const CowBoys = ({ theme, setThemeSetting }) => {
         }
     }
 
-    // FOR REDIAL CHART
-    const dataSet = {
+    // FOR BAR CHART
+    const barChart = {
         series: [{
-            data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380, 400, 430, 448, 470, 540, 580, 690, 1100,]
+            data: [
+                333060,
+                338353,
+                349297,
+                326476,
+                315397,
+                376591,
+                365531,
+                357836,
+                335924,
+                337267,
+                306401,
+                291329,
+                238376,
+                182777,
+                137078,
+                88387,
+                54250,
+                54250,
+            ]
         }],
         options: {
             chart: {
                 type: 'bar',
+                toolbar: {
+                    show: false,
+                },
+                tooltip:{
+                    show: true,
+                }
+            },
+            grid: {
+                borderColor: 'transparent',
             },
             plotOptions: {
                 bar: {
                     barHeight: '100%',
                     distributed: true,
                     horizontal: true,
-                    borderRadius: 17,
+                    borderRadius: 19,
                     dataLabels: {
                         position: 'bottom'
                     },
@@ -256,49 +284,42 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             },
             xaxis: {
                 categories: [
-                    '333,060',
-                    '338,353',
-                    '349,297',
-                    '326,476',
-                    '315,397',
-                    '376,591',
-                    '365,531',
-                    '357,836',
-                    '335,924',
-                    '337,267',
-                    '306,401',
-                    '291,329',
-                    '238,376',
-                    '182,777',
-                    '137,078',
-                    '88,387',
-                    '54.2K',
-                    '54K',
+                    '0 - 4',
+                    '5 - 9',
+                    '10 - 14',
+                    '15 - 19',
+                    '20 - 24',
+                    '25 - 29',
+                    '30 - 34',
+                    '35 - 39',
+                    '40 - 44',
+                    '45 - 49',
+                    '50 - 54',
+                    '55 - 59',
+                    '60 - 64',
+                    '65 - 69',
+                    '70 - 74',
+                    '75 - 79',
+                    '80 -84',
+                    '85+',
                 ],
                 labels: {
-                    show: true
+                    show: false
                 }
             },
             yaxis: {
                 labels: {
-                    show: true
+                    show: false
                 }
             },
-            title: {
-                text: 'Custom DataLabels',
-                align: 'center',
-                floating: true
-            },
-            subtitle: {
-                text: 'Category Names as DataLabels inside bars',
-                align: 'center',
-            },
             tooltip: {
+                
                 theme: 'dark',
                 x: {
                     show: false
                 },
                 y: {
+                    show: false,
                     title: {
                         formatter: function () {
                             return ''
@@ -306,6 +327,154 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                     }
                 }
             }
+        },
+    };
+
+    // FOR REDIAL CHART
+    const donutChart = {
+        series: [40, 35, 25,],
+        chartOptions: {
+            labels: ['Apple', 'Mango', 'Orange']
+        },
+        options: {
+            chart: {
+            },
+            plotOptions: {
+                donut: {
+                    expandOnClick: false,
+                }
+            },
+            colors: ['#5C86C1', '#FDA747', '#81CAB2'],
+            // legend: {
+            //     show: false
+            // },
+            stroke: {
+                show: false,
+                width: 0,
+            },
+            dataLabels: {
+                enabled: false
+            },
+            tooltip: {
+                enabled: false
+            },
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        },
+    };
+
+    // FOR REDIAL CHART
+    const donutChart2 = {
+        series: [40, 35, 25,],
+        chartOptions: {
+            labels: ['Apple', 'Mango', 'Orange']
+        },
+        options: {
+            chart: {
+            },
+            plotOptions: {
+                donut: {
+                    expandOnClick: false,
+                }
+            },
+            colors: ['#5C86C1', '#FDA747', '#81CAB2'],
+            // legend: {
+            //     show: false
+            // },
+            stroke: {
+                show: false,
+                width: 0,
+            },
+            dataLabels: {
+                enabled: false
+            },
+            tooltip: {
+                enabled: false
+            },
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        },
+    };
+
+    // FOR LINE CHART
+    const lineChart = {
+        series: [
+            {
+                name: 'High - 2013',
+                data: [19500, 19293, 20283, 21876, 20560, 21650, 22010, 22281, 22316, 20316],
+            },
+        ],
+        options: {
+            chart: {
+                type: 'line',
+                dropShadow: {
+                    enabled: false,
+                    color: '#000',
+                    top: 18,
+                    left: 7,
+                    blur: 10,
+                    opacity: 0,
+                },
+                toolbar: {
+                    show: false,
+                },
+                zoom: {
+                    enabled: false,
+                }
+            },
+            colors: ['#5C86C1'],
+            dataLabels: {
+                enabled: false,
+            },
+            stroke: {
+                curve: 'smooth',
+            },
+            title: {
+                text: 'Average High & Low Temperature',
+                align: 'left',
+            },
+            grid: {
+                borderColor: 'transparent',
+                column: {
+                    colors: ['#F4F5FB', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5,
+                },
+            },
+            markers: {
+                size: 1,
+            },
+            xaxis: {
+                categories: ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'],
+            },
+            yaxis: {
+                // min: 5,
+                // max: 40,
+            },
+            legend: {
+                position: 'top',
+                horizontalAlign: 'right',
+                floating: true,
+                offsetY: -25,
+                offsetX: -5,
+            },
         },
     };
 
@@ -449,8 +618,8 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                                     </div>
                                     <div className="card-content">
                                         <Chart
-                                            options={dataSet.options}
-                                            series={dataSet.series}
+                                            options={barChart.options}
+                                            series={barChart.series}
                                             type="bar"
                                             width="100%"
                                             height="100%"
@@ -498,13 +667,98 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                                     </div>
                                 </div>
                                 <div className="col col-4">
-                                    <div className="card occupational-overview-card">
+                                    <div className="card market-education-card">
                                         <div className="card-body">
                                             <div className="card-title">
                                                 <label for="">Market Education Attainment</label>
                                                 {/* <span className="sub-text">Aging Labor Ratio: 1.71</span> */}
                                             </div>
                                             <div className="card-content">
+                                                <Chart
+                                                    options={donutChart.options}
+                                                    series={donutChart.series}
+                                                    type="donut"
+                                                    width="100%"
+                                                    height="132px"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col col-4">
+                                    <div className="card market-race-distribution-card">
+                                        <div className="card-body">
+                                            <div className="card-title">
+                                                <label for="">Market Race Distribution</label>
+                                                <span className="sub-text">30.43% of population is Hispanic (Ethnicity)</span>
+                                            </div>
+                                            <div className="card-content">
+                                            <Chart
+                                                    options={donutChart2.options}
+                                                    series={donutChart2.series}
+                                                    type="donut"
+                                                    width="100%"
+                                                    height="132px"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="col col-12">
+                                    <div className="card growth-lawyers-card">
+                                        <div className="card-body">
+                                            <div className="card-title">
+                                                <label for="">Growth of Lawyers</label>
+                                                {/* <span className="sub-text">30.43% of population is Hispanic (Ethnicity)</span> */}
+
+                                                <div className="map-control-wrapper">
+                                                    <div className="map-control-item">
+                                                        <ul>
+                                                            <li>
+                                                                <a>
+                                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z" fill="#5A5A89"></path></svg>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div className="map-control-item">
+                                                        <ul>
+                                                            <li>
+                                                                <a>
+                                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 11H13H19V13H13H11H5V11H11Z" fill="#5A5A89"></path></svg>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div className="map-control-item">
+                                                        <ul>
+                                                            <li>
+                                                                <a>
+                                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 9V6L20 10L16 14V11H11V16H14L10 20L6 16H9V11H4V14L0 10L4 6V9H9V4H6L10 0L14 4H11V9H16Z" fill="#5A5A89"></path></svg>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="more-btn">
+                                                    <a>
+                                                        <svg width="4" height="20" viewBox="0 0 4 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.0658571 2.35131C0.0658571 3.36445 0.799037 4.18577 1.70346 4.18577C2.60788 4.18577 3.34106 3.36445 3.34106 2.35131C3.34106 1.33816 2.60788 0.516846 1.70346 0.516846C0.799037 0.516846 0.0658571 1.33816 0.0658571 2.35131ZM0.0658568 9.68916C0.0658568 10.7023 0.799037 11.5236 1.70346 11.5236C2.60788 11.5236 3.34106 10.7023 3.34106 9.68917C3.34106 8.67602 2.60788 7.8547 1.70346 7.8547C0.799037 7.8547 0.0658569 8.67602 0.0658568 9.68916Z" fill="#7C7C84"></path>
+                                                            <ellipse cx="1.70346" cy="17.3581" rx="1.83446" ry="1.6376" transform="rotate(90 1.70346 17.3581)" fill="#7C7C84"></ellipse>
+                                                            <ellipse cx="1.70346" cy="9.6892" rx="1.83446" ry="1.6376" transform="rotate(90 1.70346 9.6892)" fill="#7C7C84"></ellipse>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div className="card-content">
+                                                <Chart
+                                                    options={lineChart.options}
+                                                    series={lineChart.series}
+                                                    type='line'
+                                                    width='100%'
+                                                    height="100%"
+                                                />
                                             </div>
                                         </div>
                                     </div>
@@ -537,8 +791,8 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                                     </div>
                                     <div className="card-content">
                                         <Chart
-                                            options={dataSet2.options}
-                                            series={dataSet2.series}
+                                            options={columnChart.options}
+                                            series={columnChart.series}
                                             type="bar"
                                             width="100%"
                                             height="100%"
