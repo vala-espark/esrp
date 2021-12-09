@@ -103,25 +103,57 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
     // FOR REDIAL CHART
     const dataSet = {
         series: [{
-            data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+            data: [29035, 23998, 5038]
         }],
         options: {
             chart: {
                 type: 'bar',
             },
+            toolbar:{
+                show: false
+            },
+            // plotOptions: {
+            //     bar: {
+            //         borderRadius:28,
+            //         barHeight: '100%',
+            //         columnWidth: '20%',
+            //         distributed: true,
+            //         horizontal: true,
+            //         dataLabels: {
+            //             position: 'bottom'
+            //         },
+            //     }
+            // },
             plotOptions: {
                 bar: {
-                    barHeight: '100%',
-                    distributed: true,
                     horizontal: true,
-                    dataLabels: {
-                        position: 'bottom'
+                    startingShape:'rounded',
+                    s̶t̶a̶r̶t̶i̶n̶g̶S̶h̶a̶p̶e̶: 'flat',
+                    e̶n̶d̶i̶n̶g̶S̶h̶a̶p̶e̶: 'flat',
+                    borderRadius: 28,
+                    barHeight: '80%',
+                    distributed: false,
+                    rangeBarOverlap: true,
+                    rangeBarGroupRows: false,
+                    colors: {
+                        ranges: [{
+                            from: 0,
+                            to: 0,
+                            color: undefined
+                        }],
+                        backgroundBarColors: [],
+                        backgroundBarOpacity: 1,
+                        backgroundBarRadius: 50,
                     },
+                    // dataLabels: {
+                    //     position: 'top',
+                    //     maxItems: 100,
+                    //     hideOverflowingLabels: true,
+                    //     orientation: 'horizontal',
+                    // }
                 }
             },
-            colors: ['#33b2df', '#546E7A', '#d4526e', '#13d8aa', '#A5978B', '#2b908f', '#f9a3a4', '#90ee7e',
-                '#f48024', '#69d2e7'
-            ],
+            colors: ['#5C86C1', '#3FB7F3', '#81CAB2'],
             dataLabels: {
                 enabled: true,
                 textAnchor: 'start',
@@ -137,33 +169,46 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                 }
             },
             stroke: {
-                width: 1,
+                width: 0,
                 colors: ['#fff']
             },
             xaxis: {
                 labels: {
                     show: false
                 },
-                categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
-                    'United States', 'China', 'India'
-                ],
+                categories: ['Required Annual Income Before Taxes', 'Required Annual Income After Taxes', 'Annual Taxes',],
+                axisBorder: {
+                    show: true,
+                    color: '#78909C',
+                    height: 1,
+                    width: '100%',
+                    offsetX: 0,
+                    offsetY: 0
+                },
             },
             yaxis: {
                 labels: {
                     show: false
                 }
             },
-            title: {
-                text: 'Custom DataLabels',
-                align: 'center',
-                floating: true
-            },
-            subtitle: {
-                text: 'Category Names as DataLabels inside bars',
-                align: 'center',
+            grid: {
+                show: true,
+                borderColor: '#90A4AE',
+                strokeDashArray: 0,
+                position: 'back',
+                xaxis: {
+                    lines: {
+                        show: false
+                    }
+                },   
+                yaxis: {
+                    lines: {
+                        show: false
+                    }
+                }, 
             },
             tooltip: {
-                theme: 'dark',
+                theme: 'light',
                 x: {
                     show: false
                 },
@@ -393,7 +438,7 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                                                 series={dataSet.series}
                                                 type="bar"
                                                 width="100%"
-                                                height="500"
+                                                height="250"
                                             />
                                             {/* <div className="annual-salary-progress">
                                                 <ul>
