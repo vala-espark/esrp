@@ -305,4 +305,47 @@
             }
         }
     }
+
+    .labor-filter-sidebar {
+        .sidebar-inner{
+            background-color: $ESRPDarkBG;
+        }
+        .sidebar-item-btn-close {
+            span{
+                path{
+                    stroke: $White;
+                }
+            }
+        }
+        .sidebar-title{
+            h4,
+            span{
+                color: $White;
+            }
+        }
+        .sidebar-item{
+            &:not(:first-child){
+                border-color: $Black;
+            }
+        }
+    }
+
+    .multi-circle-chart-map-wrap {
+        .mapboxgl-marker{
+            background-color: $ESRPGreen;
+            border-color: $BlueishBlack;
+        }
+    }
+    div.mapboxgl-popup-content{
+        background-color: $BlueishBlack;
+        box-shadow: none;
+        .title{
+            background-color: $ESRPGreen;
+        }
+    }
+    .mapboxgl-popup-anchor-bottom{
+        .mapboxgl-popup-tip{
+            border-top-color: $BlueishBlack;
+        }
+    }
 }

@@ -110,8 +110,6 @@
     }
 }
 
-
-
 .occupational-overview-card {
     .card-title {
         margin-bottom: 0;
@@ -350,12 +348,15 @@
         .map-distance-wrapper {
             margin: 0 auto;
         }
+        .apexcharts-inner {
+            & > .apexcharts-xcrosshairs {
+                stroke-dasharray: 7;
+            }
+        }
     }
 }
 
 #{$dark-theme} {
-    
-    
     .cowboys-sec {
         .market-overview-card {
             li {
@@ -365,7 +366,7 @@
                 }
             }
         }
-        .cowboys-informer-card{
+        .cowboys-informer-card {
             color: $Black;
         }
         .occupational-overview-card {
@@ -377,9 +378,9 @@
                     color: $White;
                 }
             }
-            .occupational-overview-progress{
+            .occupational-overview-progress {
                 background-color: $NewDarkprimaryOpacity;
-                li{
+                li {
                     color: $White;
                 }
             }

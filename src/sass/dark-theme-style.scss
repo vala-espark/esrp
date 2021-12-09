@@ -151,4 +151,10 @@
             }
         }
     }
+    .overlay{
+        background-color: $Black;
+        &.show{
+            opacity: 0.45;
+        }
+    }
 }

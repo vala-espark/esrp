@@ -102,92 +102,79 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
 
     // FOR REDIAL CHART
     const dataSet = {
-        series: [40, 60, 65, 70, 76],
+        series: [{
+            data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+        }],
         options: {
             chart: {
-                type: 'radialBar',
+                type: 'bar',
             },
             plotOptions: {
-                radialBar: {
-                    colors: ['#5C86C1', '#3FB7F3', '#81CAB2', '#F9D456', '#FDA747'],
-                    startAngle: -180,
-                    endAngle: 180,
-                    hollow: {
-                        margin: 5,
-                        size: '50%',
-                        image: 'assets/images/analisys-redial-chart.svg',
-                        imageWidth: 60,
-                        imageHeight: 60,
-                        imageClipped: false
-                    },
-                    track: {
-                        show: true,
-                        startAngle: undefined,
-                        endAngle: undefined,
-                        background: '#F5F5F5',
-                        strokeWidth: '97%',
-                        opacity: 1,
-                        margin: 9,
-                        dropShadow: {
-                            enabled: false,
-                            top: 0,
-                            left: 0,
-                            blur: 3,
-                            opacity: 1
-                        }
-                    },
+                bar: {
+                    barHeight: '100%',
+                    distributed: true,
+                    horizontal: true,
                     dataLabels: {
-                        name: {
-                            fontSize: '10px',
-                            lineHeight: '24px'
-                        },
-                        value: {
-                            fontSize: '10px',
-                            lineHeight: '24px'
-                        },
-                        total: {
-                            fontSize: '12px',
-                            show: true,
-                            label: 'EXPENSES',
-                            formatter: function (w) {
-                                // return 55
-                            }
+                        position: 'bottom'
+                    },
+                }
+            },
+            colors: ['#33b2df', '#546E7A', '#d4526e', '#13d8aa', '#A5978B', '#2b908f', '#f9a3a4', '#90ee7e',
+                '#f48024', '#69d2e7'
+            ],
+            dataLabels: {
+                enabled: true,
+                textAnchor: 'start',
+                style: {
+                    colors: ['#fff']
+                },
+                formatter: function (val, opt) {
+                    return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+                },
+                offsetX: 0,
+                dropShadow: {
+                    enabled: false
+                }
+            },
+            stroke: {
+                width: 1,
+                colors: ['#fff']
+            },
+            xaxis: {
+                labels: {
+                    show: false
+                },
+                categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
+                    'United States', 'China', 'India'
+                ],
+            },
+            yaxis: {
+                labels: {
+                    show: false
+                }
+            },
+            title: {
+                text: 'Custom DataLabels',
+                align: 'center',
+                floating: true
+            },
+            subtitle: {
+                text: 'Category Names as DataLabels inside bars',
+                align: 'center',
+            },
+            tooltip: {
+                theme: 'dark',
+                x: {
+                    show: false
+                },
+                y: {
+                    title: {
+                        formatter: function () {
+                            return ''
                         }
                     }
                 }
-            },
-            legend: {
-                show: true,
-                floating: true,
-                fontSize: '11px',
-                position: 'left',
-                'z-index': 12,
-                margin: 1,
-                offsetX: 250,
-                offsetY: 280,
-                labels: {
-                    useSeriesColors: false,
-                },
-                markers: {
-                    size: 5,
-                    // fillColors: ['#FDA747', '#F9D456', '#81CAB2', '#3FB7F3', '#5C86C1'],
-                    fillColors: ['#5C86C1', '#3FB7F3', '#81CAB2', '#F9D456', '#FDA747'],
-                },
-                formatter: function (seriesName, opts) {
-                    return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex]
-                },
-                itemMargin: {
-                    vertical: 1
-                },
-                inverseOrder: true,
-            },
-            labels: ['Housing', 'Transportation', 'Food', 'Medical', 'Other'],
-            fill: {
-                colors: ['#5C86C1', '#3FB7F3', '#81CAB2', '#F9D456', '#FDA747'],
-            },
-            stroke: {
-                lineCap: 'round'
-            },
+            }
         },
     };
 
@@ -401,7 +388,14 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                                             <p>$35,984</p>
                                         </div>
                                         <div className="annual-salary-progress-wrapper">
-                                            <div className="annual-salary-progress">
+                                            <Chart
+                                                options={dataSet.options}
+                                                series={dataSet.series}
+                                                type="bar"
+                                                width="100%"
+                                                height="500"
+                                            />
+                                            {/* <div className="annual-salary-progress">
                                                 <ul>
                                                     <li>
                                                         <span style={{ width: '100%', backgroundColor: '#5C86C1' }}>
@@ -434,14 +428,14 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                                                         </span>
                                                     </li>
                                                 </ul>
-                                            </div>
-                                            <div className="annual-salary-indicator">
+                                            </div> */}
+                                            {/* <div className="annual-salary-indicator">
                                                 <ul>
                                                     <li><span className="circle" style={{ backgroundColor: '#5c86c1', }}></span><label className="label">Required Annual Income Before Taxes</label></li>
                                                     <li><span className="circle" style={{ backgroundColor: '#3fb7f3', }}></span><label className="label">Required Annual Income After Taxes</label></li>
                                                     <li><span className="circle" style={{ backgroundColor: '#81cab2', }}></span><label className="label">Annual Taxes</label></li>
                                                 </ul>
-                                            </div>
+                                            </div> */}
                                         </div>
 
                                     </div>
@@ -479,7 +473,6 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                                             width="100%"
                                             height="100%"
                                         />
-
                                     </div>
                                 </div>
                             </div>
