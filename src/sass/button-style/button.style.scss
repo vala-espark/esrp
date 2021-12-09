@@ -19,6 +19,7 @@
     background-color: #fff;
     border: 2px solid transparent;
     text-align: center;
+    font-family: "Montserrat";
 
     svg {
         vertical-align: middle;
@@ -34,15 +35,15 @@
 
     &.primary {
         background-color: $ESRPBlue;
-        color: $white;
+        color: $White;
         border-color: $ESRPBlue;
         path {
-            fill: $white;
+            fill: $White;
         }
 
         &:hover {
-            background-color: $Blue;
-            border-color: $Blue;
+            background-color: $NewESRPBlue;
+            border-color: $NewESRPBlue;
         }
         &.rounded {
             border-radius: 100px;
@@ -74,11 +75,11 @@
 
         &:hover {
             background-color: transparent;
-            border-color: $Blue;
-            color: $Blue;
+            border-color: $NewESRPBlue;
+            color: $NewESRPBlue;
 
             path {
-                fill: $Blue;
+                fill: $NewESRPBlue;
             }
         }
         &:disabled {
@@ -130,19 +131,18 @@
             -o-transition: $transition;
         }
     }
-    
 
     &.primary {
         background-color: $ESRPBlue;
-        color: $white;
+        color: $White;
         border-color: $ESRPBlue;
         path {
-            fill: $white;
+            fill: $White;
         }
 
         &:hover {
-            background-color: $Blue;
-            border-color: $Blue;
+            background-color: $NewESRPBlue;
+            border-color: $NewESRPBlue;
         }
         &:disabled {
             background-color: $BtnDisabled;
@@ -174,11 +174,11 @@
 
         &:hover {
             background-color: transparent;
-            border-color: $Blue;
-            color: $Blue;
+            border-color: $NewESRPBlue;
+            color: $NewESRPBlue;
 
             path {
-                fill: $Blue;
+                fill: $NewESRPBlue;
             }
         }
         &:disabled {
@@ -201,30 +201,30 @@
     }
 }
 
-
 // DARK THEME ----------------------------------
 
-#{$dark-theme}{
+#{$dark-theme} {
     .btn {
-        color: $DoryBlue;
+        color: $ESRPBlue;
         background-color: $BodyBgDark;
-        path{
-            stroke: $DoryBlue;
+        path {
+            // stroke: $ESRPBlue;
         }
         &.primary {
-            background-color: $DoryBlue;
-            border-color: $DoryBlue;
-            color: $white;
+            background-color: $ESRPBlue;
+            border-color: $ESRPBlue;
+            color: $Black;
             &:hover {
-                background-color: $DoryBlue-click;
-                border-color: $DoryBlue-click;
+                background-color: $NewESRPBlue;
+                border-color: $NewESRPBlue;
+                color: $White;
             }
             &:disabled {
                 background-color: $btnDarkDisable;
                 border-color: $btnDarkDisable;
                 color: $BtnDisabledText;
                 path {
-                    fill: $BtnDisabledText;
+                    // fill: $BtnDisabledText;
                 }
                 &:hover {
                     background-color: $btnDarkDisable;
@@ -234,25 +234,25 @@
             }
         }
         &.outline {
-            border-color: $DoryBlue;
-            color: $DoryBlue;
+            border-color: $ESRPBlue;
+            color: $ESRPBlue;
             background-color: transparent;
             path {
-                fill: $DoryBlue;
+                // fill: $ESRPBlue;
             }
             &:hover {
-                border-color: $DoryBlue-click;
-                color: $DoryBlue-click;
+                border-color: $NewESRPBlue;
+                color: $NewESRPBlue;
                 background-color: transparent;
                 path {
-                    fill: $DoryBlue-click;
+                    // fill: $NewESRPBlue;
                 }
             }
             &:disabled {
                 border-color: $btnDarkDisable;
                 color: $BtnDisabledText;
                 path {
-                    fill: $BtnDisabledText;
+                    // fill: $BtnDisabledText;
                 }
                 &:hover {
                     border-color: $btnDarkDisable;
@@ -263,23 +263,23 @@
     }
 
     .btn-icon {
-        color: $DoryBlue;
+        color: $ESRPBlue;
         background-color: $BodyBgDark;
-        path{
-            stroke: $DoryBlue;
+        path {
+            // stroke: $ESRPBlue;
         }
         &.primary {
-            background-color: $DoryBlue;
-            border-color: $DoryBlue;
+            background-color: $ESRPBlue;
+            border-color: $ESRPBlue;
             &:hover {
-                background-color: $DoryBlue-click;
-                border-color: $DoryBlue-click;
+                background-color: $NewESRPBlue;
+                border-color: $NewESRPBlue;
             }
             &:disabled {
                 background-color: $btnDarkDisable;
                 border-color: $btnDarkDisable;
                 path {
-                    fill: $BtnDisabledText;
+                    // fill: $BtnDisabledText;
                 }
                 &:hover {
                     background-color: $btnDarkDisable;
@@ -288,130 +288,24 @@
             }
         }
         &.outline {
-            border-color: $DoryBlue;
+            border-color: $ESRPBlue;
+            background-color: transparent;
             path {
-                fill: $DoryBlue;
+                // fill: $ESRPBlue;
             }
             &:hover {
-                border-color: $DoryBlue-click;
+                border-color: $NewESRPBlue;
                 path {
-                    fill: $DoryBlue-click;
+                    // fill: $NewESRPBlue;
                 }
             }
             &:disabled {
                 border-color: $btnDarkDisable;
                 path {
-                    fill: $BtnDisabledText;
+                    // fill: $BtnDisabledText;
                 }
                 &:hover {
                     border-color: $btnDarkDisable;
-                }
-            }
-        }
-    }
-}
-
-
-// LIGHT THEME ----------------------------------
-
-#{$light-theme}{
-    .btn {
-        color: $BoggsPurple;
-        path{
-            stroke: $BoggsPurple;
-        }
-        &.primary {
-            background-color: $BoggsPurple;
-            border-color: $BoggsPurple;
-            color: $white;
-            &:hover {
-                background-color: $BoggsPurple-click;
-                border-color: $BoggsPurple-click;
-            }
-            &:disabled {
-                background-color: $BtnDisabled;
-                border-color: $BtnDisabled;
-                color: $BtnDisabledText;
-                path {
-                    fill: $BtnDisabledText;
-                }
-                &:hover {
-                    background-color: $BtnDisabled;
-                    border-color: $BtnDisabled;
-                    color: $BtnDisabledText;
-                }
-            }
-        }
-        &.outline {
-            border-color: $BoggsPurple;
-            color: $BoggsPurple;
-            background-color: transparent;
-            path {
-                fill: $BoggsPurple;
-            }
-            &:hover {
-                border-color: $BoggsPurple-click;
-                color: $BoggsPurple-click;
-                path {
-                    fill: $BoggsPurple-click;
-                }
-            }
-            &:disabled {
-                border-color: $BtnDisabled;
-                color: $BtnDisabledText;
-                path {
-                    fill: $BtnDisabledText;
-                }
-                &:hover {
-                    border-color: $BtnDisabled;
-                    color: $BtnDisabledText;
-                }
-            }
-        }
-    }
-
-    .btn-icon {
-        color: $BoggsPurple;
-        path{
-            stroke: $BoggsPurple;
-        }
-        &.primary {
-            background-color: $BoggsPurple;
-            border-color: $BoggsPurple;
-            &:hover {
-                background-color: $BoggsPurple-click;
-                border-color: $BoggsPurple-click;
-            }
-            &:disabled {
-                background-color: $BtnDisabled;
-                border-color: $BtnDisabled;
-                path {
-                    fill: $BtnDisabledText;
-                }
-                &:hover {
-                    background-color: $BtnDisabled;
-                    border-color: $BtnDisabled;
-                }
-            }
-        }
-        &.outline {
-            border-color: $BoggsPurple;
-            path {
-                fill: $BoggsPurple;
-            }
-            &:hover {
-                border-color: $BoggsPurple-click;
-                path {
-                    fill: $BoggsPurple-click;
-                }
-            }
-            &:disabled {
-                border-color: $BtnDisabled;
-                path {
-                    fill: $BtnDisabledText;
-                }
-                &:hover {
-                    border-color: $BtnDisabled;
                 }
             }
         }

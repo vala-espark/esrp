@@ -31,7 +31,7 @@
     }
     .cowboys-informer-card {
         @include BlueNeoGradiantLight;
-        color: $white;
+        color: $White;
         .title {
             margin-bottom: 2px;
             letter-spacing: 0.15px;
@@ -100,7 +100,7 @@
                 -moz-transform: unset;
                 -ms-transform: unset;
                 -o-transform: unset;
-                .apexcharts-xaxis, 
+                .apexcharts-xaxis,
                 .apexcharts-yaxis,
                 .apexcharts-xaxis-tick {
                     display: none;
@@ -110,55 +110,7 @@
     }
 }
 
-.ripple-controls-map-card {
-    height: calc(100% - 30px);
-    .card-title {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
 
-        .ripple-map-distance {
-            margin-left: auto;
-            margin-right: auto;
-        }
-    }
-    .ripple-map-controls-wrapper {
-        margin-top: 18px;
-        display: flex;
-        flex-wrap: wrap;
-
-        .ripple-map-controls {
-            max-width: 45px;
-        }
-        .map-text {
-            margin-top: 80px;
-            display: flex;
-            justify-content: center;
-        }
-        label {
-            writing-mode: vertical-lr;
-            transform: rotate(180deg);
-            -webkit-transform: rotate(180deg);
-            -moz-transform: rotate(180deg);
-            -ms-transform: rotate(180deg);
-            -o-transform: rotate(180deg);
-            font-size: 10px;
-            line-height: 16px;
-            color: $BlueishBlack-Dark;
-            letter-spacing: 5.5px;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-    }
-    .ripple-chart {
-        margin-left: 65px;
-        max-width: calc(100% - 110px);
-        width: 100%;
-        .map-container {
-            height: 100%;
-        }
-    }
-}
 
 .occupational-overview-card {
     .card-title {
@@ -342,7 +294,7 @@
             background-color: $ESRPGreen;
             padding: 2px 15px;
             border-radius: 100px;
-            color: $white;
+            color: $White;
         }
 
         .apexcharts-tooltip-y-group {
@@ -400,3 +352,70 @@
         }
     }
 }
+
+#{$dark-theme} {
+    
+    
+    .cowboys-sec {
+        .market-overview-card {
+            li {
+                .name,
+                .value {
+                    color: $White;
+                }
+            }
+        }
+        .cowboys-informer-card{
+            color: $Black;
+        }
+        .occupational-overview-card {
+            .chart-price {
+                color: $White;
+            }
+            .summary {
+                label {
+                    color: $White;
+                }
+            }
+            .occupational-overview-progress{
+                background-color: $NewDarkprimaryOpacity;
+                li{
+                    color: $White;
+                }
+            }
+        }
+        .growth-lawyers-card {
+            svg {
+                .apexcharts-grid {
+                    rect:not([fill="transparent"]) {
+                        fill: #1d3845;
+                    }
+                }
+                .apexcharts-yaxis,
+                .apexcharts-xaxis {
+                    text {
+                        fill: $White;
+                    }
+                }
+            }
+            .apexcharts-tooltip,
+            .apexcharts-xaxistooltip {
+                box-shadow: none;
+                background-color: $BodyBgDark;
+                .apexcharts-tooltip-text-y-value {
+                    color: $BodyBgDark;
+                }
+            }
+            .apexcharts-xaxistooltip-text {
+                color: $White;
+            }
+            .apexcharts-xaxistooltip {
+                &::after,
+                &::before {
+                    border-bottom-color: $BodyBgDark;
+                }
+            }
+        }
+    }
+}
+// $BodyBgDark

@@ -447,10 +447,6 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             stroke: {
                 curve: 'smooth',
             },
-            title: {
-                text: 'Average High & Low Temperature',
-                align: 'left',
-            },
             grid: {
                 borderColor: 'transparent',
                 column: {
@@ -595,9 +591,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                                     <div className="ripple-map-controls-wrapper">
                                         <div className="ripple-map-controls">
                                             <MapControl />
-                                            <div className="map-text">
-                                                <label>Bluechip  MAP  DATA</label>
-                                            </div>
+                                            
                                         </div>
                                         <div className="card-content ripple-chart">
                                             {map && <div ref={mapContainer} className="map-container" />}

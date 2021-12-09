@@ -39,6 +39,9 @@
             height: 455px;
         }
     }
+    .living-wage-calc-row{
+        margin-top: 30px;
+    }
 }
 .ripple-chart{
     .mapboxgl-marker {
@@ -88,7 +91,7 @@ div.mapboxgl-popup-content {
         align-items: center;
         background-color: $ESRPBlue;
         border-radius: 12px;
-        color: $white;
+        color: $White;
     }
     .mapboxgl-popup-close-button {
         top: -10px;
@@ -188,9 +191,6 @@ div.mapboxgl-popup-content {
     }
 }
 
-.overview-income-row {
-    margin-top: 30px;
-}
 .overview-card,
 .annual-income-card {
     height: 100%;
@@ -244,7 +244,7 @@ div.mapboxgl-popup-content {
             line-height: 32px;
             letter-spacing: 0.15px;
             font-weight: 600;
-            color: $white;
+            color: $White;
         }
         svg {
             width: 24px;
@@ -284,20 +284,20 @@ div.mapboxgl-popup-content {
     .overview-card {
         li {
             & > * {
-                color: $white;
+                color: $White;
             }
         }
     }
     .employee-salary {
         label,
         p {
-            color: $white;
+            color: $White;
         }
     }
     .annual-salary-indicator {
         li {
             .label {
-                color: $white;
+                color: $White;
             }
         }
     }

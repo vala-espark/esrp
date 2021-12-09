@@ -7,17 +7,17 @@
         width: 3px;
     }
     *::-webkit-scrollbar-track {
-        background: $PurpleBlue;
+        background: $NewESRPBlue;
     }
     *::-webkit-scrollbar-thumb {
-        background: $Purple-Dark;
+        background: $ESRPBlue;
     }
     *::-webkit-scrollbar-thumb:hover {
-        background: $Purple-Dark;
+        background: $ESRPBlue;
     }
 
     .site-content {
-        .site-inner-content{
+        .site-inner-content {
             background-color: $BodyBgDark;
         }
     }
@@ -29,21 +29,16 @@
         }
         .theme-click-icon {
             path {
-                fill: $white;
+                fill: $White;
             }
         }
         ul {
             li {
                 label {
-                    color: $white;
+                    color: $White;
                 }
             }
         }
-    }
-
-    .header,
-    .side-bar {
-        background-color: $DarkMapControlBgNew;
     }
 
     .loading-sec {
@@ -60,25 +55,26 @@
         }
         .progress-bar-wrapper {
             span {
-                color: $white;
+                color: $White;
             }
         }
     }
 
     .map-control-wrapper {
         .map-control-item {
-            background-color: $DarkMapControlBg;
+            background-color: $ESRPDarkBG;
             box-shadow: none;
 
             li {
                 a {
+                    background-color: $NewDarkprimary;
                     path {
-                        fill: $HeaderMenuActive;
+                        fill: $ESRPBlue;
                     }
                     &:hover {
-                        background-color: $DoryBlue;
+                        background-color: $ESRPBlue;
                         path {
-                            fill: $white;
+                            fill: $ESRPDarkBG;
                         }
                     }
                 }
@@ -87,32 +83,44 @@
     }
 
     .map-distance-wrapper {
+        .label {
+            color: $White;
+        }
         ul {
-            background-color: $DarkMapControlBg;
+            background-color: transparent;
         }
         li {
             a {
-                color: $white;
+                color: $White;
             }
             &:hover,
             &.active {
                 a {
-                    background-color: $BoggsPurple;
+                    background-color: $ESRPBlue;
                 }
             }
         }
     }
 
+    .breadcrumbs {
+        ul {
+            a,
+            li {
+                color: $White;
+            }
+        }
+    }
+
     .card {
-        background-color: $DarkMapControlBgNew;
+        background-color: $ESRPDarkBG;
         box-shadow: none;
 
-        .card-title{
-            label{
-              color: $white;
+        .card-title {
+            label {
+                color: $White;
             }
-            .sub-text{
-                color: $white;
+            .sub-text {
+                color: $White;
             }
         }
     }
@@ -124,9 +132,23 @@
 
     .indicator-text {
         li {
-          .name {
-            color: $white;
-          }
+            .name {
+                color: $White;
+            }
         }
-      }
+    }
+
+    svg {
+        .apexcharts-yaxis,
+        .apexcharts-xaxis {
+            text {
+                fill: $White;
+            }
+        }
+        .apexcharts-legend-series {
+            .apexcharts-legend-text {
+                color: $White !important;
+            }
+        }
+    }
 }

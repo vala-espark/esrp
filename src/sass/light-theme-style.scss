@@ -1,7 +1,7 @@
 @import "./variables.scss";
 
 #{$light-theme} {
-    background-color: $white;
+    background-color: $White;
 
     *::-webkit-scrollbar {
         width: 3px;
@@ -10,16 +10,16 @@
         background: $SeachbarBG;
     }
     *::-webkit-scrollbar-thumb {
-        background: $BoggsPurple;
+        background: $ESRPBlue;
     }
     *::-webkit-scrollbar-thumb:hover {
-        background: $BoggsPurple;
+        background: $ESRPBlue;
     }
 
     .theme-change-wrapper {
         ul,
         .theme-click-icon {
-            background-color: $white;
+            background-color: $White;
         }
     }
 
@@ -35,12 +35,12 @@
             li {
                 a {
                     path {
-                        fill: $BoggsPurple;
+                        fill: $ESRPBlue;
                     }
                     &:hover {
-                        background-color: $BoggsPurple;
+                        background-color: $ESRPBlue;
                         path {
-                            fill: $white;
+                            fill: $White;
                         }
                     }
                 }
@@ -53,10 +53,25 @@
             &:hover,
             &.active {
                 a {
-                    background-color: $BoggsPurple;
-                    color: $white;
+                    background-color: $ESRPBlue;
+                    color: $White;
                 }
             }
         }
     }
+
+    svg {
+        .apexcharts-yaxis,
+        .apexcharts-xaxis {
+            text {
+                fill: $White;
+            }
+        }
+        .apexcharts-legend-series{
+            .apexcharts-legend-text{
+                color: $White !important;
+            }
+        }
+      }
+      
 }

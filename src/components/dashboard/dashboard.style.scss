@@ -56,7 +56,7 @@
         }
     }
     & > label {
-        background-color: $white;
+        background-color: $White;
         display: flex;
         width: 80px;
         justify-content: space-between;
@@ -75,13 +75,13 @@
             width: 25px;
             height: 25px;
 
-            background-color: $NewLightprimaryOpacity;
+            background-color: $NewESRPBlue;
             content: "";
             border-radius: 100px;
             top: 51%;
             transform: translateY(-50%);
             left: 50px;
-            border: 2px solid $NewLightprimary;
+            border: 2px solid $NewESRPBlue;
             transition: $transition;
             -webkit-transition: $transition;
             -moz-transition: $transition;
@@ -107,19 +107,18 @@
                 -o-transform: scale(0);
             }
             path {
-                stroke: $NewLightprimary;
+                stroke: $NewESRPBlue;
             }
         }
     }
 }
 
-
 .dashboard-market-overview-clm {
     position: absolute;
-    top: 60px;
+    top: 40px;
     width: 320px;
     left: 60px;
-    height: calc(100vh - 170px);
+    height: calc(100vh - 150px);
     overflow-y: auto;
     padding-bottom: 0px;
     overscroll-behavior: contain;
@@ -139,23 +138,23 @@
     top: 60px;
     right: 100px;
 }
-.dashboard-market-overview-clm {
-    .title {
-        margin-bottom: 12px;
-        h4 {
-            color: $white;
-            margin: 0;
-        }
-    }
-}
+// .dashboard-market-overview-clm {
+//     .title {
+//         margin-bottom: 12px;
+//         h4 {
+//             color: $NewESRPBlue;
+//             margin: 0;
+//         }
+//     }
+// }
 
 .population-wrap {
     margin-bottom: 24px;
     .population-title {
         font-size: 20px;
         line-height: 32px;
-        font-weight: 600;
-        color: $white;
+        font-weight: 700;
+        color: $NewESRPBlue;
         margin: 0;
         a {
             display: inline-flex;
@@ -165,17 +164,23 @@
             line-height: 16px;
             font-weight: 600;
             letter-spacing: 0.4px;
-            color: $white;
+            color: $Black;
             text-decoration: none;
+            text-transform: uppercase;
+            path {
+                fill: $Black;
+                margin-left: -5px;
+                margin-top: -3px;
+            }
         }
     }
     h1 {
-        color: $white;
+        color: $NewESRPBlue;
         margin: 0;
         line-height: 74px;
     }
     h6 {
-        color: $white;
+        color: $NewESRPBlue;
         margin: 0;
     }
     .population-color-stripe-bar {
@@ -205,6 +210,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: space-between;
 
         &:not(:first-child) {
             margin-top: 4.5px;
@@ -212,30 +218,40 @@
             border-top: 1px solid $BtnDisabled;
         }
     }
-    .circle {
-        width: 8px;
-        height: 8px;
+    // .circle {
+    //     width: 8px;
+    //     height: 8px;
+    //     display: inline-block;
+    //     border-radius: 100px;
+    //     -webkit-border-radius: 100px;
+    //     -moz-border-radius: 100px;
+    //     -ms-border-radius: 100px;
+    //     -o-border-radius: 100px;
+    //     margin-right: 8px;
+    // }
+    .name {
+        font-size: 12px;
+        line-height: 16px;
         display: inline-block;
+        padding: 2px 5px;
+        max-width: 76px;
+        min-width: 76px;
+        margin-right: 8px;
+        text-align: center;
+        color: $White;
         border-radius: 100px;
         -webkit-border-radius: 100px;
         -moz-border-radius: 100px;
         -ms-border-radius: 100px;
         -o-border-radius: 100px;
-        margin-right: 8px;
-    }
-    .name {
-        font-size: 16px;
-        line-height: 24px;
-        display: inline-block;
-        width: 142px;
-        margin-right: 8px;
-    }
+}
     .percentage {
         font-size: 20px;
         line-height: 32px;
         font-weight: 500;
         display: inline-block;
         width: 42px;
+        color: $NewESRPBlue;
     }
 }
 
@@ -246,6 +262,8 @@
         p {
             margin-top: 0;
             margin-bottom: 2px;
+            color: $NewESRPBlue;
+            font-weight: 400;
         }
     }
 
@@ -254,7 +272,7 @@
             margin: 0;
             font-weight: 500;
             line-height: 44px;
-            color: $BlueishBlack;
+            color: $NewESRPBlue;
             span {
                 font-weight: 500;
                 line-height: 20px;
@@ -279,7 +297,7 @@
             font-size: 12px;
             line-height: 16px;
             letter-spacing: 0.44px;
-            color: $BlueishBlack;
+            color: $NewESRPBlue;
             opacity: 0.6;
             font-weight: 500;
         }
@@ -304,6 +322,7 @@
                 line-height: 20px;
                 letter-spacing: 0.44px;
                 font-weight: 500;
+                color: $NewESRPBlue;
             }
             .name {
                 width: 100px;
@@ -340,7 +359,34 @@
 .dark-theme {
     .population-card-info {
         & > * {
-            color: $white;
+            color: $White;
+        }
+    }
+
+    .population-wrap {
+        .population-title,
+        a{
+            color: $White;
+            path{
+                fill: $White
+            }
+        }
+        h1,
+        h6{
+            color: $White;
+        }
+    }
+    .population-card-info {
+        .percentage{
+            color: $White;
+        }
+        .name{
+            color: $Black
+        }
+        li{
+            &:not(:first-child){
+                border-color: $Black;
+            }
         }
     }
 
@@ -383,13 +429,18 @@
         }
         .card-title {
             p {
-                color: $white;
+                color: $White;
+            }
+        }
+        .chart-summary {
+            label{
+                color: $White;
             }
         }
         .attainment-data-table {
             li {
                 & > * {
-                    color: $white;
+                    color: $White;
                 }
             }
         }
@@ -397,7 +448,7 @@
     .population-card-attainment {
         .chart-market-value {
             h4 {
-                color: $white;
+                color: $White;
             }
         }
     }

@@ -1,6 +1,6 @@
 .site-footer {
     padding: 11px 67px;
-    background-color: $white;
+    background-color: $White;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -30,7 +30,12 @@
 // DARK THEME -----------------------------------
 #{$dark-theme} {
     footer {
-        background-color: $BlueishBlack-Dark;
+        background-color: $NewDarkprimary;
+    }
+    .site-footer {
+        a,label{
+            color: $ESRPBlue;
+        }
     }
 }
 

@@ -9,62 +9,52 @@ $xxl: 1920px;
 $transition: all 0.3s;
 
 // ESRP THEME COLOR
-$white: #ffffff;
+$White: #ffffff;
+$Black: #000;
 $BlueishBlack: #111128;
 $ESRPGreen: #81cab2;
 $ESRPBlue: #5c86c1;
-$Pewter: #dbdff1;
-$Blue: #175086;
-$Purple: #655cc1;
-$Red: #ff2d2e;
+$Pewter: #f0f3ff;
+$Orange: #fda747;
+$NewESRPBlue: #175086;
+$Blue:#3FB7F3;
+$Purple:#5D6EBE;
+$Red: #D9585F;
 $Green: #31c192;
 $MarlinOrange: #f5b954;
 
-// LIGHT THEME COLOR
-$BoggsPurple: #9072d5;
-$BoggsPurple-click: #5F46A3;
-$Peach: #ff708b;
-$MeridaBlue: #383874;
-$DoryBlue: #023aff;
-$DoryBlue-click: #00239D;
-$BoggsPurple-Dark: #8676ff;
-$WazowskiGreen: #5eff5a;
-$MarlinOrange-Light: #ffba69;
+$ESRPLoading: #3a616f;
+$DarkLoading: #27283a;
 
-// DARK THEME
 $Birches: #01f1e3;
 $BlueishBlack-Dark: #14142b;
 $PurpleBlue: #5a5a89;
 $Black-Dark: #05050f;
 $Yellow: #ffa63f;
 $Purple-Dark: #991bfa;
-$BodyBgDark : #00121E;
+$BodyBgDark: #00121e;
 
+$ESRPDarkBG: #102c3a;
+$NewDarkprimary: #04212f;
 
 // OTHER COLORS
-$ESRPLoading:#3A616F;
-$LightLoading:#C6D3E8;
-$DarkLoading:#27283A;
-$DarkMapControlBg:#191932;
-$DarkMapControlBgNew:#102C3A;
-$HeaderMenuActive:#6C79AF;
-$SidebarActive:#9D1FB9;
-$btnDarkDisable:#171717;
+
+$DarkMapControlBg: #191932;
+$DarkMapControlBgNew: #102c3a;
+$SidebarActive: #9d1fb9;
+$btnDarkDisable: #171717;
 $BtnDisabled: #e6e8ed;
 $BtnDisabledText: #a1a8c2;
 $SeachbarBG: #eef0fa;
 $HeaderMenuLink: #8484a0;
-$Black: #000;
 $OffWhite: #e5e5e5;
-$NewLightprimary:#175086;
-$NewLightprimaryOpacity:#e3eaf0;
-$NewDarkprimary:#04212F;
-$NewDarkprimaryOpacity:#193247;
-$purpleLight:#F7F8FD;
+$NewLightprimaryOpacity: #e3eaf0;
 
-$dark-theme : '.dark-theme';
-// $light-theme : '.light-theme';
-$light-theme : '.esrp-theme';
+$NewDarkprimaryOpacity: #193247;
+$purpleLight: #f7f8fd;
+
+$dark-theme: ".dark-theme";
+$light-theme: ".esrp-theme";
 
 @mixin PurplePinkGradiant {
   background-image: linear-gradient(90deg, #7517f8, #e323ff);
@@ -79,5 +69,5 @@ $light-theme : '.esrp-theme';
 }
 
 @mixin BlueNeoGradiantLight {
-  background-image: linear-gradient(90deg, #5C86C1, #81CAB2);
+  background-image: linear-gradient(90deg, #5c86c1, #81cab2);
 }

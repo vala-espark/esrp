@@ -116,9 +116,9 @@ const Dashboard = ({ theme, setThemeSetting }) => {
                 </div>
 
                 <div className="dashboard-market-overview-clm">
-                    <div className="title">
+                    {/* <div className="title">
                         <h4>Market Overview</h4>
-                    </div>
+                    </div> */}
                     <div className="population-wrap">
                         <p className="population-title">Population
                             <a href="#!">
@@ -131,33 +131,33 @@ const Dashboard = ({ theme, setThemeSetting }) => {
                         <h1>7,541,390</h1>
                         <h6>Market Race Distribution</h6>
                         <ul className="population-color-stripe-bar">
-                            <li style={{ width: '36%', backgroundColor: '#31C192' }}></li>
-                            <li style={{ width: '19%', backgroundColor: '#F5B954' }}></li>
-                            <li style={{ width: '20%', backgroundColor: '#5C86C1' }}></li>
-                            <li style={{ width: '22%', backgroundColor: '#D9585F' }}></li>
+                            <li style={{ width: '36%', backgroundColor: '#1C5285' }}></li>
+                            <li style={{ width: '19%', backgroundColor: '#3FB7F3' }}></li>
+                            <li style={{ width: '20%', backgroundColor: '#83C9B2' }}></li>
+                            <li style={{ width: '22%', backgroundColor: '#FBA651' }}></li>
                         </ul>
                     </div>
                     <div className="card population-card-info">
                         <div className="card-body">
                             <ul>
                                 <li>
-                                    <span className="circle" style={{ backgroundColor: '#31C192' }}></span>
-                                    <span className="name">White</span>
+                                    {/* <span className="circle" style={{ backgroundColor: '#1C5285' }}></span> */}
+                                    <span className="name" style={{ backgroundColor: '#1C5285' }}>White</span>
                                     <span className="percentage">55%</span>
                                 </li>
                                 <li>
-                                    <span className="circle" style={{ backgroundColor: '#5C86C1' }}></span>
-                                    <span className="name">Asian</span>
+                                    {/* <span className="circle" style={{ backgroundColor: '#3FB7F3' }}></span> */}
+                                    <span className="name"style={{ backgroundColor: '#3FB7F3' }}>Asian</span>
                                     <span className="percentage">25%</span>
                                 </li>
                                 <li>
-                                    <span className="circle" style={{ backgroundColor: '#D9585F' }}></span>
-                                    <span className="name">Black</span>
+                                    {/* <span className="circle" style={{ backgroundColor: '#83C9B2' }}></span> */}
+                                    <span className="name" style={{ backgroundColor: '#83C9B2' }}>Black</span>
                                     <span className="percentage">15%</span>
                                 </li>
                                 <li>
-                                    <span className="circle" style={{ backgroundColor: '#F5B954' }}></span>
-                                    <span className="name">Other</span>
+                                    {/* <span className="circle" style={{ backgroundColor: '#FBA651' }}></span> */}
+                                    <span className="name" style={{ backgroundColor: '#FBA651' }}>Other</span>
                                     <span className="percentage">15%</span>
                                 </li>
                             </ul>

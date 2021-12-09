@@ -3,11 +3,11 @@
 .login-sec {
     position: relative;
     z-index: 9;
-    min-height: calc(100vh - 97px);
+    min-height: calc(100vh - 130px);
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $white;
+    // background-color: $White;
 
     .container-fluid,
     .row {
@@ -77,7 +77,7 @@
     }
     .login-text-content {
         h3 {
-            color: $white;
+            color: $White;
         }
     }
     .form-row {
@@ -85,20 +85,7 @@
             a {
                 color: $BtnDisabledText;
                 &:hover {
-                    color: $DoryBlue;
-                }
-            }
-        }
-    }
-}
-// LIGHT THEME ----------------------------------
-
-#{$light-theme}{
-    .form-row {
-        .forget {
-            a {
-                &:hover {
-                    color: $BoggsPurple;
+                    color: $ESRPBlue;
                 }
             }
         }

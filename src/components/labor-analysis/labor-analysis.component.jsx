@@ -68,9 +68,6 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
     const [lng, setLng] = useState(-95.550000);
     const [lat, setLat] = useState(38.770000);
     const [zoom, setZoom] = useState(3);
-    
-    const [selectBox, setSelectBox] = useState();
-    const [houseHold, setHouseHold] = useState();
 
     const [showFilter, setShowFilter] = useState(false);
 
@@ -131,7 +128,7 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                 new mapboxgl.Marker(el)
                     .setLngLat(feature.geometry.coordinates)
                     .setPopup(
-                        new mapboxgl.Popup({ offset: 15, closeOnClick: false}) // add popups
+                        new mapboxgl.Popup({ offset: 15, closeOnClick: false }) // add popups
                             .setHTML(
                                 `<span class="title">${feature.properties.title}</span><span class="sub-title">${feature.properties.description}</span>`
                             )
@@ -153,12 +150,12 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                     <div className="row title-filter-row">
                         <div className="col col-4">
                             <h3 className="page-title">Labor Analysis</h3>
-                            <label htmlFor="" className="page-title-sub">Base Upon A 30 Minute Drive</label>
+                            <label htmlFor="" className="page-title-sub">Based Upon A 30 Minute Drive</label>
                         </div>
                         <div className="col col-8">
                             <div className="labor-filter-btns-wrap">
                                 <ul>
-                                    <li>
+                                    {/* <li>
                                         <div className="theme-changer-btn">
                                             <button className="btn-icon" onClick={toggleTheme}>
                                                 {
@@ -180,15 +177,15 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                                                 }
                                             </button>
                                         </div>
-                                    </li>
+                                    </li> */}
                                     <li>
                                         <div className="action-btn download-btn">
-                                            <button className="btn primary outline">Hello</button>
+                                            <button className="btn primary outline rounded">Hello</button>
                                         </div>
                                     </li>
                                     <li>
                                         <div className="action-btn download-btn">
-                                            <button className="btn primary" onClick={() => setShowFilter(true)}>Show Filters</button>
+                                            <button className="btn primary rounded" onClick={() => setShowFilter(true)}>Show Filters</button>
                                         </div>
                                     </li>
                                 </ul>
@@ -201,14 +198,14 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                             <div className="card labor-market-score-card">
                                 <div className="card-body">
                                     <div className="card-title">
-                                        <label>Market Score</label>
+                                        <label>Location Labor Score</label>
                                     </div>
                                     <div className="card-content">
                                         <ul className="indicator-text">
                                             <li><span className="circle" style={{ backgroundColor: '#5C86C1', }}></span><label className="name">Labor Competition</label></li>
                                             <li><span className="circle" style={{ backgroundColor: '#3FB7F3', }}></span><label className="name">Labor Sustainability</label></li>
                                             <li><span className="circle" style={{ backgroundColor: '#81CAB2', }}></span><label className="name">Labor Cost</label></li>
-                                            <li><span className="circle" style={{ backgroundColor: '#F9D456', }}></span><label className="name">Labor Supply</label></li>
+                                            <li><span className="circle" style={{ backgroundColor: '#fda747', }}></span><label className="name">Labor Supply</label></li>
                                         </ul>
                                         <div className="labor-market-score-progress-wrap">
                                             <ul>
@@ -220,7 +217,7 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                                                             <span style={{ backgroundColor: '#5C86C1', width: 'calc(25% + 18px)' }}>25.00</span>
                                                             <span style={{ backgroundColor: '#3FB7F3', width: 'calc(25% + 18px)' }}>17.83</span>
                                                             <span style={{ backgroundColor: '#81CAB2', width: 'calc(25% + 18px)' }}>24.0</span>
-                                                            <span style={{ backgroundColor: '#F9D456', width: 'calc(25% + 18px)' }}>24.72</span>
+                                                            <span style={{ backgroundColor: '#fda747', width: 'calc(25% + 18px)' }}>24.72</span>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -232,7 +229,7 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                                                             <span style={{ backgroundColor: '#5C86C1', width: 'calc(25% + 18px)' }}>25.00</span>
                                                             <span style={{ backgroundColor: '#3FB7F3', width: 'calc(25% + 18px)' }}>17.83</span>
                                                             <span style={{ backgroundColor: '#81CAB2', width: 'calc(25% + 18px)' }}>24.0</span>
-                                                            <span style={{ backgroundColor: '#F9D456', width: 'calc(25% + 18px)' }}>24.72</span>
+                                                            <span style={{ backgroundColor: '#fda747', width: 'calc(25% + 18px)' }}>24.72</span>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -244,7 +241,7 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                                                             <span style={{ backgroundColor: '#5C86C1', width: 'calc(25% + 18px)' }}>25.00</span>
                                                             <span style={{ backgroundColor: '#3FB7F3', width: 'calc(25% + 18px)' }}>17.83</span>
                                                             <span style={{ backgroundColor: '#81CAB2', width: 'calc(25% + 18px)' }}>24.0</span>
-                                                            <span style={{ backgroundColor: '#F9D456', width: 'calc(25% + 18px)' }}>24.72</span>
+                                                            <span style={{ backgroundColor: '#fda747', width: 'calc(25% + 18px)' }}>24.72</span>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -256,7 +253,7 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                                                             <span style={{ backgroundColor: '#5C86C1', width: 'calc(25% + 18px)' }}>25.00</span>
                                                             <span style={{ backgroundColor: '#3FB7F3', width: 'calc(25% + 18px)' }}>17.83</span>
                                                             <span style={{ backgroundColor: '#81CAB2', width: 'calc(25% + 18px)' }}>24.0</span>
-                                                            <span style={{ backgroundColor: '#F9D456', width: 'calc(25% + 18px)' }}>24.72</span>
+                                                            <span style={{ backgroundColor: '#fda747', width: 'calc(25% + 18px)' }}>24.72</span>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -268,7 +265,7 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                                                             <span style={{ backgroundColor: '#5C86C1', width: 'calc(25% + 18px)' }}>25.00</span>
                                                             <span style={{ backgroundColor: '#3FB7F3', width: 'calc(25% + 18px)' }}>17.83</span>
                                                             <span style={{ backgroundColor: '#81CAB2', width: 'calc(25% + 18px)' }}>24.0</span>
-                                                            <span style={{ backgroundColor: '#F9D456', width: 'calc(25% + 18px)' }}>24.72</span>
+                                                            <span style={{ backgroundColor: '#fda747', width: 'calc(25% + 18px)' }}>24.72</span>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -282,9 +279,25 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                             <div className="card labor-situational-map-card">
                                 <div className="card-body">
                                     <div className="card-title">
-                                        <label>Situational Map</label>
+                                        <label>Reno Market</label>
                                         <div className="labor-map-distance">
-                                            <MapDistance />
+                                            <div className="map-distance-wrapper">
+                                                {/* <span className="label">Drive Time:</span> */}
+                                                <ul>
+                                                    <li>
+                                                        <a>15Min</a>
+                                                    </li>
+                                                    <li>
+                                                        <a>30Min</a>
+                                                    </li>
+                                                    <li className="active">
+                                                        <a>45Min</a>
+                                                    </li>
+                                                    <li>
+                                                        <a>60Min</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                         <div className="more-btn">
                                             <a>
@@ -300,9 +313,6 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                                     <div className="map-control-wrapper">
                                         <div className="labor-map-controls">
                                             <MapControl />
-                                            <div className="map-text">
-                                                <label>Bluechip  MAP  DATA</label>
-                                            </div>
                                         </div>
                                         <div className="multi-circle-chart-map-wrap">
                                             {map && <div ref={mapContainer} className="map-container dashboard-map" />}
@@ -314,11 +324,19 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                     </div>
                 </div>
             </section>
+            
+            <div className={`${showFilter ? 'show' : ''} overlay`}  onClick={() => setShowFilter(false)}></div>
 
             <div className={`${showFilter ? 'show' : ''} labor-filter-sidebar`}>
                 <div className="sidebar-inner">
-                    <div className="sidebar-item-btn">
-                        <button className="btn primary hide-trigger" onClick={() => setShowFilter(false)}>Hide Filters</button>
+                    <div className="sidebar-item-btn-close">
+                    <span onClick={() => setShowFilter(false)}>
+                        <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 1.00195L1 13.002" stroke="#111128" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M1 1.00195L13 13.002" stroke="#111128" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                        {/* <button className="btn primary hide-trigger" onClick={() => setShowFilter(false)}>Hide Filters</button> */}
                     </div>
                     <div className="sidebar-item-wrapper">
                         <div className="sidebar-item">
@@ -355,6 +373,7 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                         <div className="sidebar-item">
                             <div className="sidebar-title">
                                 <h4>Weight</h4>
+                                <span className="body-2">Total weight must equal 100%</span>
                             </div>
                             <div className="input-item">
                                 <Input name="LaborSupply" id="LaborSupply" type="text" lable="Labor Supply" />

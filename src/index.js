@@ -4,7 +4,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { store, persistor } from './redux/store';
 import './sass/index.scss';
-import './sass/light-theme-style.scss';
+// import './sass/light-theme-style.scss';
 import './sass/dark-theme-style.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';

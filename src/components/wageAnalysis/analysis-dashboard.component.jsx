@@ -298,7 +298,7 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                                                 <path d="M18.6429 1H2.35714C1.99732 1.00036 1.65233 1.14346 1.39789 1.39789C1.14346 1.65233 1.00036 1.99732 1 2.35714V18.6429C1.00036 19.0027 1.14346 19.3477 1.39789 19.6021C1.65233 19.8565 1.99732 19.9996 2.35714 20H18.6429C19.0027 19.9996 19.3477 19.8565 19.6021 19.6021C19.8565 19.3477 19.9996 19.0027 20 18.6429V2.35714C19.9996 1.99732 19.8565 1.65233 19.6021 1.39789C19.3477 1.14346 19.0027 1.00036 18.6429 1ZM18.6429 9.14286H15.25V2.35714H18.6429V9.14286ZM10.5 2.35714H13.8929V9.14286H10.5V2.35714ZM9.14286 2.35714V13.2143H2.35714V2.35714H9.14286ZM2.35714 14.5714H9.14286V18.6429H2.35714V14.5714ZM10.5 18.6429V10.5H18.6429V18.6429H10.5Z" fill="#5C86C1" stroke="#5C86C1" stroke-width="0.5" />
                                             </svg>
                                         }
-                                        options={["Large", "Small", "Medium", "X - Large"]}
+                                        options={["Indianapolis-Carmel-Anderson, IN Metro", "Small", "Medium", "X - Large"]}
                                         optionsIcon={{
                                             Large:
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -326,7 +326,7 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                                     />
                                 </div>
                                 <div className="analysis-filter-item wage">
-                                    <Input name="email" id="HourlyWage" type="text" lable="Hourly Wag" />
+                                    <Input name="text" id="HourlyWage" type="text" lable="Hourly Wag" />
                                 </div>
                             </div>
                         </div>
@@ -449,13 +449,27 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="row overview-income-row">
+                    <div className="row living-wage-calc-row">
 
                         <div className="col col-12">
                             <div className="card analysis-column-card">
                                 <div className="card-body">
                                     <div className="card-title">
-                                        <label htmlFor="">Living Wage Calculator</label>
+                                        <label htmlFor="">MIT Living Wage</label>
+                                        <div className="map-distance-wrapper">
+                                            <span className="label">Wage:</span>
+                                            <ul>
+                                                <li className="active">
+                                                    <a>Hourly</a>
+                                                </li>
+                                                <li>
+                                                    <a>Monthly</a>
+                                                </li>
+                                                <li>
+                                                    <a>Annually</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                     <div className="card-content">
                                         <Chart

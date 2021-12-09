@@ -33,7 +33,7 @@
         padding: 22px 10px 10px 10px;
         border: 0;
         height: 56px;
-        background-color: $white;
+        background-color: $White;
         border-radius: 4px 4px 0 0;
         -webkit-border-radius: 4px 4px 0 0;
         -moz-border-radius: 4px 4px 0 0;
@@ -48,7 +48,7 @@
                 0 6.5px 5.32px rgba(92, 134, 193, 0.0283), 0 2.77px 2.21px rgba(92, 134, 193, 0.0197);
         }
         &:focus {
-            border-width: 2px;
+            border-bottom-width: 2px;
         }
         &.error {
             border-color: $Red;
@@ -56,7 +56,7 @@
         &.hasFocus {
             & + label {
                 font-size: 12px;
-                color: $Blue;
+                color: $NewESRPBlue;
                 transform: translateY(-15px);
                 -webkit-transform: translateY(-15px);
                 -moz-transform: translateY(-15px);
@@ -96,7 +96,7 @@
         }
         &.show {
             .select-trigger-wrap {
-                border-width: 2px;
+                border-bottom-width: 2px;
             }
             svg {
                 transform: rotate(0deg);
@@ -145,7 +145,7 @@
         }
     }
     .select-items-wrap {
-        background-color: $white;
+        background-color: $White;
         padding: 8px 0;
         & > li {
             font-size: 14px;
@@ -166,12 +166,12 @@
 #{$dark-theme} {
     .input-item {
         label {
-            color: $BtnDisabledText;
+            color: $ESRPBlue;
         }
         .select-items-wrap {
-            background-color: $DarkMapControlBgNew;
+            background-color: $ESRPDarkBG;
             & > li {
-                color: $white;
+                color: $White;
                 &:hover {
                     background-color: rgba(255, 255, 255, 0.051);
                 }
@@ -181,46 +181,15 @@
         .select-trigger-wrap,
         textarea,
         input {
-            background-color: $DarkMapControlBgNew;
+            background-color: $ESRPDarkBG;
             border-color: $ESRPBlue;
-            color: $white;
+            color: $White;
             &:focus {
                 border-width: 2px;
             }
             &.hasFocus {
                 & + label {
                     color: $ESRPBlue;
-                }
-            }
-        }
-    }
-}
-
-// LIGHT ---------------------------------
-
-#{$light-theme} {
-    .input-item {
-        .select-trigger-wrap,
-        textarea,
-        input {
-            border-color: $BoggsPurple;
-            &:hover,
-            &:focus {
-                border-color: $BoggsPurple;
-            }
-            &.hasFocus {
-                & + label {
-                    color: $BoggsPurple;
-                }
-            }
-        }
-
-        .custom-select {
-            .select-trigger {
-                & > svg {
-                    path {
-                        // stroke: $BoggsPurple;
-                    }
                 }
             }
         }

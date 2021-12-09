@@ -1,6 +1,6 @@
 .header {
     padding: 10px 60px;
-    background-color: $white;
+    background-color: $White;
     z-index: 9999;
     position: fixed;
     top: 0;
@@ -47,7 +47,7 @@
             -o-border-radius: 8px;
             width: 100%;
             padding: 8.5px 35px 8.5px 10px;
-            caret-color: $MeridaBlue;
+            caret-color: $ESRPBlue;
             color: $ESRPBlue;
         }
         .header-search-icon {
@@ -96,7 +96,7 @@
                     width: 0;
                     height: 3px;
                     background-color: $ESRPBlue;
-                    bottom: -14px;
+                    bottom: -18px;
                     left: 0;
                     right: 0;
                     margin: 0 auto;
@@ -177,7 +177,7 @@
 
 .header-profile-box {
     position: absolute;
-    background-color: $white;
+    background-color: $White;
     z-index: 99;
     width: 290px;
     right: 30px;
@@ -196,24 +196,7 @@
         opacity: 1;
         visibility: visible;
     }
-    @keyframes toggle {
-        from {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(30px);
-            -webkit-transform: translateY(30px);
-            -moz-transform: translateY(30px);
-            -ms-transform: translateY(30px);
-            -o-transform: translateY(30px);
-        }
-        to {
-            transform: translateY(0px);
-            -webkit-transform: translateY(0px);
-            -moz-transform: translateY(0px);
-            -ms-transform: translateY(0px);
-            -o-transform: translateY(0px);
-        }
-    }
+    
 
     .header-profile-inner {
         padding: 20px 30px;
@@ -321,7 +304,7 @@
                 right: 4px;
                 width: 28px;
                 height: 28px;
-                background-color: $white;
+                background-color: $White;
                 border-radius: 100px;
                 -webkit-border-radius: 100px;
                 -moz-border-radius: 100px;
@@ -367,23 +350,45 @@
     }
 }
 
+@keyframes toggle {
+    from {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(30px);
+        -webkit-transform: translateY(30px);
+        -moz-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+        -o-transform: translateY(30px);
+    }
+    to {
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+    }
+}
+
 // DARK THEME ------------------------------------
 
 #{$dark-theme} {
+    .header {
+        background-color: $NewDarkprimary;
+    }
     .header-menu-wrapper {
         ul {
             li {
                 &:hover,
                 &.active {
                     a {
-                        color: $white;
+                        color: $White;
                         &::before {
-                            background-color: $DoryBlue;
+                            background-color: $ESRPBlue;
                         }
                     }
                 }
                 a {
-                    color: $HeaderMenuActive;
+                    color: $ESRPBlue;
                 }
             }
         }
@@ -395,7 +400,7 @@
                 a {
                     &:hover svg {
                         path {
-                            fill: $DoryBlue;
+                            fill: $ESRPBlue;
                         }
                     }
                 }
@@ -407,8 +412,8 @@
         .search-bar {
             input {
                 background-color: $Black;
-                caret-color: $BoggsPurple;
-                color: $white;
+                caret-color: $ESRPBlue;
+                color: $White;
             }
             .header-search-icon {
                 path {
@@ -419,7 +424,7 @@
     }
 
     .header-profile-box {
-        background-color: $DarkMapControlBgNew;
+        background-color: $ESRPDarkBG;
         box-shadow: none;
         .header-profile-item {
             &:not(:first-child) {
@@ -428,52 +433,19 @@
         }
         .details {
             .title {
-                color: $white;
+                color: $White;
             }
             .caption {
-                color: $white;
+                color: $White;
             }
         }
         .policy {
             li {
                 .caption {
-                    color: $white;
+                    color: $White;
                 }
                 &:not(:first-child)::before {
-                    color: $white;
-                }
-            }
-        }
-    }
-}
-
-// LIGHT THEME ------------------------------------
-
-#{$light-theme} {
-    .header-menu-wrapper {
-        ul {
-            li {
-                &:hover,
-                &.active {
-                    a {
-                        &::before {
-                            background-color: $BoggsPurple;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .header-user-wrapper {
-        ul {
-            li {
-                a {
-                    &:hover svg {
-                        path {
-                            fill: $BoggsPurple;
-                        }
-                    }
+                    color: $White;
                 }
             }
         }

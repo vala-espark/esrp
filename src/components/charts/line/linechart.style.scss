@@ -50,7 +50,7 @@
         .circle {
             span {
                 display: inline-block;
-                background-color: $white;
+                background-color: $White;
                 border: 2px solid $ESRPBlue;
                 width: 10px;
                 height: 10px;
@@ -147,22 +147,22 @@
     .line-chart-card {
         .card-title {
             label {
-                color: $white;
+                color: $White;
             }
         }
         .chart-price {
             h3{
-                color: $white;
+                color: $White;
             }
         }
         .summary{
             label{
-                color: $white;
+                color: $White;
             }
         }
         .line-chart-table{
             .name{
-                color: $white
+                color: $White
             }
         }
     }

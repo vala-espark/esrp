@@ -32,7 +32,7 @@
         span {
             font-size: 20px;
             line-height: 32px;
-            color: $white;
+            color: $White;
         }
     }
     .progress {
@@ -81,36 +81,12 @@
 // DARK THEME ----------------------------------
 #{$dark-theme} {
     .loading-sec {
-        background-color: $DarkLoading;
+        background-color: $ESRPDarkBG;
     }
     .loading-content {
         .progress-bar-wrapper {
             span {
-                color: $white;
-            }
-        }
-    }
-}
-
-
-// LIGHT THEME ----------------------------------
-
-#{$light-theme} {
-    .loading-sec {
-        background-color: $LightLoading;
-    }
-    .loading-content {
-        .img {
-            .dark {
-                display: none;
-            }
-            .light {
-                display: block;
-            }
-        }
-        .progress-bar-wrapper {
-            span {
-                color: $Black;
+                color: $White;
             }
         }
     }

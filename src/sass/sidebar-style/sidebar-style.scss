@@ -14,7 +14,7 @@
     position: fixed;
     left: 0;
     width: 100px;
-    background-color: $white;
+    background-color: $White;
     top: 0;
     height: 100vh;
 
@@ -146,7 +146,7 @@
                     -moz-border-radius: 100px;
                     -ms-border-radius: 100px;
                     -o-border-radius: 100px;
-                    box-shadow: 0 0 0 4px $white;
+                    box-shadow: 0 0 0 4px $White;
                 }
             }
             svg {
@@ -172,28 +172,6 @@
                         }
                         path {
                             fill: $SidebarActive;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-// LIGHT THEME -------------------------------
-
-#{$light-theme} {
-    .side-bar-menu {
-        ul {
-            li {
-                &.active,
-                &:hover {
-                    a {
-                        &::before {
-                            background-color: $BoggsPurple;
-                        }
-                        path {
-                            fill: $BoggsPurple;
                         }
                     }
                 }
