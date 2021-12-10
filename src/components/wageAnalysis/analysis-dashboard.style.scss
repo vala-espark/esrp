@@ -43,7 +43,8 @@
         margin-top: 30px;
     }
 }
-.ripple-chart {
+.ripple-chart,
+.das-ripple-chart {
     .mapboxgl-marker {
         width: 100px;
         height: 100px;
@@ -66,7 +67,7 @@
             animation: ripple1 2s linear infinite;
             -webkit-animation: ripple1 2s linear infinite;
         }
-
+    
         &::after {
             animation: ripple2 2s linear infinite;
             -webkit-animation: ripple2 2s linear infinite;
@@ -127,8 +128,7 @@ div.mapboxgl-popup-content {
     }
 
     .apexcharts-inner {
-
-        & >.apexcharts-xcrosshairs {
+        & > .apexcharts-xcrosshairs {
             // opacity: 1;
             stroke: #81cab2;
             stroke-width: 0.8px;
@@ -207,6 +207,49 @@ div.mapboxgl-popup-content {
 .annual-income-card {
     height: 100%;
 }
+.annual-income-card {
+    svg {
+        .apexcharts-inner {
+            transform: unset;
+            -webkit-transform: unset;
+            -moz-transform: unset;
+            -ms-transform: unset;
+            -o-transform: unset;
+        }
+        .apexcharts-yaxis,
+        .apexcharts-xaxis,
+        .apexcharts-grid{
+            opacity: 0;
+        }
+        .apexcharts-legend {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            flex-direction: column;
+        }
+        .apexcharts-legend-series {
+            width: fit-content;
+            position: relative;
+            margin: 0 !important;
+            padding: 2px 14px;
+            border-radius: 100px;
+            overflow: hidden;
+            .apexcharts-legend-marker {
+                position: absolute;
+                width: 100% !important;
+                height: 100% !important;
+                margin: 0 !important;
+            }
+            .apexcharts-legend-text{
+                color: $White !important;
+            }
+            &:not(:first-child){
+                margin-top: 10px !important;
+            }
+        }
+    }
+}
+
 .employee-salary {
     text-align: center;
     margin-top: 30px;

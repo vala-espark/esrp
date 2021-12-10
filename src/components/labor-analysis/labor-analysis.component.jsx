@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import Chart from "react-apexcharts";
 import MapDistance from '../map-distance/MapDistance';
 import MapControl from '../map-control/MapControl';
 import { connect } from 'react-redux';
@@ -141,6 +142,93 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
     }, [theme.theme_color]);
 
 
+    // FOR BAR CHART
+    const dataSet = {
+        series: [{
+            name: 'Labor Competition',
+            data: [25.00, 17.83, 24.0, 24.72,]
+        }, {
+            name: 'Labor Sustainability ',
+            data: [25.0, 17.0, 24.0, 22.47]
+        }, {
+            name: 'Labor Cost',
+            data: [24.70, 17.00, 24.00, 22.47]
+        }, {
+            name: 'Labor Supply',
+            data: [24.98, 16.75, 24.00, 22.47]
+        }, {
+            name: 'Reborn Kid',
+            data: [24.40, 25.00, 25.00, 8]
+        }],
+        options: {
+            chart: {
+                type: 'bar',
+                height: 350,
+                stacked: true,
+                toolbar:{
+                    show:false
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: true,   
+                },
+            },
+            colors: ['#5C86C1', '#3FB7F3', '#81CAB2', '#FDA747'],
+            stroke: {
+                width: 0,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: [2008, 2009, 2010, 2011, 2012, 2013, 2014],
+                labels: {
+                    show:false,
+                    // formatter: function (val) {
+                    //     return val + "K"
+                    // }
+                }
+            },
+            yaxis: {
+                // title: {
+                //     text: undefined
+                // },
+                labels: {
+                    show:false,
+                }
+            },
+            grid: {
+                show: true,
+                borderColor: '#90A4AE',
+                strokeDashArray: 0,
+                position: 'back',
+                xaxis: {
+                    lines: {
+                        show: false
+                    }
+                },   
+                yaxis: {
+                    lines: {
+                        show: false
+                    }
+                }, 
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return val + "K"
+                    }
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            legend: {
+                position: 'top',
+                horizontalAlign: 'left',
+                offsetX: 40
+            }
+        },
+    };
 
 
     return (
@@ -180,12 +268,12 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                                     </li> */}
                                     <li>
                                         <div className="action-btn download-btn">
-                                            <button className="btn primary outline rounded">Hello</button>
+                                            <button className="btn primary outline rounded">Download</button>
                                         </div>
                                     </li>
                                     <li>
                                         <div className="action-btn download-btn">
-                                            <button className="btn primary rounded" onClick={() => setShowFilter(true)}>Show Filters</button>
+                                            <button className="btn primary rounded" onClick={() => setShowFilter(true)}>Filters</button>
                                         </div>
                                     </li>
                                 </ul>
@@ -194,14 +282,21 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                     </div>
 
                     <div className="row labor-chart-row">
-                        <div className="col col-4">
+                        <div className="col col-3">
                             <div className="card labor-market-score-card">
                                 <div className="card-body">
                                     <div className="card-title">
                                         <label>Location Labor Score</label>
                                     </div>
                                     <div className="card-content">
-                                        <ul className="indicator-text">
+                                        <Chart
+                                            options={dataSet.options}
+                                            series={dataSet.series}
+                                            type="bar"
+                                            width="100%"
+                                            height="500"
+                                        />
+                                        {/* <ul className="indicator-text">
                                             <li><span className="circle" style={{ backgroundColor: '#5C86C1', }}></span><label className="name">Labor Competition</label></li>
                                             <li><span className="circle" style={{ backgroundColor: '#3FB7F3', }}></span><label className="name">Labor Sustainability</label></li>
                                             <li><span className="circle" style={{ backgroundColor: '#81CAB2', }}></span><label className="name">Labor Cost</label></li>
@@ -270,19 +365,19 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                                                     </div>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="col col-8">
+                        <div className="col col-9">
                             <div className="card labor-situational-map-card">
                                 <div className="card-body">
                                     <div className="card-title">
                                         <label>Reno Market</label>
                                         <div className="labor-map-distance">
                                             <div className="map-distance-wrapper">
-                                                {/* <span className="label">Drive Time:</span> */}
+                                                <span className="label">Drive Time:</span>
                                                 <ul>
                                                     <li>
                                                         <a>15Min</a>
@@ -324,18 +419,18 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                     </div>
                 </div>
             </section>
-            
-            <div className={`${showFilter ? 'show' : ''} overlay`}  onClick={() => setShowFilter(false)}></div>
 
-            <div className={`${showFilter ? 'show' : ''} labor-filter-sidebar`}>
+            <div className={`${showFilter ? 'show' : ''} overlay`} onClick={() => setShowFilter(false)}></div>
+
+            <div className={`${showFilter ? 'show' : ''} labor-filter-sidebar`} key={showFilter}>
                 <div className="sidebar-inner">
                     <div className="sidebar-item-btn-close">
-                    <span onClick={() => setShowFilter(false)}>
-                        <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13 1.00195L1 13.002" stroke="#111128" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M1 1.00195L13 13.002" stroke="#111128" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </span>
+                        <span onClick={() => setShowFilter(false)}>
+                            <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 1.00195L1 13.002" stroke="#111128" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M1 1.00195L13 13.002" stroke="#111128" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
                         {/* <button className="btn primary hide-trigger" onClick={() => setShowFilter(false)}>Hide Filters</button> */}
                     </div>
                     <div className="sidebar-item-wrapper">
@@ -343,7 +438,7 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                             <div className="sidebar-title">
                                 <h4>Filters</h4>
                             </div>
-                            <div className="input-item">
+                            {/* <div className="input-item">
                                 <Select
                                     selectItem={occupation}
                                     setSelectedItem={setOccupation}
@@ -355,7 +450,7 @@ const LaborAnalysis = ({ theme, setThemeSetting }) => {
                                 //     </svg>
                                 // }
                                 />
-                            </div>
+                            </div> */}
                             <div className="input-item">
                                 <Select
                                     selectItem={radius}

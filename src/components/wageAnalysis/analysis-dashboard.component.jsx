@@ -100,7 +100,7 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
     }, [theme.theme_color]);
 
 
-    // FOR REDIAL CHART
+    // FOR BAR CHART
     const dataSet = {
         series: [{
             data: [29035, 23998, 5038]
@@ -108,49 +108,35 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
         options: {
             chart: {
                 type: 'bar',
+                toolbar: {
+                    show: false,
+                },
             },
-            toolbar:{
-                show: false
-            },
-            // plotOptions: {
-            //     bar: {
-            //         borderRadius:28,
-            //         barHeight: '100%',
-            //         columnWidth: '20%',
-            //         distributed: true,
-            //         horizontal: true,
-            //         dataLabels: {
-            //             position: 'bottom'
-            //         },
-            //     }
+            // title: {
+            //     text: 'Employee Annual Salary',
+            //     align: 'center',
+            //     margin: 0,
+            //     offsetX: 0,
+            //     offsetY: 0,
+            //     floating: false,
+            // },
+            // subtitle: {
+            //     text: '$35,984',
+            //     align: 'left',
+            //     margin: 0,
+            //     offsetX: 0,
+            //     offsetY: 0,
+            //     floating: false,
             // },
             plotOptions: {
                 bar: {
+                    borderRadius:18,
+                    barHeight: '50px',
+                    distributed: true,
                     horizontal: true,
-                    startingShape:'rounded',
-                    s̶t̶a̶r̶t̶i̶n̶g̶S̶h̶a̶p̶e̶: 'flat',
-                    e̶n̶d̶i̶n̶g̶S̶h̶a̶p̶e̶: 'flat',
-                    borderRadius: 28,
-                    barHeight: '80%',
-                    distributed: false,
-                    rangeBarOverlap: true,
-                    rangeBarGroupRows: false,
-                    colors: {
-                        ranges: [{
-                            from: 0,
-                            to: 0,
-                            color: undefined
-                        }],
-                        backgroundBarColors: [],
-                        backgroundBarOpacity: 1,
-                        backgroundBarRadius: 50,
+                    dataLabels: {
+                        position: 'bottom'
                     },
-                    // dataLabels: {
-                    //     position: 'top',
-                    //     maxItems: 100,
-                    //     hideOverflowingLabels: true,
-                    //     orientation: 'horizontal',
-                    // }
                 }
             },
             colors: ['#5C86C1', '#3FB7F3', '#81CAB2'],
@@ -438,7 +424,7 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                                                 series={dataSet.series}
                                                 type="bar"
                                                 width="100%"
-                                                height="250"
+                                                height="350"
                                             />
                                             {/* <div className="annual-salary-progress">
                                                 <ul>

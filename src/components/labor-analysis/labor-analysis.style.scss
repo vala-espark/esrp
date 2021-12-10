@@ -66,6 +66,48 @@
         }
     }
 
+    .labor-market-score-card {
+        height: 100%;
+        svg {
+            .apexcharts-inner {
+                transform: translate(0, 80px);
+                -webkit-transform: translate(0, 80px);
+                -moz-transform: translate(0, 80px);
+                -ms-transform: translate(0, 80px);
+                -o-transform: translate(0, 80px);
+            }
+        }
+        .apexcharts-legend {
+            padding: 0;
+            width: 100%;
+            left: 0;
+            right: unset;
+            position: unset !important;
+            display: flex !important;
+            flex-wrap: wrap !important;
+            .apexcharts-legend-series {
+                margin: 0 !important;
+                position: relative;
+                padding: 2px 14px;
+                border-radius: 100px !important;
+                overflow: hidden;
+                margin-right: 20px !important;
+                margin-bottom: 10px !important;
+            }
+            .apexcharts-legend-marker {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100% !important;
+                height: 100% !important;
+            }
+            .apexcharts-legend-text {
+                color: $White !important;
+                letter-spacing: 0.4px;
+            }
+        }
+    }
+
     .labor-market-score-progress-wrap {
         margin-top: 28px;
         li {
@@ -139,7 +181,7 @@
         }
     }
     .multi-circle-chart-map-wrap {
-        max-width: 970px;
+        max-width: calc(100% - 140px);
         height: 512px;
     }
 }
@@ -152,7 +194,8 @@
         flex-wrap: wrap;
         align-items: center;
         .labor-map-distance {
-            margin-left: 50px;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
     .labor-map-controls {
@@ -253,7 +296,7 @@
             letter-spacing: 0.44px;
             line-height: 32px;
         }
-        span{
+        span {
             opacity: 0.6;
             color: $BlueishBlack;
         }
@@ -287,7 +330,9 @@
         }
     }
     .input-item {
-        .select-trigger-wrap, textarea, input{
+        .select-trigger-wrap,
+        textarea,
+        input {
             border: 1px solid $ESRPBlue;
             border-bottom-width: 2px;
         }
@@ -307,45 +352,51 @@
     }
 
     .labor-filter-sidebar {
-        .sidebar-inner{
+        .sidebar-inner {
             background-color: $ESRPDarkBG;
         }
         .sidebar-item-btn-close {
-            span{
-                path{
+            span {
+                path {
                     stroke: $White;
                 }
             }
         }
-        .sidebar-title{
+        .sidebar-title {
             h4,
-            span{
+            span {
                 color: $White;
             }
         }
-        .sidebar-item{
-            &:not(:first-child){
+        .sidebar-item {
+            &:not(:first-child) {
                 border-color: $Black;
             }
         }
     }
 
     .multi-circle-chart-map-wrap {
-        .mapboxgl-marker{
+        .mapboxgl-marker {
             background-color: $ESRPGreen;
             border-color: $BlueishBlack;
         }
     }
-    div.mapboxgl-popup-content{
+    div.mapboxgl-popup-content {
         background-color: $BlueishBlack;
         box-shadow: none;
-        .title{
+        .title {
             background-color: $ESRPGreen;
         }
     }
-    .mapboxgl-popup-anchor-bottom{
-        .mapboxgl-popup-tip{
+    .mapboxgl-popup-anchor-bottom {
+        .mapboxgl-popup-tip {
             border-top-color: $BlueishBlack;
+        }
+    }
+
+    .labor-market-score-card {
+        .apexcharts-legend-text {
+            color: $Black !important;
         }
     }
 }

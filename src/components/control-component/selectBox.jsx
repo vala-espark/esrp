@@ -2,7 +2,15 @@ import React, { useEffect } from 'react';
 
 const Select = (props) => {
 
+    useEffect(()=>{        
+        if(props.selectItem)
+    {        
+        document.getElementsByClassName('select-trigger-wrap')[0].classList.add("hasFocus")
+    }
+    },[props.selectItem])
     useEffect(() => {
+        
+       
         document.body.addEventListener('click', (e) => {
             if (e.target.classList !== 'select-trigger') {
                 const classData = document.getElementsByClassName('select-items-wrapper')
@@ -26,6 +34,12 @@ const Select = (props) => {
         }, true);
 
     }, [])
+    // if(props.selectItem)
+    // {
+    //     console.log("afdsadsyagdsyagdsyadg");
+    //     document.getElementsByClassName('select-trigger-wrap')[0].classList.add("hasFocus")
+    // }
+
 
     const dropdown = (e) => {
         const perentItemDiv = e.target.parentNode;
@@ -45,7 +59,8 @@ const Select = (props) => {
             props.setSelectedItem(e.target.innerText)
         }
     }
-
+    
+    // select-trigger-wrap hasFocus
     return <>
         <div className="input-item">
             <div className={`${props.selectIcon ? 'hasSelectIcon' : ''} custom-select`}>
