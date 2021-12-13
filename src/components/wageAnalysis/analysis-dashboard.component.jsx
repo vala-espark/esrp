@@ -112,6 +112,7 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
                     show: false,
                 },
             },
+            labels: ['Apples', 'Oranges', 'Berries'],
             // title: {
             //     text: 'Employee Annual Salary',
             //     align: 'center',
@@ -141,13 +142,13 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
             },
             colors: ['#5C86C1', '#3FB7F3', '#81CAB2'],
             dataLabels: {
-                enabled: true,
+                enabled: false,
                 textAnchor: 'start',
                 style: {
                     colors: ['#fff']
                 },
                 formatter: function (val, opt) {
-                    return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+                    return "<span>"+val+"</span><div class='chart-icon'><img src='../../../public/assets/images/logo-icon.png' /></div>" 
                 },
                 offsetX: 0,
                 dropShadow: {

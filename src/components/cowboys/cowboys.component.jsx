@@ -80,6 +80,17 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                 zoom: zoom
             });
 
+            map.current.addControl(new mapboxgl.NavigationControl())
+            map.current.addControl(
+                new mapboxgl.GeolocateControl({
+                    positionOptions: {
+                        enableHighAccuracy: true
+                    },
+                    trackUserLocation: true,
+                    showUserHeading: true
+                })
+            );
+
             for (const feature of geojson.features) {
                 // create a HTML element for each feature
                 const el = document.createElement('div');
@@ -217,7 +228,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                 toolbar: {
                     show: false,
                 },
-                tooltip:{
+                tooltip: {
                     show: true,
                 }
             },
@@ -226,10 +237,11 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             },
             plotOptions: {
                 bar: {
-                    barHeight: '100%',
+                    startingShape: 'rounded',
+                    borderRadius: 19,
+                    barHeight: '80%',
                     distributed: true,
                     horizontal: true,
-                    borderRadius: 19,
                     dataLabels: {
                         position: 'bottom'
                     },
@@ -268,7 +280,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                         amount = amount.toString();
                         amount = amount + 'k';
                     }
-                    return opt.w.globals.labels[opt.dataPointIndex] + ":  " + amount
+                    return amount
                 },
                 offsetX: 0,
                 dropShadow: {
@@ -308,12 +320,33 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                 }
             },
             yaxis: {
+                categories: [
+                    '0 - 4',
+                    '5 - 9',
+                    '10 - 14',
+                    '15 - 19',
+                    '20 - 24',
+                    '25 - 29',
+                    '30 - 34',
+                    '35 - 39',
+                    '40 - 44',
+                    '45 - 49',
+                    '50 - 54',
+                    '55 - 59',
+                    '60 - 64',
+                    '65 - 69',
+                    '70 - 74',
+                    '75 - 79',
+                    '80 -84',
+                    '85+',
+                ],
                 labels: {
-                    show: false
-                }
+                    show: true
+                },
+                opposite: true,
             },
             tooltip: {
-                
+
                 theme: 'dark',
                 x: {
                     show: false
@@ -332,22 +365,26 @@ const CowBoys = ({ theme, setThemeSetting }) => {
 
     // FOR REDIAL CHART
     const donutChart = {
-        series: [40, 35, 25,],
-        chartOptions: {
-            labels: ['Apple', 'Mango', 'Orange']
-        },
+        series: [37, 29, 34],
         options: {
             chart: {
             },
             plotOptions: {
                 donut: {
-                    expandOnClick: false,
+                    size: '65%',
+                    background: 'transparent',
+                    labels: {
+                        show: true,
+                        total: {
+                            show: true,
+                            label: 'Total',
+                            
+                        }
+                    },
                 }
             },
             colors: ['#5C86C1', '#FDA747', '#81CAB2'],
-            // legend: {
-            //     show: false
-            // },
+            labels: ['High School or less', 'Some College', 'Bachelors / Grad'],
             stroke: {
                 show: false,
                 width: 0,
@@ -358,6 +395,12 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             tooltip: {
                 enabled: false
             },
+            legend: {
+                formatter: function (seriesName,opts) {
+                    console.log(opts.w.globals);
+                    return "<span class='custom-legend' style='color:"+opts.w.globals.colors[opts.seriesIndex]+"'>" +seriesName + "</span>"+ opts.w.globals.series[opts.seriesIndex] + "%</div>";
+                }
+            },
             responsive: [{
                 breakpoint: 480,
                 options: {
@@ -365,7 +408,10 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                         width: 200
                     },
                     legend: {
-                        position: 'bottom'
+                        position: 'bottom',
+                        formatter: function (seriesName,opts) {
+                            return "<span class='custom-legend' style='color:"+opts.w.globals.colors[opts.seriesIndex]+"'>" +seriesName + "</span>"+ opts.w.globals.series[opts.seriesIndex] + "%</div>";
+                        }
                     }
                 }
             }]
@@ -374,19 +420,18 @@ const CowBoys = ({ theme, setThemeSetting }) => {
 
     // FOR REDIAL CHART
     const donutChart2 = {
-        series: [40, 35, 25,],
-        chartOptions: {
-            labels: ['Apple', 'Mango', 'Orange']
-        },
+        series: [61, 7, 16, 15],
         options: {
             chart: {
             },
             plotOptions: {
                 donut: {
-                    expandOnClick: false,
+                    size: '65%',
+                    background: 'transparent',
                 }
             },
             colors: ['#5C86C1', '#FDA747', '#81CAB2'],
+            labels: ['White', 'Asian', 'Black', 'Other'],
             // legend: {
             //     show: false
             // },
@@ -400,6 +445,11 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             tooltip: {
                 enabled: false
             },
+            legend: {
+                formatter: function (seriesName,opts) {
+                    return "<span class='custom-legend' style='color:"+opts.w.globals.colors[opts.seriesIndex]+"'>" +seriesName + "</span>"+ opts.w.globals.series[opts.seriesIndex] + "%</div>";
+                }
+            },
             responsive: [{
                 breakpoint: 480,
                 options: {
@@ -407,11 +457,15 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                         width: 200
                     },
                     legend: {
-                        position: 'bottom'
+                        position: 'bottom',
+                        formatter: function (seriesName,opts) {
+                            return "<span class='custom-legend' style='color:"+opts.w.globals.colors[opts.seriesIndex]+"'>" +seriesName + "</span>"+ opts.w.globals.series[opts.seriesIndex] + "%</div>";
+                        }
                     }
                 }
             }]
         },
+        
     };
 
     // FOR LINE CHART
@@ -434,15 +488,19 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                     opacity: 0,
                 },
                 toolbar: {
-                    show: false,
-                },
-                zoom: {
-                    enabled: false,
+                    show: true,
+                    tools: {
+                        download: false,
+                        selection: true,
+                        zoomin: true,
+                        zoomout: true,
+                        customIcons: []
+                    },
                 }
             },
             colors: ['#5C86C1'],
             dataLabels: {
-                enabled: false,
+                enabled: true,
             },
             stroke: {
                 curve: 'smooth',
@@ -591,7 +649,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                                     <div className="ripple-map-controls-wrapper">
                                         <div className="ripple-map-controls">
                                             <MapControl />
-                                            
+
                                         </div>
                                         <div className="card-content ripple-chart">
                                             {map && <div ref={mapContainer} className="map-container" />}
@@ -687,7 +745,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                                                 <span className="sub-text">30.43% of population is Hispanic (Ethnicity)</span>
                                             </div>
                                             <div className="card-content">
-                                            <Chart
+                                                <Chart
                                                     options={donutChart2.options}
                                                     series={donutChart2.series}
                                                     type="donut"

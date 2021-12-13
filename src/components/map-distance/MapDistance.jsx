@@ -7,19 +7,16 @@ const MapDistance = () => {
                 <span className="label">Drive Time:</span>
                 <ul>
                     <li>
-                        <a>1M</a>
+                        <a>1min</a>
                     </li>
                     <li>
-                        <a>5m</a>
+                        <a>5min</a>
                     </li>
                     <li className="active">
-                        <a>15m</a>
+                        <a>15min</a>
                     </li>
                     <li>
-                        <a>30m</a>
-                    </li>
-                    <li>
-                        <a>All</a>
+                        <a>30min</a>
                     </li>
                 </ul>
             </div>
