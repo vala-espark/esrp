@@ -119,13 +119,20 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             data: [17, 17, 17, 17, 17, 17, 17, 17, 15, 17, 17, 17]
         }, {
             name: 'Employee Wage',
-            data: [25, 35, 30, 50, 25, 35, 25, 37, 15, 25, 32, 35]
+            data: [25, 35, 30, 50, 25, 35, 25, 37, 16, 25, 32, 35]
         },],
         options: {
             tooltip: {
-                enabled: true
+                shared: true,
+                intersect: false,
+                x: {
+                    show: true,
+                },
+                y: {
+                    show: true,
+                },
             },
-            colors: ['#81CAB2', '#5C86C1'],
+            colors: ['#5C86C1', '#81CAB2'],
             chart: {
                 stacked: true,
                 toolbar: {
@@ -149,6 +156,9 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                     // horizontal: false,
                     columnWidth: '10%',
                     borderRadius: 7,
+                    dataLabels: {
+                        position: 'top', // top, center, bottom
+                    },
                     ranges: [{
                         from: 20,
                         to: 100,
@@ -363,17 +373,17 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             chart: {
             },
             plotOptions: {
-                donut: {
-                    size: '65%',
-                    background: 'transparent',
-                    labels: {
-                        show: true,
-                        total: {
+                pie: {
+                    donut: {
+                        labels: {
                             show: true,
-                            label: 'Total',
-
+                            total: {
+                                show: true,
+                                label: '',
+                                formatter: () => 'Price'
+                            }
                         }
-                    },
+                    }
                 }
             },
             colors: ['#5C86C1', '#FDA747', '#81CAB2'],
@@ -390,8 +400,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             },
             legend: {
                 formatter: function (seriesName, opts) {
-                    console.log(opts.w.globals);
-                    return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span>" + opts.w.globals.series[opts.seriesIndex] + "%</div>";
+                    return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span><span>" + opts.w.globals.series[opts.seriesIndex] + "%</span></div>";
                 }
             },
             responsive: [{
@@ -403,7 +412,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                     legend: {
                         position: 'bottom',
                         formatter: function (seriesName, opts) {
-                            return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span>" + opts.w.globals.series[opts.seriesIndex] + "%</div>";
+                            return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span><span>" + opts.w.globals.series[opts.seriesIndex] + "%</span></div>";
                         }
                     }
                 }
@@ -418,9 +427,17 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             chart: {
             },
             plotOptions: {
-                donut: {
-                    size: '65%',
-                    background: 'transparent',
+                pie: {
+                    donut: {
+                        labels: {
+                            show: true,
+                            total: {
+                                show: true,
+                                label: '',
+                                formatter: () => 'Price'
+                            }
+                        }
+                    }
                 }
             },
             colors: ['#5C86C1', '#FDA747', '#81CAB2'],
@@ -440,7 +457,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             },
             legend: {
                 formatter: function (seriesName, opts) {
-                    return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span>" + opts.w.globals.series[opts.seriesIndex] + "%</div>";
+                    return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span><span>" + opts.w.globals.series[opts.seriesIndex] + "%</span></div>";
                 }
             },
             responsive: [{
@@ -452,7 +469,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                     legend: {
                         position: 'bottom',
                         formatter: function (seriesName, opts) {
-                            return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span>" + opts.w.globals.series[opts.seriesIndex] + "%</div>";
+                            return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span><span>" + opts.w.globals.series[opts.seriesIndex] + "%</span></div>";
                         }
                     }
                 }
@@ -494,6 +511,10 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             colors: ['#5C86C1'],
             dataLabels: {
                 enabled: true,
+                formatter: function (value) {
+                    var dataPoint = value;
+                    return dataPoint >= 1000 ? '$' + dataPoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : '$' + dataPoint
+                }
             },
             stroke: {
                 curve: 'smooth',

@@ -142,13 +142,14 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
             },
             colors: ['#5C86C1', '#3FB7F3', '#81CAB2'],
             dataLabels: {
-                enabled: false,
+                enabled: true,
                 textAnchor: 'start',
                 style: {
                     colors: ['#fff']
                 },
                 formatter: function (val, opt) {
-                    return "<span>"+val+"</span><div class='chart-icon'><img src='../../../public/assets/images/logo-icon.png' /></div>" 
+                    var dataPoint = val;
+                    return dataPoint >= 1000 ? '$' + dataPoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : '$' + dataPoint
                 },
                 offsetX: 0,
                 dropShadow: {
@@ -196,15 +197,9 @@ const AnalysisDashboard = ({ theme, setThemeSetting }) => {
             },
             tooltip: {
                 theme: 'light',
-                x: {
-                    show: false
-                },
-                y: {
-                    title: {
-                        formatter: function () {
-                            return ''
-                        }
-                    }
+                custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+                    var dataPoint = series[seriesIndex][dataPointIndex];
+                    return dataPoint >= 1000 ? '$' + dataPoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : '$' + dataPoint
                 }
             }
         },
