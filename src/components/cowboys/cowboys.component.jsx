@@ -275,9 +275,9 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                 },
                 formatter: function (val, opt) {
                     var amount = parseInt(val);
-                    if (amount > 1000) {
+                    if (amount > 1000 && amount < 100000) {
                         amount = amount / 1000;
-                        amount = amount.toString();
+                        amount = Math.round(amount).toString();
                         amount = amount + 'k';
                     }
                     return amount
@@ -348,16 +348,9 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             tooltip: {
 
                 theme: 'dark',
-                x: {
-                    show: false
-                },
-                y: {
-                    show: false,
-                    title: {
-                        formatter: function () {
-                            return ''
-                        }
-                    }
+                custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+                    var dataPoint = series[seriesIndex][dataPointIndex];
+                    return dataPoint >= 1000 ? '$' + dataPoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : '$' + dataPoint
                 }
             }
         },
@@ -378,7 +371,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                         total: {
                             show: true,
                             label: 'Total',
-                            
+
                         }
                     },
                 }
@@ -396,9 +389,9 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                 enabled: false
             },
             legend: {
-                formatter: function (seriesName,opts) {
+                formatter: function (seriesName, opts) {
                     console.log(opts.w.globals);
-                    return "<span class='custom-legend' style='color:"+opts.w.globals.colors[opts.seriesIndex]+"'>" +seriesName + "</span>"+ opts.w.globals.series[opts.seriesIndex] + "%</div>";
+                    return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span>" + opts.w.globals.series[opts.seriesIndex] + "%</div>";
                 }
             },
             responsive: [{
@@ -409,8 +402,8 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                     },
                     legend: {
                         position: 'bottom',
-                        formatter: function (seriesName,opts) {
-                            return "<span class='custom-legend' style='color:"+opts.w.globals.colors[opts.seriesIndex]+"'>" +seriesName + "</span>"+ opts.w.globals.series[opts.seriesIndex] + "%</div>";
+                        formatter: function (seriesName, opts) {
+                            return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span>" + opts.w.globals.series[opts.seriesIndex] + "%</div>";
                         }
                     }
                 }
@@ -446,8 +439,8 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                 enabled: false
             },
             legend: {
-                formatter: function (seriesName,opts) {
-                    return "<span class='custom-legend' style='color:"+opts.w.globals.colors[opts.seriesIndex]+"'>" +seriesName + "</span>"+ opts.w.globals.series[opts.seriesIndex] + "%</div>";
+                formatter: function (seriesName, opts) {
+                    return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span>" + opts.w.globals.series[opts.seriesIndex] + "%</div>";
                 }
             },
             responsive: [{
@@ -458,14 +451,14 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                     },
                     legend: {
                         position: 'bottom',
-                        formatter: function (seriesName,opts) {
-                            return "<span class='custom-legend' style='color:"+opts.w.globals.colors[opts.seriesIndex]+"'>" +seriesName + "</span>"+ opts.w.globals.series[opts.seriesIndex] + "%</div>";
+                        formatter: function (seriesName, opts) {
+                            return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span>" + opts.w.globals.series[opts.seriesIndex] + "%</div>";
                         }
                     }
                 }
             }]
         },
-        
+
     };
 
     // FOR LINE CHART
