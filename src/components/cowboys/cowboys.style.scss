@@ -101,9 +101,42 @@
                 -ms-transform: unset;
                 -o-transform: unset;
                 .apexcharts-xaxis,
-                .apexcharts-yaxis,
                 .apexcharts-xaxis-tick {
                     display: none;
+                }
+                .apexcharts-yaxis {
+                    text {
+                        font-size: 16px;
+                        fill: $BlueishBlack;
+                        line-height: 16px;
+                        opacity: 0.6;
+                    }
+                    & > line {
+                        display: none;
+                    }
+                }
+                .apexcharts-datalabels {
+                    transform: translateX(-10px);
+                    -webkit-transform: translateX(-10px);
+                    -moz-transform: translateX(-10px);
+                    -ms-transform: translateX(-10px);
+                    -o-transform: translateX(-10px);
+                    .apexcharts-data-labels {
+                        text {
+                            filter: unset;
+                            -webkit-filter: unset;
+                        }
+                    }
+                }
+            }
+            .apexcharts-series {
+                path {
+                    clip-path: inset(0% 0% 0% 0% round 18px);
+                    &:hover {
+                        opacity: 0.7;
+                        filter: unset !important;
+                        -webkit-filter: unset !important;
+                    }
                 }
             }
         }
@@ -113,6 +146,7 @@
 .occupational-overview-card {
     .card-title {
         margin-bottom: 0;
+        padding-right: 26px;
     }
     .chart-price {
         span {
@@ -185,6 +219,7 @@
 }
 
 .market-education-card {
+    height: calc(100% - 30px);
     .card-content {
         margin-top: 40px;
     }
@@ -196,16 +231,98 @@
             -ms-transform: unset;
             -o-transform: unset;
         }
+        height: 180px;
+    }
+    .apexcharts-legend {
+        min-width: 200px;
+
+        padding: 0;
+        .apexcharts-legend-series {
+            margin: 0 !important;
+            margin-bottom: 5px !important;
+            padding-bottom: 5px;
+            border-bottom: 1px solid $BtnDisabled;
+
+            .apexcharts-legend-marker {
+                display: none;
+            }
+            .apexcharts-legend-text {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                .custom-legend {
+                    padding: 2px 10px;
+                    border-radius: 100px;
+                    -webkit-border-radius: 100px;
+                    -moz-border-radius: 100px;
+                    -ms-border-radius: 100px;
+                    -o-border-radius: 100px;
+                    color: $White;
+                    font-size: 12px;
+                    line-height: 16px;
+                    letter-spacing: 0.4px;
+                }
+                span:not(.custom-legend) {
+                }
+            }
+        }
     }
 }
 
 .market-race-distribution-card {
+    height: calc(100% - 30px);
     .card-title {
         .sub-text {
             opacity: 0.6;
             font-size: 12px;
             line-height: 16px;
             letter-spacing: 0.4px;
+        }
+    }
+    svg {
+        .apexcharts-inner {
+            transform: unset;
+            -webkit-transform: unset;
+            -moz-transform: unset;
+            -ms-transform: unset;
+            -o-transform: unset;
+        }
+    }
+    .apexcharts-legend {
+        min-width: 200px;
+        padding: 0;
+        height: 130px;
+        top: 7px !important;
+        .apexcharts-legend-series {
+            margin: 0 !important;
+            margin-bottom: 5px !important;
+            padding-bottom: 5px;
+            border-bottom: 1px solid $BtnDisabled;
+
+            .apexcharts-legend-marker {
+                display: none;
+            }
+            .apexcharts-legend-text {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                .custom-legend {
+                    padding: 2px 10px;
+                    border-radius: 100px;
+                    -webkit-border-radius: 100px;
+                    -moz-border-radius: 100px;
+                    -ms-border-radius: 100px;
+                    -o-border-radius: 100px;
+                    color: $White;
+                    font-size: 12px;
+                    line-height: 16px;
+                    letter-spacing: 0.4px;
+                }
+                span:not(.custom-legend) {
+                }
+            }
         }
     }
 }
@@ -224,7 +341,8 @@
             }
         }
         .more-btn {
-            margin-left: 20px;
+            // margin-left: 20px;
+            margin-left: auto;
         }
     }
     .card-content {
@@ -242,6 +360,26 @@
             stroke-width: 3px;
             stroke-linecap: unset;
         }
+        .apexcharts-xaxis {
+            & > line {
+                opacity: 0;
+            }
+        }
+        .apexcharts-xaxis-tick {
+            opacity: 0;
+        }
+    }
+    .apexcharts-datalabels {
+        .apexcharts-data-labels {
+            rect {
+                opacity: 0;
+            }
+            text {
+                fill: $ESRPBlue;
+                font-weight: 800;
+                transform: translate(0px, -20px);
+            }
+        }
     }
     .apexcharts-xaxistooltip {
         padding: 6px 10px;
@@ -250,11 +388,11 @@
         box-shadow: 0 100px 80px rgba(92, 134, 193, 0.07), 0 41.78px 33.4px rgba(92, 134, 193, 0.0503),
             0 22.34px 17.87px rgba(92, 134, 193, 0.0417), 0 12.52px 10.02px rgba(92, 134, 193, 0.035),
             0 6.5px 5.32px rgba(92, 134, 193, 0.0283), 0 2.77px 2.21px rgba(92, 134, 193, 0.0197);
-
+        &::after,
         &::before {
-            box-shadow: 0 100px 80px rgba(92, 134, 193, 0.07), 0 41.78px 33.4px rgba(92, 134, 193, 0.0503),
-                0 22.34px 17.87px rgba(92, 134, 193, 0.0417), 0 12.52px 10.02px rgba(92, 134, 193, 0.035),
-                0 6.5px 5.32px rgba(92, 134, 193, 0.0283), 0 2.77px 2.21px rgba(92, 134, 193, 0.0197);
+            // box-shadow: 0 100px 80px rgba(92, 134, 193, 0.07), 0 41.78px 33.4px rgba(92, 134, 193, 0.0503),
+            //     0 22.34px 17.87px rgba(92, 134, 193, 0.0417), 0 12.52px 10.02px rgba(92, 134, 193, 0.035),
+            //     0 6.5px 5.32px rgba(92, 134, 193, 0.0283), 0 2.77px 2.21px rgba(92, 134, 193, 0.0197);
             border-bottom-color: #fff;
         }
         .apexcharts-xaxistooltip-text {
@@ -263,7 +401,7 @@
         }
     }
     .apexcharts-tooltip {
-        opacity: 1;
+        // opacity: 1;
         border: 0 !important;
         padding: 6px 10px;
         box-shadow: 0 100px 80px rgba(92, 134, 193, 0.07), 0 41.78px 33.4px rgba(92, 134, 193, 0.0503),
@@ -297,6 +435,43 @@
 
         .apexcharts-tooltip-y-group {
             padding: 0;
+        }
+    }
+    .apexcharts-toolbar {
+        padding: 0;
+        max-width: unset;
+        top: -59px !important;
+        right: 40px !important;
+        & > div {
+            width: 46px;
+            height: 46px;
+            background-color: $White;
+            overflow: hidden;
+            box-shadow: 0 100px 80px rgba(92, 134, 193, 0.07), 0 41.78px 33.4px rgba(92, 134, 193, 0.0503),
+                0 22.34px 17.87px rgba(92, 134, 193, 0.0417), 0 12.52px 10.02px rgba(92, 134, 193, 0.035),
+                0 6.5px 5.32px rgba(92, 134, 193, 0.0283), 0 2.77px 2.21px rgba(92, 134, 193, 0.0197);
+            transform: unset;
+            -webkit-transform: unset;
+            -moz-transform: unset;
+            -ms-transform: unset;
+            -o-transform: unset;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            -ms-border-radius: 8px;
+            -o-border-radius: 8px;
+            &:not(:first-child) {
+                margin-left: 20px;
+            }
+            svg {
+                path {
+                    fill: $ESRPBlue;
+                }
+            }
         }
     }
 }
@@ -350,7 +525,8 @@
         }
         .apexcharts-inner {
             & > .apexcharts-xcrosshairs {
-                stroke-dasharray: 7;
+                stroke-dasharray: 6;
+                fill: transparent;
             }
         }
     }
@@ -363,6 +539,41 @@
                 .name,
                 .value {
                     color: $White;
+                }
+                &:not(:first-child) {
+                    border-color: $BlueishBlack;
+                }
+            }
+        }
+        .market-education-card {
+            .apexcharts-legend {
+                .apexcharts-legend-series {
+                    border-color: $BlueishBlack;
+                }
+            }
+        }
+        .market-distribution-card {
+            svg {
+                .apexcharts-inner {
+                    .apexcharts-yaxis {
+                        text {
+                            fill: $White;
+                        }
+                    }
+                    .apexcharts-datalabels {
+                        .apexcharts-data-labels {
+                            text {
+                                fill: $Black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .market-race-distribution-card {
+            .apexcharts-legend {
+                .apexcharts-legend-series {
+                    border-color: $BlueishBlack;
                 }
             }
         }
@@ -392,17 +603,15 @@
                         fill: #1d3845;
                     }
                 }
-                .apexcharts-yaxis,
-                .apexcharts-xaxis {
-                    text {
-                        fill: $White;
-                    }
+            }
+            .apexcharts-toolbar {
+                & > div {
+                    background-color: $NewDarkprimary;
+                    box-shadow: none;
                 }
             }
             .apexcharts-tooltip,
             .apexcharts-xaxistooltip {
-                box-shadow: none;
-                background-color: $BodyBgDark;
                 .apexcharts-tooltip-text-y-value {
                     color: $BodyBgDark;
                 }
@@ -414,6 +623,14 @@
                 &::after,
                 &::before {
                     border-bottom-color: $BodyBgDark;
+                }
+            }
+            .apexcharts-datalabels {
+                .apexcharts-data-labels {
+                    text {
+                        fill: $White;
+                        opacity: 0.8;
+                    }
                 }
             }
         }

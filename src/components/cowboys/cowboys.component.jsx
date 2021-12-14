@@ -248,7 +248,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             plotOptions: {
                 bar: {
                     startingShape: 'rounded',
-                    borderRadius: 19,
+                    borderRadius: 16,
                     barHeight: '80%',
                     distributed: true,
                     horizontal: true,
@@ -356,8 +356,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                 opposite: true,
             },
             tooltip: {
-
-                theme: 'dark',
+                // theme: 'dark',
                 custom: function ({ series, seriesIndex, dataPointIndex, w }) {
                     var dataPoint = series[seriesIndex][dataPointIndex];
                     return dataPoint >= 1000 ? '$' + dataPoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : '$' + dataPoint
@@ -400,7 +399,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             },
             legend: {
                 formatter: function (seriesName, opts) {
-                    return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span><span>" + opts.w.globals.series[opts.seriesIndex] + "%</span></div>";
+                    return "<span class='custom-legend' style='background-color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span><span>" + opts.w.globals.series[opts.seriesIndex] + "%</span></div>";
                 }
             },
             responsive: [{
@@ -412,7 +411,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                     legend: {
                         position: 'bottom',
                         formatter: function (seriesName, opts) {
-                            return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span><span>" + opts.w.globals.series[opts.seriesIndex] + "%</span></div>";
+                            return "<span class='custom-legend' style='background-color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span><span>" + opts.w.globals.series[opts.seriesIndex] + "%</span></div>";
                         }
                     }
                 }
@@ -457,7 +456,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             },
             legend: {
                 formatter: function (seriesName, opts) {
-                    return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span><span>" + opts.w.globals.series[opts.seriesIndex] + "%</span></div>";
+                    return "<span class='custom-legend' style='background-color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span><span>" + opts.w.globals.series[opts.seriesIndex] + "%</span></div>";
                 }
             },
             responsive: [{
@@ -469,7 +468,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                     legend: {
                         position: 'bottom',
                         formatter: function (seriesName, opts) {
-                            return "<span class='custom-legend' style='color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span><span>" + opts.w.globals.series[opts.seriesIndex] + "%</span></div>";
+                            return "<span class='custom-legend' style='background-color:" + opts.w.globals.colors[opts.seriesIndex] + "'>" + seriesName + "</span><span>" + opts.w.globals.series[opts.seriesIndex] + "%</span></div>";
                         }
                     }
                 }
@@ -487,6 +486,11 @@ const CowBoys = ({ theme, setThemeSetting }) => {
             },
         ],
         options: {
+            plotOptions: {
+                pie: {
+                    expandOnClick: false
+                }
+            },
             chart: {
                 type: 'line',
                 dropShadow: {
@@ -502,9 +506,11 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                     tools: {
                         download: false,
                         selection: true,
-                        zoomin: true,
-                        zoomout: true,
-                        customIcons: []
+                        zoomin: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z" fill="#5A5A89"></path></svg>',
+                        zoomout: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 11H13H19V13H13H11H5V11H11Z" fill="#5A5A89"></path></svg>',
+                        zoom: false,
+                        pan: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 9V6L20 10L16 14V11H11V16H14L10 20L6 16H9V11H4V14L0 10L4 6V9H9V4H6L10 0L14 4H11V9H16Z" fill="#5A5A89"></path></svg>',
+                        reset: false,
                     },
                 }
             },
@@ -701,6 +707,16 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                                         <div className="card-body">
                                             <div className="card-title">
                                                 <label for="">Occupational Overview</label>
+                                                <div className="icon">
+                                                    <span>
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M7.95 10.05L10.05 7.95L5.55 3.45L7.5 1.5H1.5V7.5L3.45 5.55L7.95 10.05Z" fill="#175186" />
+                                                            <path d="M10.05 16.0492L7.95 13.9492L3.45 18.4492L1.5 16.4992V22.4992H7.5L5.55 20.5492L10.05 16.0492Z" fill="#175186" />
+                                                            <path d="M16.05 13.9492L13.95 16.0492L18.45 20.5492L16.5 22.4992H22.4999V16.4992L20.5499 18.4492L16.05 13.9492Z" fill="#175186" />
+                                                            <path d="M16.5 1.5L18.45 3.45L13.95 7.95L16.05 10.05L20.5499 5.55L22.4999 7.5V1.5H16.5Z" fill="#175186" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
                                                 {/* <span className="sub-text">Aging Labor Ratio: 1.71</span> */}
                                             </div>
                                             <div className="card-content">
@@ -778,7 +794,7 @@ const CowBoys = ({ theme, setThemeSetting }) => {
                                                 <label for="">Growth of Lawyers</label>
                                                 {/* <span className="sub-text">30.43% of population is Hispanic (Ethnicity)</span> */}
 
-                                                <div className="map-control-wrapper">
+                                                <div className="map-control-wrapper d-none">
                                                     <div className="map-control-item">
                                                         <ul>
                                                             <li>

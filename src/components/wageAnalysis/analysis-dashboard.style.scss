@@ -67,7 +67,7 @@
             animation: ripple1 2s linear infinite;
             -webkit-animation: ripple1 2s linear infinite;
         }
-    
+
         &::after {
             animation: ripple2 2s linear infinite;
             -webkit-animation: ripple2 2s linear infinite;
@@ -113,18 +113,18 @@ div.mapboxgl-popup-content {
                 display: none !important;
             }
         }
-        .apexcharts-tooltip-y-group {
-            display: flex;
-            flex-direction: column;
-        }
-        .apexcharts-tooltip-text-y-value {
-            margin: 0;
-            font-size: 18px;
-            font-family: "Poppins";
-        }
-        .apexcharts-tooltip-text-y-label {
-            font-size: 17px;
-        }
+        // .apexcharts-tooltip-y-group {
+        //     display: flex;
+        //     flex-direction: column;
+        // }
+        // .apexcharts-tooltip-text-y-value {
+        //     margin: 0;
+        //     font-size: 18px;
+        //     font-family: "Poppins";
+        // }
+        // .apexcharts-tooltip-text-y-label {
+        //     font-size: 17px;
+        // }
     }
 
     .apexcharts-inner {
@@ -218,7 +218,7 @@ div.mapboxgl-popup-content {
         }
         .apexcharts-yaxis,
         .apexcharts-xaxis,
-        .apexcharts-grid{
+        .apexcharts-grid {
             opacity: 0;
         }
         .apexcharts-legend {
@@ -240,10 +240,10 @@ div.mapboxgl-popup-content {
                 height: 100% !important;
                 margin: 0 !important;
             }
-            .apexcharts-legend-text{
+            .apexcharts-legend-text {
                 color: $White !important;
             }
-            &:not(:first-child){
+            &:not(:first-child) {
                 margin-top: 10px !important;
             }
         }
@@ -359,7 +359,6 @@ div.mapboxgl-popup-content {
 
     .apexcharts-canvas {
         .apexcharts-tooltip {
-            background-color: $BlueishBlack;
             box-shadow: none;
 
             .apexcharts-tooltip-text-y-label,

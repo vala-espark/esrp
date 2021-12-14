@@ -143,6 +143,7 @@
         .apexcharts-xaxis {
             text {
                 fill: $White;
+                opacity: 0.6;
             }
         }
         .apexcharts-legend-series {
@@ -151,10 +152,18 @@
             }
         }
     }
-    .overlay{
+    .overlay {
         background-color: $Black;
-        &.show{
+        &.show {
             opacity: 0.45;
+        }
+    }
+
+    // APEX CHART TOOLTIP
+    .apexcharts-canvas {
+        .apexcharts-tooltip {
+            color: $White;
+            background-color: $BlueishBlack;
         }
     }
 }

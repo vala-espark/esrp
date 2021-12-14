@@ -1,32 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 const Select = (props) => {
 
-    useEffect(()=>{        
-        if(props.selectItem)
-    {        
-        document.getElementsByClassName('select-trigger-wrap')[0].classList.add("hasFocus")
-    }
-    },[props.selectItem])
+    const [toggle, setToggle] = useState(false);
+
+    const toggleRef = useRef();
+    toggleRef.current = toggle
+
     useEffect(() => {
-        
-       
+        if (props.selectItem) {
+            document.getElementsByClassName('select-trigger-wrap')[0].classList.add("hasFocus")
+        }
+    }, [props.selectItem])
+
+    useEffect(() => {
+
+
         document.body.addEventListener('click', (e) => {
             if (e.target.classList !== 'select-trigger') {
                 const classData = document.getElementsByClassName('select-items-wrapper')
                 if (classData.length > 0) {
                     for (let item of classData) {
                         if (item.parentNode.classList.contains('show')) {
-                            item.parentNode.classList.remove('show')
-                            item.parentNode.parentNode.parentNode.classList.remove('show')
+                            setToggle(false)
                         }
                         if (item.parentNode.children[0].classList.contains('hasFocus') && item.parentNode.children[0].innerText.length === 0 && !e.target.classList.contains('select-item')) {
-                            item.parentNode.children[0].classList.remove('hasFocus')
-                            item.parentNode.parentNode.parentNode.classList.remove('show')
+                            setToggle(!toggleRef.current)
                         }
-
-                        if (item.classList.contains("show"))
-                            item.classList.remove("show")
                     }
                 }
             }
@@ -34,38 +34,30 @@ const Select = (props) => {
         }, true);
 
     }, [])
-    // if(props.selectItem)
-    // {
-    //     console.log("afdsadsyagdsyagdsyadg");
-    //     document.getElementsByClassName('select-trigger-wrap')[0].classList.add("hasFocus")
-    // }
 
 
     const dropdown = (e) => {
-        const perentItemDiv = e.target.parentNode;
-        perentItemDiv.classList.add('show');
-        perentItemDiv.lastChild.classList.add('show');
-        if (!e.target.classList.contains('hasFocus')) {
-            e.target.classList.add('hasFocus')
+
+        if (props.selectItem) {
+            setToggle(true)
+        } else {
+            setToggle(!toggle)
         }
     }
 
     const selectClass = (e) => {
-        if (e.target.parentNode.parentNode.classList.contains('show')) {
-            e.target.parentNode.parentNode.parentNode.classList.remove('show');
-            e.target.parentNode.parentNode.classList.remove('show');
-        }
+        setToggle(false)
         if (e.target.innerText) {
             props.setSelectedItem(e.target.innerText)
         }
     }
-    
+
     // select-trigger-wrap hasFocus
     return <>
         <div className="input-item">
-            <div className={`${props.selectIcon ? 'hasSelectIcon' : ''} custom-select`}>
+            <div className={`${props.selectIcon ? 'hasSelectIcon' : ''} custom-select ${toggle ? 'show' : ''}`}>
 
-                <div className="select-trigger-wrap" onClick={(e) => dropdown(e)}>
+                <div className={`select-trigger-wrap ${toggle || props.selectItem ? 'hasFocus' : ''}`} onClick={(e) => dropdown(e)}>
                     {props.selectIcon && <span className="select-icon">{props.selectIcon}</span>}
                     <span className="select-trigger">
                         {/* {props.selectItem && props.optionsIcon && props.optionsIcon.hasOwnProperty(`${props.selectItem}`)? props.optionsIcon[`${props.selectItem}`] : null} */}
@@ -76,7 +68,7 @@ const Select = (props) => {
                     </svg>
                 </div>
                 <label className="">{props.lableName}</label>
-                <div className="select-items-wrapper">
+                <div className={`select-items-wrapper ${toggle ? 'show' : ''}`}>
                     <ul className="select-items-wrap">
                         {props.options.map(item => <li className='select-item' key={item} onClick={(e) => selectClass(e)}>
                             {/* {props.optionsIcon && props.optionsIcon[`${item}`]} */}

@@ -271,9 +271,9 @@ h6 {
   height: calc(100vh - 88px);
   // height: 100vh;
 }
-.mapboxgl-control-container {
-  display: none;
-}
+// .mapboxgl-control-container {
+//   display: none;
+// }
 
 // MAP CONTROLS  ***************
 
@@ -397,8 +397,29 @@ h6 {
   }
 }
 
-.site-inner-content {
-  // padding: 25px;
+// APEX CHART TOOLTIP
+.apexcharts-canvas {
+  .apexcharts-tooltip {
+    // opacity: 1 !important;
+    padding: 6px 11px;
+    border: 0 !important;
+    border-radius: 8px;
+    font-size: 12px;
+    letter-spacing: 0.44px;
+    line-height: 16px;
+    font-weight: 500;
+    color: $Black;
+    background-color: $White;
+    &.apexcharts-theme-light {
+      border: unset;
+    }
+  }
+}
+
+.apexcharts-pan-icon.apexcharts-selected svg,
+.apexcharts-pan-icon:not(.apexcharts-selected) svg,
+.apexcharts-pan-icon:not(.apexcharts-selected):hover svg {
+  stroke: transparent !important ;
 }
 
 // RIPPLE MAP CARD
@@ -466,6 +487,7 @@ h6 {
   }
   .card-title {
     margin-bottom: 14px;
+    position: relative;
     label {
       color: $BlueishBlack;
       font-weight: 600;
@@ -479,6 +501,12 @@ h6 {
       color: $BlueishBlack;
       font-size: 16px;
       line-height: 24px;
+    }
+    .icon {
+      position: absolute;
+      top: 6px;
+      right: 0;
+      cursor: pointer;
     }
   }
 }

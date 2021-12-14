@@ -78,6 +78,9 @@
         cursor: pointer;
         .select-trigger-wrap {
             padding-right: 30px;
+            .select-trigger {
+                pointer-events: none;
+            }
             & > svg {
                 position: absolute;
                 top: 23px;
